@@ -4,15 +4,58 @@ using UnityEngine;
 
 public class GoalFlag : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private bool BackFlag = false; // スイッチ
+
+    int BackCount = 0;
+
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        // Wキーが押されたら（Wキーは仮）
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log("進んだ");
+            
+            transform.Translate(0.7f, 0f, 0f);
+        }
+
+        // Sキーが押されたら（Sキーは仮）
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (BackFlag == false)
+            {
+                Debug.Log("戻った");
+                // Player自体は動かない
+                transform.Translate(-0.7f, 0f, 0f);
+                BackCount += 1;
+            }
+            if (BackCount >= 3)
+            {
+                Debug.Log("もうバックできないよ");
+                BackFlag = true;
+            }
+
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Goal")
+        {
+            
+        }
     }
 }
+
+
+// ゲージと現在地とゴール
+    // ゲージ（前に進んだらゲージを進めて、後ろに戻ったらゲージを戻す）多分〇（あまり自信ない）
+    // 現在地（現在地を取得するだけでいいのかな）多分〇
+    // ゴール（ゲージが右端まで到達したらゴール表示でいいのかな）
