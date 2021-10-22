@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Kunekune : MonoBehaviour
 {
-    private int number_2;
+    private int number;
     bool KunekuneFlag;
 
     [SerializeField]
@@ -15,30 +15,54 @@ public class Kunekune : MonoBehaviour
         KUNEKUNE.SetActive(false);
         KunekuneFlag = false;
     }
-
-    public void OnClick()
+    public void OnMove()
     {
         // 指定範囲の数字をランダムに生成
-        number_2 = Random.Range(0,10);
+        number = Random.Range(0, 2);
 
-        // 数字が１だった場合フラグをtrueに
-        if (number_2 == 4)
+        if(KunekuneFlag == false)
         {
-            KunekuneFlag = true;
+            // 数字が4だった場合フラグをtrueに
+            if (number == 1)
+            {
+                KunekuneFlag = true;
+            }
+            // 4以外の場合別の怪異が出現(仮)
+            else
+            {
+                KunekuneFlag = false;
+                Debug.Log("なにも現れなかった...");
+            }
+
+            // フラグがtrueになると"くねくね"出現
+            if (KunekuneFlag == true)
+            {
+                KUNEKUNE.SetActive(true);
+                Debug.Log("くねくね出現");
+            }
         }
-        // １以外の場合別の怪異が出現
-        else
+
+        if(KunekuneFlag == true)
         {
+            Debug.Log("'くねくね'の笑い声");
+        }
+    }
+
+    public void OnDash()
+    {
+        if(KunekuneFlag == true)
+        {
+            Debug.Log("'くねくね'の笑い声");
+        }
+    }
+
+    public void OnSlowMove()
+    {
+        if(KunekuneFlag == true)
+        {
+            KUNEKUNE.SetActive(false);
             KunekuneFlag = false;
-            Debug.Log("それ以外が出現");
+            Debug.Log("'くねくね'から逃げた");
         }
-
-        // フラグがtrueになるとUMA出現
-        if (KunekuneFlag == true)
-        {
-            KUNEKUNE.SetActive(true);
-            Debug.Log("くねくね出現");
-        }
-
     }
 }
