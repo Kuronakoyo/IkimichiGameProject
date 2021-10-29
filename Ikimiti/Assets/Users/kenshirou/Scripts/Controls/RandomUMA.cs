@@ -6,15 +6,24 @@ using UnityEngine.UI;
 public class RandomUMA : MonoBehaviour
 {
     private int number;
-    bool UMAFlag;
+    public bool UMAFlag;
 
     [SerializeField]
     private GameObject UMA;
+
+    [Range(0, 100)] public float Hp = 100;
+    public float maxHp = 100;
+    public float sanityPoint = -35;
 
     private void Start()
     {
         UMA.SetActive(false);
         UMAFlag = false;
+    }
+
+    private void Update()
+    {
+
     }
 
     //UMA‚Íƒ‰ƒ“ƒ_ƒ€‚ÅoŒ»
@@ -65,7 +74,7 @@ public class RandomUMA : MonoBehaviour
     {
        if(UMAFlag == true)
        {
-           Debug.Log("'UMA'‚ª™ï‚«‚È‚ª‚çŒü‚©‚Á‚Ä‚­‚é");
+            Debug.Log("'UMA'‚ª™ï‚«‚È‚ª‚çŒü‚©‚Á‚Ä‚­‚é");
        }
     }
 }
