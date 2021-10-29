@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoalFlag : MonoBehaviour
 {
@@ -45,11 +46,12 @@ public class GoalFlag : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Goal")
+        if (collision.gameObject.tag == "Goal")
         {
-            
+            Debug.Log("ゴールだよ");
         }
     }
 }
@@ -57,5 +59,6 @@ public class GoalFlag : MonoBehaviour
 
 // ゲージと現在地とゴール
     // ゲージ（前に進んだらゲージを進めて、後ろに戻ったらゲージを戻す）多分〇（あまり自信ない）
+        // 3回戻ったらもう後戻りはできない　〇
     // 現在地（現在地を取得するだけでいいのかな）多分〇
     // ゴール（ゲージが右端まで到達したらゴール表示でいいのかな）
