@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class GoalFlag : MonoBehaviour
 {
-    private bool BackFlag = false; // スイッチ
+    public bool BackFlag = false; // スイッチ
+    public bool StartFlag = false; // スイッチ
 
-    int BackCount = 0;
+    int BackCount = 3;  // 後ろに戻れる残りの回数
+    int StartCount = 1;
 
 
     void Start()
@@ -21,22 +23,27 @@ public class GoalFlag : MonoBehaviour
         // Wキーが押されたら（Wキーは仮）
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("進んだ");
-            
-            transform.Translate(0.7f, 0f, 0f);
+            if (StartCount == 0)
+            {
+                transform.Translate(0f, 0f, 0f);
+            }
+
+            transform.Translate(7f, 0f, 0f);
+
+
         }
+
 
         // Sキーが押されたら（Sキーは仮）
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (BackFlag == false)
             {
-                Debug.Log("戻った");
                 // Player自体は動かない
-                transform.Translate(-0.7f, 0f, 0f);
-                BackCount += 1;
+                transform.Translate(-7f, 0f, 0f);
+                BackCount -= 1;
             }
-            if (BackCount >= 3)
+            if (BackCount <= 0)
             {
                 Debug.Log("もうバックできないよ");
                 BackFlag = true;
@@ -47,13 +54,39 @@ public class GoalFlag : MonoBehaviour
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
+    // ゲージの右端に着いたらそれ以降進めないようにする
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Goal")
         {
-            Debug.Log("ゴールだよ");
+            StartFlag = true;
+            StartCount = 0;
         }
     }
+
+    // 最初はゲージが後ろに下がれないようにする
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Start")
+        {
+            BackCount = 0;
+            BackFlag = true;
+        }
+
+
+    }
+
+    // ゲージの左端にいなかったら後ろに戻れるようにする
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Start")
+        {
+            BackFlag = false;
+            BackCount = 3;
+        }
+    }
+
+
 }
 
 

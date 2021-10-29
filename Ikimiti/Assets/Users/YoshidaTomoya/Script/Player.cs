@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
             }
             if (BackCount >= 3)
             {
-                Debug.Log("‚à‚¤ƒoƒbƒN‚Å‚«‚È‚¢‚æ");
                 BackFlag = true;
             }
 
