@@ -16,10 +16,17 @@ public class MoveButton : MonoBehaviour
     public GameObject backbutton2;
     public GameObject backbutton3;
     public GameObject backbutton4;
+    public GameObject runbutton5;
+    public GameObject runbutton4;
+    public GameObject runbutton3;
+    public GameObject runbutton2;
+    public GameObject runbutton1;
+    public GameObject runbutton0;
     public GameObject Myself;
     public GameObject Myself2;
     public GameObject Myself3;
     public GameObject Myself4;
+    public int phase = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,66 +38,184 @@ public class MoveButton : MonoBehaviour
     {
         
     }
+ 
     public void MoveOnClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (background1.activeInHierarchy == true)
         {
-
-            //背景２の呼び出し
-            Instantiate(background2);
-            //ボタン２の呼び出し
-            Instantiate(movebutton2);
-            //バックボタンの呼び出し
-            Instantiate(backbutton2);
-            Myself2.SetActive(true);
-            Myself.SetActive(false);
-            background1.SetActive(false);
-            background2.SetActive(true);
-            movebutton1.SetActive(false);
-            movebutton2.SetActive(true);
-            backbutton1.SetActive(false);
-            backbutton2.SetActive(true);
-            //Myself.transform.position(5.0f, 0.0f, 0.0f);
-            Debug.Log("クリックしました");
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself2.SetActive(true);
+                Myself.SetActive(false);
+                background1.SetActive(false);
+                background2.SetActive(true);
+                movebutton1.SetActive(false);
+                movebutton2.SetActive(true);
+                backbutton1.SetActive(false);
+                backbutton2.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background2.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself3.SetActive(true);
+                Myself2.SetActive(false);
+                background2.SetActive(false);
+                background3.SetActive(true);
+                movebutton2.SetActive(false);
+                movebutton3.SetActive(true);
+                backbutton2.SetActive(false);
+                backbutton3.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if(background3.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself4.SetActive(true);
+                Myself3.SetActive(false);
+                background3.SetActive(false);
+                background4.SetActive(true);
+                movebutton3.SetActive(false);
+                movebutton4.SetActive(true);
+                backbutton3.SetActive(false);
+                backbutton4.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background4.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+               
+            }
         }
     }
     public void MoveOn2Click()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (background1.activeInHierarchy == true)
         {
-            Myself3.SetActive(true);
-            Myself2.SetActive(false);
-            Instantiate(backbutton3);
-            Instantiate(background3);
-            Instantiate(movebutton3);
-            background2.SetActive(false);
-            background3.SetActive(true);
-            movebutton2.SetActive(false);
-            movebutton3.SetActive(true);
-            backbutton2.SetActive(false);
-            backbutton3.SetActive(true);
-            Debug.Log("クリックしました2");
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself2.SetActive(true);
+                Myself.SetActive(false);
+                background1.SetActive(false);
+                background2.SetActive(true);
+                movebutton1.SetActive(false);
+                movebutton2.SetActive(true);
+                backbutton1.SetActive(false);
+                backbutton2.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background2.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself3.SetActive(true);
+                Myself2.SetActive(false);
+                background2.SetActive(false);
+                background3.SetActive(true);
+                movebutton2.SetActive(false);
+                movebutton3.SetActive(true);
+                backbutton2.SetActive(false);
+                backbutton3.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background3.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself4.SetActive(true);
+                Myself3.SetActive(false);
+                background3.SetActive(false);
+                background4.SetActive(true);
+                movebutton3.SetActive(false);
+                movebutton4.SetActive(true);
+                backbutton3.SetActive(false);
+                backbutton4.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background4.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+
+            }
         }
     }
     public void MoveOn3Click()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (background1.activeInHierarchy == true)
         {
-            Myself4.SetActive(true);
-            Myself3.SetActive(false);
-            movebutton4.SetActive(true);
-            Instantiate(background4);
-            Instantiate(backbutton4);
-            background3.SetActive(false);
-            background4.SetActive(true);
-            movebutton3.SetActive(false);
-            backbutton3.SetActive(false);
-            backbutton4.SetActive(true);
-            Debug.Log("クリックしました3");
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself2.SetActive(true);
+                Myself.SetActive(false);
+                background1.SetActive(false);
+                background2.SetActive(true);
+                movebutton1.SetActive(false);
+                movebutton2.SetActive(true);
+                backbutton1.SetActive(false);
+                backbutton2.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background2.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself3.SetActive(true);
+                Myself2.SetActive(false);
+                background2.SetActive(false);
+                background3.SetActive(true);
+                movebutton2.SetActive(false);
+                movebutton3.SetActive(true);
+                backbutton2.SetActive(false);
+                backbutton3.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background3.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                phase++;
+                Myself4.SetActive(true);
+                Myself3.SetActive(false);
+                background3.SetActive(false);
+                background4.SetActive(true);
+                movebutton3.SetActive(false);
+                movebutton4.SetActive(true);
+                backbutton3.SetActive(false);
+                backbutton4.SetActive(true);
+                Debug.Log("クリックしました");
+            }
+        }
+        else if (background4.activeInHierarchy == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+
+            }
         }
     }
     public void SetpBackClick()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             Myself2.SetActive(false);

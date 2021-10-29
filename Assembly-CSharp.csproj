@@ -58,6 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\C#\Myself.cs" />
     <Compile Include="Assets\C#\MoveButton.cs" />
+    <Compile Include="Assets\C#\Walk.cs" />
+    <Compile Include="Assets\C#\Run.cs" />
+    <Compile Include="Assets\C#\SceneC#\Scene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
