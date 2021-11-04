@@ -56,12 +56,15 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\C#\ButtonC#\Run.cs" />
-    <Compile Include="Assets\C#\SceneC#\Scene.cs" />
-    <Compile Include="Assets\C#\ButtonC#\Myself.cs" />
-    <Compile Include="Assets\C#\ButtonC#\Walk.cs" />
-    <Compile Include="Assets\C#\ButtonC#\MoveButton.cs" />
-    <Compile Include="Assets\C#\GaugeC#\SanityGauge.cs" />
+    <Compile Include="Assets\Script\GaugeScript\SanityGauge.cs" />
+    <Compile Include="Assets\Script\ButtonScript\Run.cs" />
+    <Compile Include="Assets\Script\SceneScript\Scene.cs" />
+    <Compile Include="Assets\Script\ButtonScript\Myself.cs" />
+    <Compile Include="Assets\Script\ButtonScript\Walk.cs" />
+    <Compile Include="Assets\Script\ButtonScript\MoveButton.cs" />
+    <Compile Include="Assets\Script\ButtonScript\Back.cs" />
+    <Compile Include="Assets\naichilab\FadeManager\Sample\FadeSample.cs" />
+    <Compile Include="Assets\naichilab\FadeManager\Scripts\FadeManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
