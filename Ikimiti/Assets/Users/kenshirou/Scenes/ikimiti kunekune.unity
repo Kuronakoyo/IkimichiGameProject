@@ -684,6 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KUNEKUNE: {fileID: 1814332098}
+  soundKunekune: {fileID: 0}
 --- !u!1 &1121146858
 GameObject:
   m_ObjectHideFlags: 0

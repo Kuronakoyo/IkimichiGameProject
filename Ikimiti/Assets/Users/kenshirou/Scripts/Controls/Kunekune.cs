@@ -10,6 +10,9 @@ public class Kunekune : MonoBehaviour
     [SerializeField]
     private GameObject KUNEKUNE;
 
+    public AudioClip soundKunekune;
+    AudioSource audioSource;
+
     void Start()
     {
         KUNEKUNE.SetActive(false);
@@ -39,6 +42,8 @@ public class Kunekune : MonoBehaviour
             {
                 KUNEKUNE.SetActive(true);
                 Debug.Log("Ç≠ÇÀÇ≠ÇÀèoåª");
+
+                audioSource.PlayOneShot(soundKunekune);
             }
         }
 

@@ -11,14 +11,14 @@ public class RandomUMA : MonoBehaviour
     [SerializeField]
     private GameObject UMA;
 
-    [Range(0, 100)] public float Hp = 100;
-    public float maxHp = 100;
-    public float sanityPoint = -35;
+    public AudioClip soundUMA;
+    AudioSource audioSource;
 
     private void Start()
     {
         UMA.SetActive(false);
         UMAFlag = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -39,7 +39,7 @@ public class RandomUMA : MonoBehaviour
             {
                 UMAFlag = true;
             }
-            // １以外の場合別の怪異が出現(仮)
+            // １以外の場合何もなし(仮)
             else
             {
                 UMAFlag = false;
@@ -51,6 +51,8 @@ public class RandomUMA : MonoBehaviour
             {
                 UMA.SetActive(true);
                 Debug.Log("UMA出現");
+
+                audioSource.PlayOneShot(soundUMA);
             }
         }
 
