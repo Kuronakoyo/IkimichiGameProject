@@ -5,10 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD:ProjectSettings/EditorBuildSettings.asset
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: b8c920247579932409694aac04fee386
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
+=======
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+>>>>>>> origin/Toriumi:Ikimiti/ProjectSettings/EditorBuildSettings.asset
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Users/kenshirou/ikimiti.unity
+    guid: 21ecafc1a2e3a7043af57062fe7ff250
   m_configObjects: {}
