@@ -8,7 +8,6 @@ public class GoalFlag : MonoBehaviour
     public bool BackFlag = false; // スイッチ
     public bool StartFlag = false; // スイッチ
 
-    int BackCount = 3;  // 後ろに戻れる残りの回数
     int StartCount = 1;
 
 
@@ -25,10 +24,15 @@ public class GoalFlag : MonoBehaviour
         {
             if (StartCount == 0)
             {
+                // 一番右にいたら進まない
                 transform.Translate(0f, 0f, 0f);
             }
-
-            transform.Translate(7f, 0f, 0f);
+            else
+            {
+                // 右に進む
+                Debug.Log("進んでるよ");
+                transform.Translate(0.7f, 0f, 0f);
+            }
 
 
         }
@@ -37,17 +41,9 @@ public class GoalFlag : MonoBehaviour
         // Sキーが押されたら（Sキーは仮）
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (BackFlag == false)
-            {
-                // Player自体は動かない
-                transform.Translate(-7f, 0f, 0f);
-                BackCount -= 1;
-            }
-            if (BackCount <= 0)
-            {
-                Debug.Log("もうバックできないよ");
-                BackFlag = true;
-            }
+            // Sキーが押されても戻らない
+            transform.Translate(-0f, 0f, 0f);
+            Debug.Log("戻らないよ");
 
         }
 
@@ -69,7 +65,6 @@ public class GoalFlag : MonoBehaviour
     {
         if(collision.gameObject.tag == "Start")
         {
-            BackCount = 0;
             BackFlag = true;
         }
 
@@ -82,7 +77,6 @@ public class GoalFlag : MonoBehaviour
         if (collision.gameObject.tag == "Start")
         {
             BackFlag = false;
-            BackCount = 3;
         }
     }
 
