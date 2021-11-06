@@ -56,20 +56,27 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Tokui\Script\Fusinsya.cs" />
+    <Compile Include="Assets\Tokui\Script\Yuurei.cs" />
+    <Compile Include="Assets\YoshidaTomoya\Script\GoalFlag.cs" />
     <Compile Include="Assets\Script\GaugeScript\SanityGauge.cs" />
     <Compile Include="Assets\naichilab\FadeManager\Sample\FadeSample.cs" />
+    <Compile Include="Assets\kenshirou\Scripts\Controls\Kunekune.cs" />
     <Compile Include="Assets\Script\ButtonScript\Run.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
     <Compile Include="Assets\Script\SceneScript\Scene.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
+    <Compile Include="Assets\kenshirou\Scripts\Controls\RandomUMA.cs" />
     <Compile Include="Assets\naichilab\FadeManager\Scripts\FadeManager.cs" />
+    <Compile Include="Assets\kenshirou\Scripts\Controls\UMA.cs" />
+    <Compile Include="Assets\ToriumiHonami\Script\BrackCat.cs" />
     <Compile Include="Assets\Script\ButtonScript\Myself.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\Script\ButtonScript\Walk.cs" />
     <Compile Include="Assets\Script\SceneScript\GameOver.cs" />
     <Compile Include="Assets\Script\ButtonScript\button.cs" />
     <Compile Include="Assets\Script\ButtonScript\MoveButton.cs" />
     <Compile Include="Assets\Script\ButtonScript\Back.cs" />
-    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
-    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
-    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />

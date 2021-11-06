@@ -18,12 +18,14 @@ public class MoveButton : MonoBehaviour
     private Button walkbtn;
     private static int phase = 0;
     public int runbtncount = 0;
- 
+    public BrackCat bc;
+    
     void Start()
     {
         phase = 0;
         // スライダーを取得する
         slider = GameObject.Find("Slider").GetComponent<Slider>();
+        //runボタンのカウントダウン数値
         runbtncount = 5;
 
     }
@@ -45,6 +47,11 @@ public class MoveButton : MonoBehaviour
             if (phase == 9)
             {
                 FadeManager.Instance.LoadScene("GameOver", 2.0f);
+            }
+            //黒猫と遭遇する場合
+            if(phase == 6)
+            {
+            bc.BlackCatOn();
             }
             //クリックしたらmoveボタンを非表示させる
             movebtn.interactable = false;
