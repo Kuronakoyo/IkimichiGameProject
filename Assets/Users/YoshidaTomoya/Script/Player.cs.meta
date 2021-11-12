@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 21f44f08a219b724ba2bb05959a3781f
+<<<<<<< HEAD:Assets/Users/YoshidaTomoya/Script/Player.cs.meta
+guid: 78b970bbf0439dd498feb61708355d1e
+=======
+guid: b855f3504aff84644b252228a9da2238
+>>>>>>> origin/Nakasyouji:Assets/Script/ButtonScript/button.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

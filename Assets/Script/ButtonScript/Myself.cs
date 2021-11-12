@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Myself : MonoBehaviour
 {
@@ -15,12 +16,8 @@ public class Myself : MonoBehaviour
     {
       
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(this.gameObject);
-        }
+ 
 
-    }
+    
+   
 }
