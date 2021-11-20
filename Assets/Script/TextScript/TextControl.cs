@@ -77,10 +77,9 @@ public class TextControl : MonoBehaviour
                 slider.gameObject.SetActive(true);
                 BCbutton.SetActive(true);
             }
-            if(blackcat.gameObject.activeInHierarchy == true)
+            if (blackcat.gameObject.activeInHierarchy == true)
             {
                 slider.gameObject.SetActive(true);
-                BCbutton.SetActive(true);
             }
         }
       
