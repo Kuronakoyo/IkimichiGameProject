@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Myself : MonoBehaviour
+public class Fusinnsya : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,10 +13,25 @@ public class Myself : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-    }
- 
+        Generate();
 
-    
-   
+        Escape();
+
+        Fail();
+    }
+
+    private void Generate()
+    {
+
+    }
+
+    private void Escape()
+    {
+
+    }
+
+    private void Fail()
+    {
+
+    }
 }
