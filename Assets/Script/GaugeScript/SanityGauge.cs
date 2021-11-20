@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
 public class SanityGauge : MonoBehaviour
 {
     [SerializeField]
@@ -61,4 +61,4 @@ public class SanityGauge : MonoBehaviour
    
 
 }
-  
+  */

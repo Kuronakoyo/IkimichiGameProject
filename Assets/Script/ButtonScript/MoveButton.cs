@@ -10,34 +10,58 @@ public class MoveButton : MonoBehaviour
     private Scrollbar scrollbar;
     [SerializeField]
     private Slider slider;
+    [SerializeField]
+    private Button movebtn;
+    [SerializeField]
+    private Button runbtn;
+    [SerializeField]
+    private Button walkbtn;
     private static int phase = 0;
-
+    public int runbtncount = 0;
+    public BrackCat bc;
+    
     void Start()
     {
+        phase = 0;
         // スライダーを取得する
         slider = GameObject.Find("Slider").GetComponent<Slider>();
-    }
-    public  void ChangeBackground()
-    {
-        //初期化
-        /*for(int i = 0;i < background.Count;i++)
-        {
+        //runボタンのカウントダウン数値
+        runbtncount = 5;
 
-            background[i].SetActive(false);
-            
-        }*/
-        //ホームゲージのバー
-        StartCoroutine(Bar());
-        //正気度ゲージのバー
-        StartCoroutine(SlierBar());
-        //現在の画像をアクティブモードをfalseにする
-        background[phase].SetActive(false);
-        //現在のシーンを更新する
-        phase++;
-        Debug.Log(phase);
-        //現在の画像をアクティブモードをtrueにする
-        background[phase].SetActive(true);
-        
+    }
+    public void ChangeBackground()
+    {
+       
+            //ホームゲージのバー
+            StartCoroutine(Bar());
+            //正気度ゲージのバー
+            StartCoroutine(SlierBar());
+            //現在の画像をアクティブモードをfalseにする
+            background[phase].SetActive(false);
+            //現在のシーンを更新する
+            phase++;
+            Debug.Log(phase);
+            //現在の画像をアクティブモードをtrueにする
+            background[phase].SetActive(true);
+            //もし画像が最後になったらゲームオーバーシーンに移行する
+            if (phase == 9)
+            {
+                FadeManager.Instance.LoadScene("GameOver", 2.0f);
+            }
+            //黒猫と遭遇する場合
+            if(phase == 6)
+            {
+            bc.BlackCatOn();
+            }
+            //クリックしたらmoveボタンを非表示させる
+            movebtn.interactable = false;
+            //クリックしたらrunボタンを非表示させる
+            runbtn.interactable = false;
+            //クリックしたらwalkボタンを非表示させる
+            walkbtn.interactable = false;
+            StartCoroutine(ButtonOn());
+
+           
 
     }
     /// <summary>
@@ -50,7 +74,7 @@ public class MoveButton : MonoBehaviour
         phase = i;
         background[phase].SetActive(true);
     }
-    public  int Getphase()
+    public int Getphase()
     {
         return phase;
     }
@@ -67,12 +91,31 @@ public class MoveButton : MonoBehaviour
         }
     }
 
-   IEnumerator Bar()
+    IEnumerator Bar()
     {
-        for(int i = 0;i<=100;i++)
+        for (int i = 0; i <= 100; i++)
         {
-            scrollbar.value += 0.12f/100;
+            scrollbar.value += 0.12f / 100;
             yield return new WaitForSeconds(0.01f);
         }
     }
+
+    IEnumerator ButtonOn()
+    {
+        yield return new WaitForSeconds(1.8f);
+        movebtn.interactable = true;
+        walkbtn.interactable = true;
+        
+        if(runbtncount == 0)
+        {
+            runbtn.interactable = false;
+        }
+        else 
+        {
+            runbtn.interactable = true;
+        }
+
+
+    }
+    
 }

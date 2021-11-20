@@ -1,10 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Yuurei : MonoBehaviour
 {
-    MoveButton moveButton;
+    //幽霊のイメージ
+    [SerializeField]
+    private Image image;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,24 +18,29 @@ public class Yuurei : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Generate();
-    
-        Escape();
-
-        Fail();
-    }
-
-    private void Generate()
-    {
-
-    }
-
-    private void Escape()
-    {
         
     }
 
-    private void Fail()
+    /// <summary>
+    /// 出現時
+    /// </summary>
+    public void Generation()
+    {
+
+    }
+
+    /// <summary>
+    /// 回避成功
+    /// </summary>
+    public void Escape()
+    {
+
+    }
+
+    /// <summary>
+    /// 回避失敗
+    /// </summary>
+    public void Failed()
     {
 
     }

@@ -1,26 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BrackCat : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject blackcat;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            StartCoroutine("CatBig");
-            StartCoroutine("CatBoice");
-        }
+      
     }
 
-    
+    public void BlackCatOn()
+    {
+        blackcat.SetActive(true);
+       // StartCoroutine("CatBig");
+        StartCoroutine("CatBoice");
+    }
 
     //すっと現れる
     IEnumerator CatBig()
@@ -40,6 +44,8 @@ public class BrackCat : MonoBehaviour
         yield return new WaitForSeconds(2f);    //2秒後に
         Debug.Log("ここSE:黒猫が鳴く!!");
     }
+
+  
 }
 
 /*
