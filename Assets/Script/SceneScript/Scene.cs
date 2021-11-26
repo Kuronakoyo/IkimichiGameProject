@@ -9,7 +9,7 @@ public class Scene : MonoBehaviour
 {
     public void OnClickStartButton()
     {
-        FadeManager.Instance.LoadScene("SampleScene", 2.0f);
+        FadeManager.Instance.LoadScene("TutorialScene", 2.0f);
     }
     public void TutorialButton()
     {
