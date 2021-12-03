@@ -5,31 +5,70 @@ using UnityEngine.UI;
 
 public class BrackCat : MonoBehaviour
 {
+
     [SerializeField]
     public GameObject blackcat;
+
+       
+    SpriteRenderer MainCat;
+
+    [SerializeField] Sprite StandCat;   // 普段の猫のスプライト
+    [SerializeField] Sprite FrontCat;   // 正面の猫のスプライト
+    [SerializeField] Sprite BackCat;    // 後ろ向きの猫のスプライト
     // Start is called before the first frame update
     void Start()
     {
-       
+        // このobjectのSpriteRendererを取得
+        MainCat = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+    // 進退のテスト用
     void Update()
-    {
+    { 
       
     }
 
     public void BlackCatOn()
     {
         blackcat.SetActive(true);
-       // StartCoroutine("CatBig");
         StartCoroutine("CatBoice");
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+           
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+
+        }
+    }
+
+    //黒猫の出現
+    private void Cat()
+    {
+        MainCat.sprite = StandCat;  // 普段の向きの猫
+        StartCoroutine("CatBig");   // 徐々に大きくなる
+    }
+
+    //進んだとき
+    private void CatMove()
+    {
+        MainCat.sprite = FrontCat;  // 正面向きの猫
+        StartCoroutine("CatBoice"); // SEが入るところ
+        MainCat.sprite = BackCat;   // 後ろ向きの猫
+    }
+
+    //下がったとき
+    private void CatDown()
+    {
+        this.transform.localScale = new Vector3(0, 0, 0);   // 消える
     }
 
     //すっと現れる
     IEnumerator CatBig()
     {
-        for(float i = 0; i < 1; i += 0.1f)                      //サイズが1になるまで
+        for(float i = 0; i < 0.5f; i += 0.1f)                   //サイズが0.5になるまで
         {
             this.transform.localScale = new Vector3(i, i, i);   //(i,i,i)の大きさで
             yield return new WaitForSeconds(0.01f);             //0.01秒後に
@@ -51,10 +90,15 @@ public class BrackCat : MonoBehaviour
 /*
  【スクリプト内容】
        *黒猫*
-    1.「暗闇からすっと現れる」  :scale?
-    2.「こちらをじっと見つめる」:Animation?
-    3.「一鳴き」                :2秒後SEを入れる
-    4.「主人公の進行方向に去る」:scale? Animation?
- 
- 
+    1.「小さく画面中央に表示」　  :sclaeを(0.5,0.5,0.5)で表示
+
+    進
+    2-1.「黒猫[正面]の画像に変更」:画像差し替え
+    2-2.「一鳴き」                :2秒後SEを入れる+正気度5減少
+    2-3.「主人公の進行方向に去る」:黒猫[後ろ向き]に差し替え
+
+
+    戻
+    3-1.「戻る演出が入り黒猫消失」:黒猫消す。Scaleを0にして消す。
+    
  */
