@@ -46,6 +46,7 @@ public class TextControl : MonoBehaviour
             {
                 StartCoroutine(TextSet());
             }
+            
         }
         TextWait();
 
@@ -54,12 +55,12 @@ public class TextControl : MonoBehaviour
     IEnumerator TextSet()
     {
         istextview = true;
-        int textCount = 0;
+        int textCCCCC = 0;
         telopText.text = "";
-        while (textany[textcount].Length > textCount)
+        while (textany[textcount].Length > textCCCCC)
         {
-            telopText.text += textany[textcount][textCount];
-            textCount++;
+            telopText.text += textany[textcount][textCCCCC];
+            textCCCCC++;
             yield return new WaitForSeconds(telopSpeed);
         }
         textcount++;
@@ -69,7 +70,7 @@ public class TextControl : MonoBehaviour
     {
         if (textcount == textany.Count)
         {
-            
+
             panel.SetActive(false);
             Mbbutton.SetActive(true);
             if (cat.gameObject.activeInHierarchy == true)

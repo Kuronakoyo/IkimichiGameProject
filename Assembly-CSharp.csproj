@@ -84,7 +84,6 @@
     <Compile Include="Assets\Users\ToriumiHonami\Script\BrackCat.cs" />
     <Compile Include="Assets\Script\TextScript\TextControl.cs" />
     <Compile Include="Assets\Script\ButtonScript\Myself.cs" />
-    <Compile Include="Assets\Users\Shimizu\SanityGauge.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\Script\ButtonScript\Walk.cs" />
     <Compile Include="Assets\Script\SceneScript\GameOver.cs" />
@@ -93,6 +92,8 @@
     <Compile Include="Assets\Script\ButtonScript\button.cs" />
     <Compile Include="Assets\Script\ButtonScript\MoveButton.cs" />
     <Compile Include="Assets\Script\ButtonScript\Back.cs" />
+    <Compile Include="Assets\Script\EnemyScript\Cat.cs" />
+    <Compile Include="Assets\Script\EnemyScript\fushinsya.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />
