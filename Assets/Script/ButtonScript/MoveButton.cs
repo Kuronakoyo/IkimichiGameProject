@@ -18,7 +18,7 @@ public class MoveButton : MonoBehaviour
     private Button walkbtn;
     private static int phase = 0;
     public int runbtncount = 0;
-    public BrackCat bc;
+    public GameObject kunekune;
     
     void Start()
     {
@@ -51,7 +51,7 @@ public class MoveButton : MonoBehaviour
             //黒猫と遭遇する場合
             if(phase == 6)
             {
-            bc.BlackCatOn();
+            kunekune.SetActive(true);
             }
             //クリックしたらmoveボタンを非表示させる
             movebtn.interactable = false;
