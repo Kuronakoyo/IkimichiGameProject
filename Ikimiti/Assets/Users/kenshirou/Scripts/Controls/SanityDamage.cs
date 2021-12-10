@@ -10,23 +10,44 @@ public class SanityDamage : MonoBehaviour
     [SerializeField]
     float currentHP;
 
-    GameObject hpSystem;
+    GameObject _sanityPoint;
+    GameObject umaDamage;
+    RandomUMA _randomUMA;
 
     void Start()
     {
-        hpSystem = GameObject.Find("SanityPoint");
+        _sanityPoint = GameObject.Find("SanityPoint");
+        umaDamage = GameObject.Find("UMAEvent");
+        _randomUMA = umaDamage.GetComponent<RandomUMA>();
     }
 
     void Update()
     {
-        //hpSystem.GetComponent<SanityPoint>().HPDown(currentHP, maxHP);
+        _sanityPoint.GetComponent<SanityPoint>().HPDown(currentHP, maxHP);
     }
 
-    void FixedUpdate()
+
+    public void OnClick()
     {
-        if(0 <= currentHP)
+        if (_randomUMA.UMAFlag == true)
         {
-            currentHP = maxHP - Time.time * 10;
+            if (0 <= currentHP)
+            {
+                currentHP = maxHP - 35;
+                maxHP = (int)currentHP;
+            }
+        }
+    }
+
+    public void LookdDown()
+    {
+        if (_randomUMA.UMAFlag == true)
+        {
+            if (0 <= currentHP)
+            {
+                currentHP = maxHP - 35;
+                maxHP = (int)currentHP;
+            }
         }
     }
 }

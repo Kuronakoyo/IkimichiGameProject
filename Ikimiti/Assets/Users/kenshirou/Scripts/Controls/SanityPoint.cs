@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SanityPoint : MonoBehaviour
 {
+    [SerializeField]
     GameObject image;
 
     void Start()
