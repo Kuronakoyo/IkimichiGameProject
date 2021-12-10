@@ -8,7 +8,6 @@ public class SpritManager : MonoBehaviour
 
     public Sprite[] sprites;
     private SpriteRenderer _sprite;
-    
     private int _index = 0;
     void Start()
     {
@@ -28,7 +27,7 @@ public class SpritManager : MonoBehaviour
         {
             _index = 0;
         }
-
+        
         Transform camera = Camera.main.transform;
         var pos = camera.transform.position;
         Sequence quence = DOTween.Sequence();
@@ -40,7 +39,7 @@ public class SpritManager : MonoBehaviour
         quence.Insert(0.5F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.5F));
         quence.Insert(0.5F, camera.DOMove(pos + new Vector3(1F, 2, 0), 0.25F));
         quence.Insert(0.75F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.25F));
-
+        
         quence.OnComplete(() =>
         {
             camera.position = pos;

@@ -7,35 +7,55 @@ using DG.Tweening;
 public class TextMove : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> background;
-    [SerializeField]
-    private GameObject image;
-    [SerializeField]
     private Button bt;
     [SerializeField]
-    GameObject backbt;
-    [SerializeField]
     GameObject panel;
+    public Sprite[] sprites;
     public GameObject cat;
     public GameObject blackcat;
     public GameObject backcat;
     public Slider slider;
     public int movephase = 0;
+    private SpriteRenderer _sprite;
     private bool isback = false;
+    void Start()
+    {
+        _sprite = gameObject.GetComponent<SpriteRenderer>();
+    }
     public void OnCilick()
     {
-        //現在の画像をアクティブモードをfalseにする
-        background[movephase].SetActive(false);
-        //現在のシーンを更新する
-        movephase++;
-        //現在の画像をアクティブモードをtrueにする
-        background[movephase].SetActive(true);
+        if (movephase >= sprites.Length)
+        {
+            movephase = 0;
+        }
+
+        Transform camera = Camera.main.transform;
+        var pos = camera.transform.position;
+        Sequence quence = DOTween.Sequence();
+        quence.Append(transform.DOBlendableScaleBy(Vector3.one * 1.5F, 1));
+        quence.Insert(0, camera.DOMove(pos + new Vector3(-2, 0, 0), 0.5F));
+        quence.Insert(0, camera.DOMove(pos + new Vector3(-1F, 2, 0), 0.25F));
+        quence.Insert(0.25F, camera.DOMove(pos + new Vector3(-2, 0, 0), 0.25F));
+
+        quence.Insert(0.5F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.5F));
+        quence.Insert(0.5F, camera.DOMove(pos + new Vector3(1F, 2, 0), 0.25F));
+        quence.Insert(0.75F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.25F));
+
+        quence.OnComplete(() =>
+        {
+            camera.position = pos;
+            gameObject.transform.localScale = Vector3.one;
+            _sprite.sprite = sprites[movephase];
+            movephase++;
+        });
         Debug.Log(movephase);
         switch (movephase)
         {
             default:
+                phese0();
                 break;
             case 1:
+                phese1();
                 break;
             case 2:
                 phese2();
@@ -51,17 +71,7 @@ public class TextMove : MonoBehaviour
                 break;
         }
     }
-    public void OnBackbuttonClick()
-    {
-        if (cat.activeInHierarchy)
-        {
-            isback = true;
-            bt.gameObject.SetActive(false);
-            backbt.SetActive(false);
-            cat.SetActive(false);
-        }
-
-    }
+    /*
     //スクロールバー
     IEnumerator Bar()
     {
@@ -72,9 +82,27 @@ public class TextMove : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
+    */
+    IEnumerator Buttons()
+    {
+        bt.interactable = false;
+        yield return new WaitForSeconds(1.0f);
+        bt.interactable = true;
+    }
+        IEnumerator LittleCat()
+    {
+        //
+        bt.interactable = false;
+        yield return new WaitForSeconds(1.0f);
+        //黒猫を表示させる
+        cat.SetActive(true);
+        //
+        bt.interactable = true;
+    }
     IEnumerator Cat()
     {
         bt.interactable = false;
+        yield return new WaitForSeconds(1.0f);
         //黒猫を表示させる
         blackcat.SetActive(true);
         //一秒後
@@ -85,17 +113,20 @@ public class TextMove : MonoBehaviour
         backcat.SetActive(false);
         bt.interactable = true;
     }
+    void phese0()
+    {
+        StartCoroutine("Buttons");
+    }
     //フェーズ１の場合
     void phese1()
     {
-
+        StartCoroutine("Buttons");
     }
     //フェーズ２の場合
     void phese2()
     {
-        //黒猫を表示させる
-        cat.SetActive(true);
-        
+        StartCoroutine("LittleCat");
+
     }
     //フェーズ３の場合
     void phese3()
@@ -103,8 +134,6 @@ public class TextMove : MonoBehaviour
         //もしisbackがオンになったら
         if (isback != true)
         {
-            //backボタンを非表示
-            backbt.SetActive(false);
             //猫を非表示
             cat.SetActive(false);
             StartCoroutine("Cat");
@@ -123,7 +152,7 @@ public class TextMove : MonoBehaviour
         if (blackcat.activeInHierarchy)
         {
             //スクロールバーを減らす
-            StartCoroutine(Bar());
+           // StartCoroutine(Bar());
         }
         //黒猫を非表示させる
         blackcat.SetActive(false);
@@ -133,8 +162,6 @@ public class TextMove : MonoBehaviour
     //フェーズ５の場合
     void phese5()
     {
-        //黒猫を非表示させる
-        backbt.SetActive(false);
         //ボタンを非表示させる
         bt.interactable = false;
         //２秒後にstartシーンに遷移する
