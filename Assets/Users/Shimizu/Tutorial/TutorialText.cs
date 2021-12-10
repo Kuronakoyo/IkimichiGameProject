@@ -11,10 +11,6 @@ public class TutorialText : MonoBehaviour
     Text text;
     [SerializeField]
     float textSpeed;
-    [SerializeField]
-    RectTransform rtf;
-    private RectTransform rg;
-
     int textListIndex = 0;
     private bool NextText = true;
     public GameObject manager;
@@ -23,9 +19,6 @@ public class TutorialText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //実行したら文字がテキストボックスの左上に表示される
-        rg=this.GetComponent<RectTransform>();
-        rg.localPosition = rtf.localPosition;
         manager = GameObject.Find("flag");
         StartCoroutine(Novel());
     }
