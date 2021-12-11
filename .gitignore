@@ -72,3 +72,7 @@ crashlytics-build.properties
 
 #idea
 *.idea
+UserSettings
+IkimichiGameProject.sln
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp.csproj
