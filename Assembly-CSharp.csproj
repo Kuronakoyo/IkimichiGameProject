@@ -65,8 +65,8 @@
     <Compile Include="Assets\Script\TextScript\Text2.cs" />
     <Compile Include="Assets\Script\TextScript\TextBack.cs" />
     <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialText3.cs" />
-    <Compile Include="Assets\naichilab\FadeManager\Sample\FadeSample.cs" />
-    <Compile Include="Assets\kenshirou\Scripts\Controls\Kunekune.cs" />
+    <Compile Include="Assets\Resources\naichilab\FadeManager\Sample\FadeSample.cs" />
+    <Compile Include="Assets\Users\kenshirou\Scripts\Controls\Kunekune.cs" />
     <Compile Include="Assets\Users\Shimizu\Tutorial\Activecheck.cs" />
     <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialManager.cs" />
     <Compile Include="Assets\Script\ButtonScript\Run.cs" />
@@ -77,12 +77,12 @@
     <Compile Include="Assets\Script\TextScript\SpritManager.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
     <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialText2.cs" />
-    <Compile Include="Assets\kenshirou\Scripts\Controls\RandomUMA.cs" />
+    <Compile Include="Assets\Users\kenshirou\Scripts\Controls\RandomUMA.cs" />
     <Compile Include="Assets\Script\EnemyScript\Cat.cs" />
-    <Compile Include="Assets\naichilab\FadeManager\Scripts\FadeManager.cs" />
+    <Compile Include="Assets\Resources\naichilab\FadeManager\Scripts\FadeManager.cs" />
     <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialText4.cs" />
     <Compile Include="Assets\Users\Shimizu\Tutorial\Move.cs" />
-    <Compile Include="Assets\kenshirou\Scripts\Controls\UMA.cs" />
+    <Compile Include="Assets\Users\kenshirou\Scripts\Controls\UMA.cs" />
     <Compile Include="Assets\Users\ToriumiHonami\Script\BrackCat.cs" />
     <Compile Include="Assets\Script\TextScript\TextControl.cs" />
     <Compile Include="Assets\Script\ButtonScript\Myself.cs" />
