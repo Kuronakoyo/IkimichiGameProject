@@ -24,7 +24,7 @@ public class MoveButton : MonoBehaviour
     {
         phase = 0;
         // スライダーを取得する
-        slider = GameObject.Find("Slider").GetComponent<Slider>();
+        //slider = GameObject.Find("Slider").GetComponent<Slider>();
         //runボタンのカウントダウン数値
         runbtncount = 5;
 

@@ -60,28 +60,20 @@
     <Compile Include="Assets\Users\Tokui\Script\Yuurei.cs" />
     <Compile Include="Assets\Script\TextScript\TextMove.cs" />
     <Compile Include="Assets\Users\YoshidaTomoya\Script\GoalFlag.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\Move2_2.cs" />
     <Compile Include="Assets\Script\GaugeScript\SanityGauge.cs" />
     <Compile Include="Assets\Script\TextScript\Text2.cs" />
     <Compile Include="Assets\Script\TextScript\TextBack.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialText3.cs" />
     <Compile Include="Assets\Resources\naichilab\FadeManager\Sample\FadeSample.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\Kunekune.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\Activecheck.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialManager.cs" />
     <Compile Include="Assets\Script\ButtonScript\Run.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialText.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
     <Compile Include="Assets\Script\EnemyScript\fushinsya.cs" />
     <Compile Include="Assets\Script\SceneScript\Scene.cs" />
     <Compile Include="Assets\Script\TextScript\SpritManager.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialText2.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\RandomUMA.cs" />
     <Compile Include="Assets\Script\EnemyScript\Cat.cs" />
     <Compile Include="Assets\Resources\naichilab\FadeManager\Scripts\FadeManager.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\TutorialText4.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\Move.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\UMA.cs" />
     <Compile Include="Assets\Users\ToriumiHonami\Script\BrackCat.cs" />
     <Compile Include="Assets\Script\TextScript\TextControl.cs" />
@@ -89,11 +81,11 @@
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\Script\ButtonScript\Walk.cs" />
     <Compile Include="Assets\Script\SceneScript\GameOver.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\Senario.cs" />
-    <Compile Include="Assets\Users\Shimizu\Tutorial\Move2_1.cs" />
     <Compile Include="Assets\Script\ButtonScript\button.cs" />
     <Compile Include="Assets\Script\ButtonScript\MoveButton.cs" />
     <Compile Include="Assets\Script\ButtonScript\Back.cs" />
+    <Compile Include="Assets\Script\TextScript\TextC2.cs" />
+    <Compile Include="Assets\Script\ButtonScript\Move.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />

@@ -91,13 +91,10 @@ public class TextMove : MonoBehaviour
     }
     IEnumerator LittleCat()
     {
-
-        //
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         //çïîLÇï\é¶Ç≥ÇπÇÈ
         cat.SetActive(true);
-        //
         bt.interactable = true;
     }
     IEnumerator Cat()
@@ -112,7 +109,8 @@ public class TextMove : MonoBehaviour
         backcat.SetActive(true);
         yield return new WaitForSeconds(2.5f);
         backcat.SetActive(false);
-        bt.interactable = true;
+        Destroy(bt.gameObject);
+        panel.SetActive(true);
     }
     void phese0()
     {
