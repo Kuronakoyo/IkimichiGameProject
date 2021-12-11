@@ -89,8 +89,9 @@ public class TextMove : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         bt.interactable = true;
     }
-        IEnumerator LittleCat()
+    IEnumerator LittleCat()
     {
+
         //
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);

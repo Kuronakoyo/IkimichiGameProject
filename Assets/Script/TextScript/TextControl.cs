@@ -42,13 +42,15 @@ public class TextControl : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && istextview == false)
         {
+            /*
             if (tm.movephase != 5)
             {
                 StartCoroutine(TextSet());
             }
-            
+            */
+            TextHide();
         }
-        TextWait();
+        
 
 
     }
@@ -84,5 +86,10 @@ public class TextControl : MonoBehaviour
             }
         }
       
+    }
+    void TextHide()
+    {
+        panel.SetActive(false);
+        Mbbutton.SetActive(true);
     }
 }
