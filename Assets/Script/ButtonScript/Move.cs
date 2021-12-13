@@ -6,7 +6,13 @@ using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
-    public Sprite[] sprites;
+    [SerializeField, Header("画像オブジェクト")]
+    GameObject _cat;
+    [SerializeField]
+    GameObject _suspiciousPerson;
+
+    Enemy _enemy;
+    [SerializeField, Header("エネミー画像")] Sprite[] sprites;
     public int movephase = 0;
     private SpriteRenderer _sprite;
 
@@ -48,44 +54,43 @@ public class Move : MonoBehaviour
             movephase++;
         });
         Debug.Log(movephase);
-        switch (movephase)
+
+        Phese(movephase);
+    }
+
+    /// <summary>
+    /// Phese管理の関数
+    /// </summary>
+    /// <param name="pheseNum">Pheseの値</param>
+    void Phese(int pheseNum)
+    {
+        switch (pheseNum)
         {
-            default:
-                phese0();
+            case 0:
+
                 break;
             case 1:
-                phese1();
+                
                 break;
             case 2:
-                phese2();
+                StartCoroutine("WhileHandCat");
                 break;
             case 3:
-                phese3();
+
                 break;
             case 4:
-                phese4();
+                
+                break;
+            default:
+                Debug.LogError("MovePheseの値が見つかりません");
                 break;
         }
     }
-    void phese0()
-    { 
-
-    }
-    void phese1()
+    IEnumerator WhileHandCat()
     {
-
+        yield return new WaitForSeconds(1.5f);
+        _cat.SetActive(false);
     }
-    void phese2()
-    {
-
-    }
-    void phese3()
-    {
-
-    }
-    void phese4()
-    {
-
-    }
-
+    
 }
+
