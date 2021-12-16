@@ -16,11 +16,15 @@ public class TextMove : MonoBehaviour
     public GameObject backcat;
     public Slider slider;
     public int movephase = 0;
+    public GameObject _soundmanager;
     private SpriteRenderer _sprite;
     private bool isback = false;
+    public AudioClip catsound;
+    AudioSource audioSource;
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void OnCilick()
     {
@@ -89,6 +93,13 @@ public class TextMove : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         bt.interactable = true;
     }
+    IEnumerator CatSound()
+    {
+        bt.interactable = false;
+        yield return new WaitForSeconds(1.0f);
+        bt.interactable = true;
+        audioSource.PlayOneShot(catsound);
+    }
     IEnumerator LittleCat()
     {
         bt.interactable = false;
@@ -119,7 +130,7 @@ public class TextMove : MonoBehaviour
     //フェーズ１の場合
     void phese1()
     {
-        StartCoroutine("Buttons");
+        StartCoroutine("CatSound");
     }
     //フェーズ２の場合
     void phese2()

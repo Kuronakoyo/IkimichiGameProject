@@ -11,12 +11,14 @@ public class Move : MonoBehaviour
     [SerializeField]
     GameObject _suspiciousPerson;
     [SerializeField]
+    GameObject hand;
+    [SerializeField]
     Button _movebtn;
     Enemy _enemy;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     private SpriteRenderer _sprite;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -103,9 +105,14 @@ public class Move : MonoBehaviour
     IEnumerator WhileHandCat()
     {
         _movebtn.interactable = false;
-        yield return new WaitForSeconds(1.5f);
-        _movebtn.interactable = true;
         _cat.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
+        _movebtn.interactable = true;
+        hand.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(hand);
+        Destroy(_cat);
+        
     }
     IEnumerator SpView()
     {

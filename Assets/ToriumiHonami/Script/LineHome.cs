@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LineHome : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class LineHome : MonoBehaviour
     // LINEのホーム画面のスクリプト
     public void Home()
     {
+        SceneManager.LoadScene("ChatScene");
         Debug.Log("トーク画面へ移動");
     }
 }

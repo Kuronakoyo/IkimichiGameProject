@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day1.unity
     guid: 8dbc8f78f13832549ba4a590fc9ead51
+  - enabled: 1
+    path: Assets/ToriumiHonami/Scenes/ToriumiTitle.unity
+    guid: 29ef3bbdbd35f5c448725ec96881c75a
+  - enabled: 1
+    path: Assets/Users/Shimizu/Chat/ChatScene.unity
+    guid: 129b06d36c1cda840aef9b5f70f0ceeb
   m_configObjects: {}
