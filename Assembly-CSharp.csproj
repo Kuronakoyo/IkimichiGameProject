@@ -58,13 +58,16 @@
   <ItemGroup>
     <Compile Include="Assets\Users\Tokui\Script\Fusinsya.cs" />
     <Compile Include="Assets\Users\Tokui\Script\Yuurei.cs" />
+    <Compile Include="Assets\Resources\sound\SoundManager.cs" />
     <Compile Include="Assets\Script\Day1Script\TextMove.cs" />
     <Compile Include="Assets\Users\YoshidaTomoya\Script\GoalFlag.cs" />
     <Compile Include="Assets\Script\GaugeScript\SanityGauge.cs" />
     <Compile Include="Assets\Script\Day1Script\Text2.cs" />
     <Compile Include="Assets\Script\Day1Script\TextBack.cs" />
     <Compile Include="Assets\Resources\naichilab\FadeManager\Sample\FadeSample.cs" />
+    <Compile Include="Assets\Users\Shimizu\Chat\Test.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\Kunekune.cs" />
+    <Compile Include="Assets\Users\Shimizu\Chat\ChatScroll.cs" />
     <Compile Include="Assets\Script\Day2Script\Move.cs" />
     <Compile Include="Assets\Script\Day2Script\Run.cs" />
     <Compile Include="Assets\ToriumiHonami\Script\Title.cs" />
@@ -86,10 +89,9 @@
     <Compile Include="Assets\ToriumiHonami\Script\LineHome.cs" />
     <Compile Include="Assets\Script\Day2Script\button.cs" />
     <Compile Include="Assets\Script\Day2Script\MoveButton.cs" />
-    <Compile Include="Assets\Users\Shimizu\Chat\Test.cs" />
-    <Compile Include="Assets\Resources\sound\SoundManager.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\MainControl.cs" />
-    <Compile Include="Assets\Users\Shimizu\Chat\ChatScroll.cs" />
+    <Compile Include="Assets\Script\Day1Script\Image.cs" />
+    <Compile Include="Assets\Script\ChatScript\ChatControl.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />

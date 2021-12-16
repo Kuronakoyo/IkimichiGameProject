@@ -13,6 +13,8 @@ public class Move : MonoBehaviour
     [SerializeField]
     GameObject hand;
     [SerializeField]
+    GameObject endbtn;
+    [SerializeField]
     Button _movebtn;
     Enemy _enemy;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
@@ -115,6 +117,8 @@ public class Move : MonoBehaviour
         _cat.SetActive(false);
         yield return new WaitForSeconds(1.0f);
         _movebtn.interactable = true;
+        //白い手の音
+        SoundManager.Instance.Play_SE(0, 4);
         hand.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         Destroy(hand);
@@ -137,8 +141,11 @@ public class Move : MonoBehaviour
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.Play_SE(0, 3);
-        _movebtn.interactable = true;
         _suspiciousPerson.SetActive(true);
+        yield return new WaitForSeconds(13.0f);
+        Destroy(_suspiciousPerson);
+        Destroy(_movebtn.gameObject);
+        endbtn.SetActive(true);
     }
 }
 

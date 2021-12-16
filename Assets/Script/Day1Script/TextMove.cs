@@ -123,6 +123,8 @@ public class TextMove : MonoBehaviour
         //ˆê•bŒã
         yield return new WaitForSeconds(1.5f);
         blackcat.SetActive(false);
+        //”LSE
+        SoundManager.Instance.Play_SE(0, 2);
         backcat.SetActive(true);
         yield return new WaitForSeconds(2.5f);
         backcat.SetActive(false);
