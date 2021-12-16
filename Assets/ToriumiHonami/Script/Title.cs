@@ -35,7 +35,7 @@ public class Title : MonoBehaviour
     public void Lock()
     {
         isMove = true;
-        Invoke("LoadEndingScene", 1.9f);
+        Invoke("LoadEndingScene", 1.5f);
     }
     void LoadEndingScene()
     {

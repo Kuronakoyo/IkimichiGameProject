@@ -198,7 +198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5652827993960511169, guid: aa5e858102dcbe940aa06637073c27de, type: 3}
       propertyPath: seList.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5652827993960511169, guid: aa5e858102dcbe940aa06637073c27de, type: 3}
       propertyPath: seList.Array.data[0]
@@ -212,6 +212,14 @@ PrefabInstance:
       propertyPath: seList.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: bc5a9afedfe821841b93c8452f48501a, type: 3}
+    - target: {fileID: 5652827993960511169, guid: aa5e858102dcbe940aa06637073c27de, type: 3}
+      propertyPath: seList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 17e3cc0b7ae43814eaa458ce50c90bd5, type: 3}
+    - target: {fileID: 5652827993960511169, guid: aa5e858102dcbe940aa06637073c27de, type: 3}
+      propertyPath: seList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: e8d392f8a86890f43aa9ab9acc71e224, type: 3}
     - target: {fileID: 5652827993960511169, guid: aa5e858102dcbe940aa06637073c27de, type: 3}
       propertyPath: soundSource.Array.size
       value: 1
@@ -1094,6 +1102,7 @@ GameObject:
   - component: {fileID: 536796106}
   - component: {fileID: 536796105}
   - component: {fileID: 536796104}
+  - component: {fileID: 536796107}
   m_Layer: 5
   m_Name: End
   m_TagString: Untagged
@@ -1164,7 +1173,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 536796105}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 536796107}
+        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_MethodName: Testbutton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &536796105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1224,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536796102}
   m_CullTransparentMesh: 1
+--- !u!114 &536796107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536796102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ec797f071b8e5419f5a39cdace3606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &607690693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +2028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -70.859985}
+  m_AnchoredPosition: {x: 0.00012207031, y: -70.859985}
   m_SizeDelta: {x: 0, y: -141.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343951089
