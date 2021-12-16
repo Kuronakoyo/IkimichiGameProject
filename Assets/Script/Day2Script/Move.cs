@@ -79,7 +79,7 @@ public class Move : MonoBehaviour
                 StartCoroutine("WhileHandCat");
                 break;
             case 3:
-                StartCoroutine("Buttons");
+                StartCoroutine("Spwara");
                 break;
             case 4:
                 StartCoroutine("SpView");
@@ -91,12 +91,17 @@ public class Move : MonoBehaviour
     }
     IEnumerator Buttons()
     {
+        //‘«‰¹
+        SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         _movebtn.interactable = true;
     }
     IEnumerator CatView()
     {
+        //‘«‰¹
+        SoundManager.Instance.Play_SE(0, 1);
+        SoundManager.Instance.Play_SE(0, 0);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         _cat.SetActive(true);
@@ -104,6 +109,8 @@ public class Move : MonoBehaviour
     }
     IEnumerator WhileHandCat()
     {
+        //‘«‰¹
+        SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         _cat.SetActive(false);
         yield return new WaitForSeconds(1.0f);
@@ -114,10 +121,22 @@ public class Move : MonoBehaviour
         Destroy(_cat);
         
     }
-    IEnumerator SpView()
+    IEnumerator Spwara()
     {
+        //‘«‰¹
+        SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
+        SoundManager.Instance.Play_SE(0, 2);
+        _movebtn.interactable = true;
+    }
+    IEnumerator SpView()
+    {
+        //‘«‰¹
+        SoundManager.Instance.Play_SE(0, 1);
+        _movebtn.interactable = false;
+        yield return new WaitForSeconds(1.0f);
+        SoundManager.Instance.Play_SE(0, 3);
         _movebtn.interactable = true;
         _suspiciousPerson.SetActive(true);
     }

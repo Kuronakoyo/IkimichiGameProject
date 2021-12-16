@@ -72,6 +72,7 @@
     <Compile Include="Assets\ToriumiHonami\Script\Title.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
     <Compile Include="Assets\Script\EnemyScript\Enemy.cs" />
+    <Compile Include="Assets\Users\Shimizu\Chat\Script\AutoTuning.cs" />
     <Compile Include="Assets\Script\Day1Script\TextC2.cs" />
     <Compile Include="Assets\Script\SceneScript\Scene.cs" />
     <Compile Include="Assets\Script\Day1Script\SpritManager.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\RandomUMA.cs" />
     <Compile Include="Assets\Resources\naichilab\FadeManager\Scripts\FadeManager.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\UMA.cs" />
+    <Compile Include="Assets\Users\Shimizu\Chat\Main.cs" />
     <Compile Include="Assets\Script\Day1Script\TextControl.cs" />
     <Compile Include="Assets\Script\Day2Script\Myself.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
@@ -88,12 +90,12 @@
     <Compile Include="Assets\Script\Day2Script\button.cs" />
     <Compile Include="Assets\Script\Day2Script\MoveButton.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\MainControl.cs" />
-    <Compile Include="Assets\Users\Shimizu\Chat\Main.cs" />
-    <Compile Include="Assets\Users\Shimizu\Chat\Script\AutoTuning.cs" />
+    <Compile Include="Assets\Script\SoundScript\Sound.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTex.shader" />
+     <None Include="Assets\Resources\SE\se_list.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\2020.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

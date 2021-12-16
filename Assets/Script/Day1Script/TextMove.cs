@@ -14,17 +14,16 @@ public class TextMove : MonoBehaviour
     public GameObject cat;
     public GameObject blackcat;
     public GameObject backcat;
+    public GameObject sd;
+    Sound _soundmanager;
     public Slider slider;
     public int movephase = 0;
-    public GameObject _soundmanager;
     private SpriteRenderer _sprite;
     private bool isback = false;
-    public AudioClip catsound;
-    AudioSource audioSource;
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
+        _soundmanager = GetComponent<Sound>();
     }
     public void OnCilick()
     {
@@ -89,19 +88,24 @@ public class TextMove : MonoBehaviour
     */
     IEnumerator Buttons()
     {
+        //ë´âπ
+        SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         bt.interactable = true;
     }
     IEnumerator CatSound()
     {
+        SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         bt.interactable = true;
-        audioSource.PlayOneShot(catsound);
+        //îLSE
+        SoundManager.Instance.Play_SE(0,0);
     }
     IEnumerator LittleCat()
     {
+        SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         //çïîLÇï\é¶Ç≥ÇπÇÈ
@@ -110,10 +114,12 @@ public class TextMove : MonoBehaviour
     }
     IEnumerator Cat()
     {
+        SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         //çïîLÇï\é¶Ç≥ÇπÇÈ
         blackcat.SetActive(true);
+        SoundManager.Instance.Play_SE(0, 0);
         //àÍïbå„
         yield return new WaitForSeconds(1.5f);
         blackcat.SetActive(false);

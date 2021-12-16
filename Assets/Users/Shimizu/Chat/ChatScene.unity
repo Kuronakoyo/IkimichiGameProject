@@ -1296,7 +1296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1285999412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1519,15 +1519,15 @@ GameObject:
   - component: {fileID: 1628543180}
   - component: {fileID: 1628543184}
   - component: {fileID: 1628543183}
-  - component: {fileID: 1628543182}
   - component: {fileID: 1628543181}
+  - component: {fileID: 1628543182}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1628543180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1569,21 +1569,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628543179}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba45a5d676e25a4c8991c560b7274b5, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd6c94af67284f459fe0e2bde2de4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textany:
-  - "\u306F\u3041\u3001\u3084\u3063\u3068\u5B66\u6821\u7D42\u308F\u3063\u305F\u3002\u306F\u3041\u3001\u3084\u3063\u3068\u5B66\u6821\u7D42\u308F\u3063\u305F\u3002\u306F\u3041\u3001\u3084\u3063\u3068\u5B66\u6821\u7D42\u308F\u3063\u305F\u3002"
-  telopText: {fileID: 1628543183}
-  telopSpeed: 0.1
-  panel: {fileID: 0}
-  Mbbutton: {fileID: 0}
-  BCbutton: {fileID: 0}
-  slider: {fileID: 0}
-  cat: {fileID: 0}
-  blackcat: {fileID: 0}
 --- !u!114 &1628543183
 MonoBehaviour:
   m_ObjectHideFlags: 0
