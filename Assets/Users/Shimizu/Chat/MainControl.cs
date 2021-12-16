@@ -5,30 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainControl : MonoBehaviour
 {
-<<<<<<< HEAD
 
     public int ChatScenecount = 0;
-=======
-    private int count = 0;
->>>>>>> Nakasyouji
     public GameObject[] GameObjectsTohidden;
+    private Transform positionB;
+    [SerializeField] public GameObject chatbackground;
     [SerializeField] public GameObject gameObjectsMysken;
-    [SerializeField] public GameObject cha1, button1;
-    [SerializeField] public GameObject chat2,button2;
-    [SerializeField] public GameObject chat3,button3;
-    [SerializeField] public GameObject chat4,button4;
-    [SerializeField] public GameObject chat5,button5;
-<<<<<<< HEAD
-    [SerializeField] public GameObject chat6,button6;
-    [SerializeField] public GameObject chat7,button7;
-    [SerializeField] public GameObject chat8,button8;
-    [SerializeField] public GameObject Movie1,Moviebutton1;
-    [SerializeField] public GameObject Movie2,Moviebutton2;
-=======
->>>>>>> Nakasyouji
+    [SerializeField] public GameObject cha1, button1,
+    chat2,button2,chat3,button3,chat4,button4,chat5,button5,chat6,button6,chat7,button7,chat8,button8,chat9,button9,chat10,button10,
+    button11,chat11, button12, chat12, button13, chat13, button14, chat14, button15, chat15, button16, chat16, button17, chat17,
+    button18, chat18, button19, chat19, button20, chat20, button21, chat21, button22, chat22, button23, chat23, 
+    Movie1,Moviebutton1,Movie2,Moviebutton2;
     // Start is called before the first frame update
     void Start()
     {
+        positionB = chatbackground.GetComponent<Transform>();
         SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
@@ -54,7 +45,7 @@ public class MainControl : MonoBehaviour
             obj.SetActive(false);
         }
         //Ç±Ç±Ç…2ì˙ñ⁄ÇÃÉVÅ[ÉìÇÃñºëO
-        SceneManager.LoadScene("SecondScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Day2", LoadSceneMode.Additive);
     }
 
     public void MyskenButton()
@@ -64,75 +55,177 @@ public class MainControl : MonoBehaviour
     }
     public void ChatButton()
     {
+        Vector3 pos = positionB.transform.localPosition;
         Debug.Log("chat");
 
-<<<<<<< HEAD
         if (ChatScenecount == 0)
-=======
-        if (count == 0)
->>>>>>> Nakasyouji
         {
             button1.SetActive(false);
             chat2.SetActive(true);
-            
         }
-<<<<<<< HEAD
         if (ChatScenecount == 1)
-=======
-        if (count == 1)
->>>>>>> Nakasyouji
         {
             button2.SetActive(false);
             chat3.SetActive(true);
         }
-<<<<<<< HEAD
         if (ChatScenecount == 2)
-=======
-        if (count == 2)
->>>>>>> Nakasyouji
         {
             button3.SetActive(false);
             chat4.SetActive(true);
         }
-<<<<<<< HEAD
         if (ChatScenecount == 3)
-=======
-        if (count == 3)
->>>>>>> Nakasyouji
         {
             button4.SetActive(false);
             chat5.SetActive(true);
+            pos.y = -6440;
+            positionB.transform.localPosition = pos;
         }
-<<<<<<< HEAD
         if (ChatScenecount == 4)
         {
             button5.SetActive(false);
             chat6.SetActive(true);
+            pos.y = -6200;
+            positionB.transform.localPosition = pos;
         }
         if (ChatScenecount == 5)
         {
             button6.SetActive(false);
             chat7.SetActive(true);
+            pos.y = -5930;
+            positionB.transform.localPosition = pos;
         }
         if (ChatScenecount == 6)
         {
             button7.SetActive(false);
             chat8.SetActive(true);
+            pos.y = -5660;
+            positionB.transform.localPosition = pos;
         }
         if (ChatScenecount == 7)
         {
             button8.SetActive(false);
-            Movie1.SetActive(true);
+            chat9.SetActive(true);
+            pos.y = -5450;
+            positionB.transform.localPosition = pos;
         }
         if (ChatScenecount == 8)
         {
+            button9.SetActive(false);
+            chat10.SetActive(true);
+            pos.y = -4760;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 9)
+        {
+            button10.SetActive(false);
+            chat11.SetActive(true);
+            pos.y = -4390;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 10)
+        {
+            button11.SetActive(false);
+            chat12.SetActive(true);
+            pos.y = -4130;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 11)
+        {
+            button12.SetActive(false);
+            chat13.SetActive(true);
+            pos.y = -3820;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 12)
+        {
+            button13.SetActive(false);
+            chat14.SetActive(true);
+            pos.y = -3610;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 13)
+        {
+            button14.SetActive(false);
+            chat15.SetActive(true);
+            pos.y = -3360;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 14)
+        {
+            button15.SetActive(false);
+            chat16.SetActive(true);
+            pos.y = -2990;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 15)
+        {
+            button16.SetActive(false);
+            chat17.SetActive(true);
+            pos.y = -2740;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 16)
+        {
+            button17.SetActive(false);
+            chat18.SetActive(true);
+            pos.y = -2520;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 17)
+        {
+            button18.SetActive(false);
+            chat19.SetActive(true);
+            pos.y = -2260;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 18)
+        {
+            button19.SetActive(false);
+            chat20.SetActive(true);
+            pos.y = -2060;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 19)
+        {
+            button20.SetActive(false);
+            chat21.SetActive(true);
+            pos.y = -1840;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 20)
+        {
+            button21.SetActive(false);
+            Movie1.SetActive(true);
+            pos.y = -1420;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 21)
+        {
             Moviebutton1.SetActive(false);
+            chat22.SetActive(true);
+            pos.y = -1090;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 22)
+        {
+            button22.SetActive(false);
             Movie2.SetActive(true);
+            pos.y = -650;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 23)
+        {
+            Moviebutton2.SetActive(false);
+            chat23.SetActive(true);
+            pos.y = -380;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 24)
+        {
+            chat23.SetActive(false);
+           
         }
         ChatScenecount++;
-=======
-        count++;
->>>>>>> Nakasyouji
     }
     private void OnSceneUnloaded(UnityEngine.SceneManagement.Scene current)
     {

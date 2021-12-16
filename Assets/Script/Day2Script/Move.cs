@@ -11,12 +11,14 @@ public class Move : MonoBehaviour
     [SerializeField]
     GameObject _suspiciousPerson;
     [SerializeField]
+    GameObject hand;
+    [SerializeField]
     Button _movebtn;
     Enemy _enemy;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     private SpriteRenderer _sprite;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +79,7 @@ public class Move : MonoBehaviour
                 StartCoroutine("WhileHandCat");
                 break;
             case 3:
-                StartCoroutine("Buttons");
+                StartCoroutine("Spwara");
                 break;
             case 4:
                 StartCoroutine("SpView");
@@ -89,12 +91,17 @@ public class Move : MonoBehaviour
     }
     IEnumerator Buttons()
     {
+        //足音
+        SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         _movebtn.interactable = true;
     }
     IEnumerator CatView()
     {
+        //足音
+        SoundManager.Instance.Play_SE(0, 1);
+        SoundManager.Instance.Play_SE(0, 0);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         _cat.SetActive(true);
@@ -102,15 +109,34 @@ public class Move : MonoBehaviour
     }
     IEnumerator WhileHandCat()
     {
+        //足音
+        SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
-        yield return new WaitForSeconds(1.5f);
-        _movebtn.interactable = true;
         _cat.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
+        _movebtn.interactable = true;
+        hand.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(hand);
+        Destroy(_cat);
+        
+    }
+    IEnumerator Spwara()
+    {
+        //足音
+        SoundManager.Instance.Play_SE(0, 1);
+        _movebtn.interactable = false;
+        yield return new WaitForSeconds(1.0f);
+        SoundManager.Instance.Play_SE(0, 2);
+        _movebtn.interactable = true;
     }
     IEnumerator SpView()
     {
+        //足音
+        SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
+        SoundManager.Instance.Play_SE(0, 3);
         _movebtn.interactable = true;
         _suspiciousPerson.SetActive(true);
     }

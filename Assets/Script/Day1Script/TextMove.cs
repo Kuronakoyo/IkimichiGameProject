@@ -14,6 +14,8 @@ public class TextMove : MonoBehaviour
     public GameObject cat;
     public GameObject blackcat;
     public GameObject backcat;
+    public GameObject sd;
+    Sound _soundmanager;
     public Slider slider;
     public int movephase = 0;
     private SpriteRenderer _sprite;
@@ -21,6 +23,7 @@ public class TextMove : MonoBehaviour
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+        _soundmanager = GetComponent<Sound>();
     }
     public void OnCilick()
     {
@@ -85,34 +88,38 @@ public class TextMove : MonoBehaviour
     */
     IEnumerator Buttons()
     {
+        //‘«‰¹
+        SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         bt.interactable = true;
     }
-<<<<<<< HEAD:Assets/Script/TextScript/TextMove.cs
-        IEnumerator LittleCat()
+    IEnumerator CatSound()
     {
-        //
-=======
+        SoundManager.Instance.Play_SE(0, 1);
+        bt.interactable = false;
+        yield return new WaitForSeconds(1.0f);
+        bt.interactable = true;
+        //”LSE
+        SoundManager.Instance.Play_SE(0,0);
+    }
     IEnumerator LittleCat()
     {
->>>>>>> Nakasyouji:Assets/Script/Day1Script/TextMove.cs
+        SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         //•”L‚ğ•\¦‚³‚¹‚é
         cat.SetActive(true);
-<<<<<<< HEAD:Assets/Script/TextScript/TextMove.cs
-        //
-=======
->>>>>>> Nakasyouji:Assets/Script/Day1Script/TextMove.cs
         bt.interactable = true;
     }
     IEnumerator Cat()
     {
+        SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
         //•”L‚ğ•\¦‚³‚¹‚é
         blackcat.SetActive(true);
+        SoundManager.Instance.Play_SE(0, 0);
         //ˆê•bŒã
         yield return new WaitForSeconds(1.5f);
         blackcat.SetActive(false);
@@ -126,14 +133,10 @@ public class TextMove : MonoBehaviour
     {
         StartCoroutine("Buttons");
     }
-    void phese0()
-    {
-        StartCoroutine("Buttons");
-    }
     //ƒtƒF[ƒY‚P‚Ìê‡
     void phese1()
     {
-        StartCoroutine("Buttons");
+        StartCoroutine("CatSound");
     }
     //ƒtƒF[ƒY‚Q‚Ìê‡
     void phese2()
