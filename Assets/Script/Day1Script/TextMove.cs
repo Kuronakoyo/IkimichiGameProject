@@ -15,7 +15,6 @@ public class TextMove : MonoBehaviour
     public GameObject blackcat;
     public GameObject backcat;
     public GameObject sd;
-    Sound _soundmanager;
     public Slider slider;
     public int movephase = 0;
     private SpriteRenderer _sprite;
@@ -23,7 +22,6 @@ public class TextMove : MonoBehaviour
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
-        _soundmanager = GetComponent<Sound>();
     }
     public void OnCilick()
     {

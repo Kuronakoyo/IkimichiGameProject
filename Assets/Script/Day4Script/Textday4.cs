@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class TextC2 : MonoBehaviour
+public class Textday4 : MonoBehaviour
 {
     [SerializeField]
     List<string> textany = new List<string>();
@@ -40,8 +40,7 @@ public class TextC2 : MonoBehaviour
     }
     void TextHide()
     {
-       panel.SetActive(false);
-       ENDbutton.SetActive(true);
+        Destroy(this.gameObject);
         mbbtnday4.SetActive(true);
     }
     IEnumerator TextSet()
@@ -59,4 +58,3 @@ public class TextC2 : MonoBehaviour
         istextview = false;
     }
 }
-
