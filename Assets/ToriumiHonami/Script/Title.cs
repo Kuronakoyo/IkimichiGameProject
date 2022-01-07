@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Title : MonoBehaviour
 {
     [SerializeField] GameObject LockScreen; // ロック画面のオブジェクト
@@ -35,8 +35,12 @@ public class Title : MonoBehaviour
     public void Lock()
     {
         isMove = true;
+        Invoke("LoadEndingScene", 1.5f);
     }
-      
+    void LoadEndingScene()
+    {
+        SceneManager.LoadScene("ChatScene");
+    }
 }
 /* スクリプト内容 */
 
