@@ -20,6 +20,8 @@ public class MoveBtnDay4 : MonoBehaviour
     [SerializeField]
     GameObject _ghost;
     [SerializeField]
+    GameObject _farghost;
+    [SerializeField]
     GameObject _uma;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
@@ -144,10 +146,11 @@ public class MoveBtnDay4 : MonoBehaviour
         _kunekune.SetActive(true);
         //１秒後
         yield return new WaitForSeconds(1.0f);
-        //ボタン表示
-        _movebtn.interactable = true;
         //遠めにくねくね(ぼかし)を非表示
         _kunekune.SetActive(false);//(消していい)
+        //ボタン表示
+        _movebtn.interactable = true;
+
     }
     IEnumerator case5()
     {
@@ -159,12 +162,13 @@ public class MoveBtnDay4 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //近くににくねくね→一瞬で消える
         _farkunekune.SetActive(true);
-        //１秒後
-        yield return new WaitForSeconds(1.0f);
-        //ボタン表示
-        _movebtn.interactable = true;
+        //0,3秒後
+        yield return new WaitForSeconds(0.3f);
         //とりあえず非表示
         _farkunekune.SetActive(false);//(消していい)
+        //ボタン表示
+        _movebtn.interactable = true;
+      
     }
     IEnumerator case6()
     {
@@ -189,13 +193,20 @@ public class MoveBtnDay4 : MonoBehaviour
         _ghost.SetActive(true);
         //3秒後
         yield return new WaitForSeconds(3.0f);
+        //遠くの幽霊消す
+        _ghost.SetActive(false);
         //ドアップで幽霊すぐに砂嵐
+        _farghost.SetActive(true);
+        //0.3秒後
+        yield return new WaitForSeconds(0.3f);
+        //すぐに消す
+        _farghost.SetActive(false);
 
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
         _movebtn.interactable = true;
         //とりあえず非表示
-        _ghost.SetActive(false);//(消していい)
+        
     }
 }
