@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 296158907}
   - component: {fileID: 296158908}
   m_Layer: 0
-  m_Name: farghost
+  m_Name: ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 456379065}
   - component: {fileID: 456379066}
   m_Layer: 0
-  m_Name: ghost
+  m_Name: farghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -869,10 +869,10 @@ MonoBehaviour:
   endbtn: {fileID: 0}
   _movebtn: {fileID: 519388473}
   _cat: {fileID: 866730145}
-  _kunekune: {fileID: 1338518412}
-  _farkunekune: {fileID: 1743234843}
-  _ghost: {fileID: 456379064}
-  _farghost: {fileID: 296158906}
+  _kunekune: {fileID: 1743234843}
+  _farkunekune: {fileID: 1338518412}
+  _ghost: {fileID: 296158906}
+  _farghost: {fileID: 456379064}
   _uma: {fileID: 825716546}
   sprites:
   - {fileID: 21300000, guid: 620e2f680d56eef41b569d1e04e0277a, type: 3}
@@ -880,6 +880,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c4c1ceab9ef04744298f389519bdd963, type: 3}
   - {fileID: 21300000, guid: 3d3d880619ad9bd40a2cfe7d52c79b43, type: 3}
   - {fileID: 21300000, guid: 9bdcc3bc31071cd4b99e6a235312306f, type: 3}
+  - {fileID: 21300000, guid: 792dc6e3c8a605947b348685d96f25fc, type: 3}
   - {fileID: 21300000, guid: 792dc6e3c8a605947b348685d96f25fc, type: 3}
   movephase: 0
   btn: {fileID: 519388471}
@@ -1179,6 +1180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 866730146}
   - component: {fileID: 866730147}
+  - component: {fileID: 866730149}
   m_Layer: 0
   m_Name: cat
   m_TagString: Untagged
@@ -1194,8 +1196,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866730145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.03, y: 46, z: -1}
-  m_LocalScale: {x: 77.02886, y: 94.08, z: 96}
+  m_LocalPosition: {x: 0, y: -650, z: -1}
+  m_LocalScale: {x: 80, y: 80, z: 96}
   m_Children: []
   m_Father: {fileID: 477523216}
   m_RootOrder: 0
@@ -1251,6 +1253,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &866730149
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866730145}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a117881ff7749e4eabffe7abb560e4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1338518412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,7 +1283,7 @@ GameObject:
   - component: {fileID: 1338518413}
   - component: {fileID: 1338518414}
   m_Layer: 0
-  m_Name: kunekune
+  m_Name: farkunekune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1344,7 +1365,7 @@ GameObject:
   - component: {fileID: 1743234844}
   - component: {fileID: 1743234845}
   m_Layer: 0
-  m_Name: farkunekune
+  m_Name: kunekune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1359,7 +1380,7 @@ Transform:
   m_GameObject: {fileID: 1743234843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 250, y: 300, z: 0}
+  m_LocalScale: {x: 350, y: 350, z: 0}
   m_Children: []
   m_Father: {fileID: 477523216}
   m_RootOrder: 1
