@@ -23,15 +23,21 @@ public class MoveBtnDay4 : MonoBehaviour
     GameObject _farghost;
     [SerializeField]
     GameObject _uma;
+    [SerializeField]
+    GameObject _sandstorm;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     public GameObject btn;
     private SpriteRenderer _sprite;
-    
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+
     }
 
     public void moveclick()
@@ -125,14 +131,14 @@ public class MoveBtnDay4 : MonoBehaviour
         _movebtn.interactable = false;
         //1秒後
         yield return new WaitForSeconds(1.0f);
-        //猫の表示
+        //猫の表示 → フェードアウト
         _cat.SetActive(true);
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
+        //1.5秒後
+        yield return new WaitForSeconds(1.5f);
         //ボタン表示
         _movebtn.interactable = true;
-        //猫の非表示
-        _cat.SetActive(false);//(消していい)
+        //猫の表示
+        _cat.SetActive(false);
     }
     IEnumerator case4()
     {
@@ -143,11 +149,11 @@ public class MoveBtnDay4 : MonoBehaviour
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //すごい遠めにくねくね(ぼかし)
-        _kunekune.SetActive(true);
+        _farkunekune.SetActive(true);
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //遠めにくねくね(ぼかし)を非表示
-        _kunekune.SetActive(false);//(消していい)
+        _farkunekune.SetActive(false);//(消していい)
         //ボタン表示
         _movebtn.interactable = true;
 
@@ -161,14 +167,14 @@ public class MoveBtnDay4 : MonoBehaviour
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //近くににくねくね→一瞬で消える
-        _farkunekune.SetActive(true);
+        _kunekune.SetActive(true);
         //0,3秒後
         yield return new WaitForSeconds(0.3f);
         //とりあえず非表示
-        _farkunekune.SetActive(false);//(消していい)
+        _kunekune.SetActive(false);//(消していい)
         //ボタン表示
         _movebtn.interactable = true;
-      
+
     }
     IEnumerator case6()
     {
@@ -185,28 +191,43 @@ public class MoveBtnDay4 : MonoBehaviour
     {
         //足音
         SoundManager.Instance.Play_SE(0, 1);
+
         //ボタン非表示
         _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
-        //遠目に幽霊
-        _ghost.SetActive(true);
-        //3秒後
-        yield return new WaitForSeconds(3.0f);
-        //遠くの幽霊消す
-        _ghost.SetActive(false);
-        //ドアップで幽霊すぐに砂嵐
-        _farghost.SetActive(true);
-        //0.3秒後
-        yield return new WaitForSeconds(0.3f);
-        //すぐに消す
-        _farghost.SetActive(false);
 
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        Debug.Log("1");
+
+        //遠目に幽霊
+        _farghost.SetActive(true);
+        Debug.Log("2");
+
+        //3秒後
+        yield return new WaitForSeconds(3.0f);
+
+        //遠くの幽霊消す
+        _farghost.SetActive(false);
+
+        //ドアップで幽霊すぐに砂嵐
+        _ghost.SetActive(true);
+
+        //0.3秒後
+        yield return new WaitForSeconds(0.3f);
+
+        //ドアップで幽霊すぐに砂嵐
+        _sandstorm.SetActive(true);
+
+        //すぐに消す
+        _ghost.SetActive(false);
+
+        //1秒後
+        yield return new WaitForSeconds(1.0f);
+
         //ボタン表示
         _movebtn.interactable = true;
+
         //とりあえず非表示
-        
+
     }
 }

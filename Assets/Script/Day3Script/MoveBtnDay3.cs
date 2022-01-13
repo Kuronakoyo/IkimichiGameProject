@@ -12,6 +12,9 @@ public class MoveBtnDay3 : MonoBehaviour
     //くねくね
     [SerializeField]
     GameObject _kunekune;
+    //遠いくねくね
+    [SerializeField]
+    GameObject _farkunekune;
     //不審者
     [SerializeField]
     GameObject _Sp;
@@ -21,6 +24,9 @@ public class MoveBtnDay3 : MonoBehaviour
     //猫
     [SerializeField]
     GameObject _cat;
+    //砂嵐
+    [SerializeField]
+    GameObject _sandstorm;
     //動画終了ボタン
     [SerializeField]
     GameObject endbtn;
@@ -111,10 +117,10 @@ public class MoveBtnDay3 : MonoBehaviour
         _movebtn.interactable = false;
         //1秒後
         yield return new WaitForSeconds(1.0f);
-        //猫の表示
+        //猫の表示 → フェードアウト
         _cat.SetActive(true);
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
+        //1.5秒後
+        yield return new WaitForSeconds(1.5f);
         //ボタン表示
         _movebtn.interactable = true;
         //猫の非表示
@@ -163,13 +169,13 @@ public class MoveBtnDay3 : MonoBehaviour
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //遠めにくねくね(ぼかし)
-        _kunekune.SetActive(true);
+        _farkunekune.SetActive(true);
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
         _movebtn.interactable = true;
         //遠めにくねくね(ぼかし)を非表示
-        _kunekune.SetActive(false);//(消していい)
+        _farkunekune.SetActive(false);//(消していい)
     }
     IEnumerator case5()
     {
@@ -215,13 +221,16 @@ public class MoveBtnDay3 : MonoBehaviour
         _uma.SetActive(true);
         //3秒後
         yield return new WaitForSeconds(3.0f);
-        //飛び掛かるイラストを拡大→砂嵐
+        //UMAを非表示
+        _uma.SetActive(false);
+        //飛び掛かるイラストを拡大
 
+        //砂嵐
+        _sandstorm.SetActive(true);
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
         _movebtn.interactable = true;
-        //UMAを非表示
-        _uma.SetActive(false);
+       
     }
 }
