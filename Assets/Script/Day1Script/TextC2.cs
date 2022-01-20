@@ -42,7 +42,7 @@ public class TextC2 : MonoBehaviour
     {
        panel.SetActive(false);
        ENDbutton.SetActive(true);
-        mbbtnday4.SetActive(true);
+        
     }
     IEnumerator TextSet()
     {

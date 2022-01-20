@@ -9,6 +9,8 @@ public class MoveBtnDay3 : MonoBehaviour
     [SerializeField, Header("エネミー画像")]
     //UMA
     GameObject _uma;
+    [SerializeField]
+    GameObject _uma2;
     //くねくね
     [SerializeField]
     GameObject _kunekune;
@@ -153,6 +155,7 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //斜め真横に大きめに不審者
         _Sp.SetActive(true);
+        SoundManager.Instance.Play_SE(0, 3);
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -219,14 +222,21 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //UMA出てきて
         _uma.SetActive(true);
+        //1秒後
+        yield return new WaitForSeconds(1.0f);
+        //UMAを非表示
+        _uma.SetActive(false);
+        _uma2.SetActive(true);
+        //se
+        SoundManager.Instance.Play_SE(0, 5);
         //3秒後
         yield return new WaitForSeconds(3.0f);
         //UMAを非表示
-        _uma.SetActive(false);
-        //飛び掛かるイラストを拡大
-
+        _uma2.SetActive(false);
         //砂嵐
         _sandstorm.SetActive(true);
+        //
+        SoundManager.Instance.Play_SE(0, 4);
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示

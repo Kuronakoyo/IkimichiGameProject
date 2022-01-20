@@ -40,7 +40,7 @@ public class Textday4 : MonoBehaviour
     }
     void TextHide()
     {
-        Destroy(this.gameObject);
+        panel.SetActive(false);
         mbbtnday4.SetActive(true);
     }
     IEnumerator TextSet()

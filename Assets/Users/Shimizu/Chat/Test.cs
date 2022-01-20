@@ -16,4 +16,17 @@ public class Test : MonoBehaviour
     {
         SceneManager.UnloadScene("Day2");
     }
+    public void Day3btn()
+    {
+        SceneManager.UnloadScene("Day3");
+    }
+    public void Day4btn()
+    {
+        SceneManager.UnloadScene("Day4");
+    }
+    public void Day5btn()
+    {
+        SceneManager.UnloadScene("Day5");
+    }
+
 }

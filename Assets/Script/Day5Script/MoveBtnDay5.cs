@@ -157,7 +157,7 @@ public class MoveBtnDay5 : MonoBehaviour
         //ボタン非表示
         _movebtn.interactable = false;
         //カラスのなく声(SE)
-
+        SoundManager.Instance.Play_SE(0, 5);
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -227,7 +227,7 @@ public class MoveBtnDay5 : MonoBehaviour
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //境内　通りゃんせがBGM(SE)
-
+        SoundManager.Instance.Play_SE(0, 6);
         //幽霊後ろ姿が見える
         _ghostback.SetActive(true);
         //1秒後

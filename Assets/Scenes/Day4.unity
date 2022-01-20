@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textany:
-  - "\u4ECA\u65E5\u306F\u3082\u3046\u5E30\u308B\u304B"
+  - "\u4ECA\u65E5\u3053\u305D\u3001\u304F\u306D\u304F\u306D\u3068UMA\u3092\u64AE\u3063\u3066\u3084\u308B\uFF01"
   telopText: {fileID: 514788178}
   telopSpeed: 0.1
   panel: {fileID: 206773716}
@@ -726,7 +726,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: '
+
+'
 --- !u!222 &514788179
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -925,7 +927,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d43882243cd81194785016b2e859e20c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0624af767dc701449b47d3bf070a198, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -959,13 +961,13 @@ MonoBehaviour:
   _uma: {fileID: 825716546}
   _sandstorm: {fileID: 1224549593}
   sprites:
-  - {fileID: 21300000, guid: 620e2f680d56eef41b569d1e04e0277a, type: 3}
-  - {fileID: 21300000, guid: 7e36578b9b53b4947935ee34a70ac675, type: 3}
-  - {fileID: 21300000, guid: c4c1ceab9ef04744298f389519bdd963, type: 3}
-  - {fileID: 21300000, guid: 3d3d880619ad9bd40a2cfe7d52c79b43, type: 3}
-  - {fileID: 21300000, guid: 9bdcc3bc31071cd4b99e6a235312306f, type: 3}
-  - {fileID: 21300000, guid: 792dc6e3c8a605947b348685d96f25fc, type: 3}
-  - {fileID: 21300000, guid: 792dc6e3c8a605947b348685d96f25fc, type: 3}
+  - {fileID: 21300000, guid: 161ed3c31b79a01448bb85d6d319115b, type: 3}
+  - {fileID: 21300000, guid: b49a67a5c2e060b4aa984c094c51389a, type: 3}
+  - {fileID: 21300000, guid: 98e53cf9336daa24cb6b48e2ff062658, type: 3}
+  - {fileID: 21300000, guid: 8e4a8c3c79dedea4aa9b67791d416a7e, type: 3}
+  - {fileID: 21300000, guid: 0937d99368ca87a4f987fb6aba8d51d4, type: 3}
+  - {fileID: 21300000, guid: d58819194cea9ce40af7ac2492b21f53, type: 3}
+  - {fileID: 21300000, guid: d58819194cea9ce40af7ac2492b21f53, type: 3}
   movephase: 0
   btn: {fileID: 519388471}
 --- !u!4 &552274992
@@ -976,8 +978,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552274989}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.7604167, y: 1, z: 0}
+  m_LocalPosition: {x: 0.0545, y: 0.069, z: 90}
+  m_LocalScale: {x: 0.37510702, y: 0.4995972, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1281,7 +1283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866730145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -650, z: -1}
+  m_LocalPosition: {x: 0, y: -295, z: -1}
   m_LocalScale: {x: 80, y: 80, z: 96}
   m_Children: []
   m_Father: {fileID: 477523216}

@@ -14,8 +14,9 @@ public class MainControl : MonoBehaviour
     [SerializeField] public GameObject cha1, button1,
     chat2,button2,chat3,button3,chat4,button4,chat5,button5,chat6,button6,chat7,button7,chat8,button8,chat9,button9,chat10,button10,
     button11,chat11, button12, chat12, button13, chat13, button14, chat14, button15, chat15, button16, chat16, button17, chat17,
-    button18, chat18, button19, chat19, button20, chat20, button21, chat21, button22, chat22, button23, chat23, 
-    Movie1,Moviebutton1,Movie2,Moviebutton2;
+    button18, chat18, button19, chat19, button20, chat20, button21, chat21, button22, chat22, button23, chat23, button24, chat24, 
+    button25, chat25, button26, chat26, button27, chat27,
+    Movie1,Moviebutton1,Movie2,Moviebutton2, Movie3, Moviebutton3, Movie4, Moviebutton4, Movie5, Moviebutton5;
     // Start is called before the first frame update
     void Start()
     {
@@ -203,7 +204,7 @@ public class MainControl : MonoBehaviour
         {
             button21.SetActive(false);
             Movie1.SetActive(true);
-            pos.y = -1220;
+            pos.y = -1000;
             positionB.transform.localPosition = pos;
         }
         if (ChatScenecount == 21)
@@ -217,20 +218,53 @@ public class MainControl : MonoBehaviour
         {
             button22.SetActive(false);
             Movie2.SetActive(true);
-            pos.y = -200;
+            pos.y = -100;
             positionB.transform.localPosition = pos;
         }
         if (ChatScenecount == 23)
         {
             Moviebutton2.SetActive(false);
             chat23.SetActive(true);
-            pos.y = -380;
+            pos.y = -100;
             positionB.transform.localPosition = pos;
         }
         if (ChatScenecount == 24)
         {
-            chat23.SetActive(false);
-           
+            Movie3.SetActive(true);
+            Moviebutton3.SetActive(true);
+            pos.y = 500;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 25)
+        {
+            Moviebutton3.SetActive(false);
+            chat24.SetActive(true);
+            button23.SetActive(true);
+            pos.y = 1200;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 26)
+        {
+            button23.SetActive(false);
+            Movie4.SetActive(true);
+            Moviebutton4.SetActive(true);
+            pos.y = 1900;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 27)
+        {
+            Moviebutton4.SetActive(false);
+            Movie5.SetActive(true);
+            Moviebutton5.SetActive(true);
+            pos.y = 2100;
+            positionB.transform.localPosition = pos;
+        }
+        if (ChatScenecount == 28)
+        {
+            chat25.SetActive(true);
+            Moviebutton5.SetActive(true);
+            pos.y = 2700;
+            positionB.transform.localPosition = pos;
         }
         ChatScenecount++;
     }
@@ -247,6 +281,27 @@ public class MainControl : MonoBehaviour
         }
         //Ç±Ç±ÇÕ2ì˙ñ⁄ÇÃÉVÅ[ÉìÇÃñºëO
         if (current.name == "Day2")
+        {
+            foreach (GameObject obj in GameObjectsTohidden)
+            {
+                obj.SetActive(true);
+            }
+        }
+        if (current.name == "Day3")
+        {
+            foreach (GameObject obj in GameObjectsTohidden)
+            {
+                obj.SetActive(true);
+            }
+        }
+        if (current.name == "Day4")
+        {
+            foreach (GameObject obj in GameObjectsTohidden)
+            {
+                obj.SetActive(true);
+            }
+        }
+        if (current.name == "Day5")
         {
             foreach (GameObject obj in GameObjectsTohidden)
             {

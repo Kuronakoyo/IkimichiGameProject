@@ -6,7 +6,7 @@ public class ChatScroll : MonoBehaviour
 {
     private float scroll;
     public float speed = 10f;
-    [SerializeField] private GameObject child1, child2, child3, child4, child5, child6, child7, child8, child9, child10, child11, child12, child13, child14, child15, child16, child17, child18, child19, child20, child21;
+    [SerializeField] private GameObject child1, child2, child3, child4, child5, child6, child7, child8, child9, child10, child11, child12, child13, child14, child15, child16, child17, child18, child19, child20, child21, child22, child23, child24, child25, child26, child27;
 
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class ChatScroll : MonoBehaviour
     {
         Vector3 pos = transform.localPosition;
         scroll = Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log(scroll);
+        //Debug.Log(scroll);
         pos.y = transform.localPosition.y - scroll * speed;
         if(pos.y < -6540)
         {
@@ -98,23 +98,46 @@ public class ChatScroll : MonoBehaviour
         {
             pos.y = -1840;
         }
-        if (child18.activeInHierarchy && pos.y > -1320 && !child19.activeInHierarchy)
+        if (child18.activeInHierarchy && pos.y > -1000 && !child19.activeInHierarchy)
         {
-            pos.y = -1320;
+            pos.y = -1000;
         }
         if (child19.activeInHierarchy && pos.y > -1090 && !child20.activeInHierarchy)
         {
             pos.y = -1090;
         }
-        if (child20.activeInHierarchy && pos.y > -500 && !child21.activeInHierarchy)
+        if (child20.activeInHierarchy && pos.y > 200 && !child21.activeInHierarchy)
         {
-            pos.y = -500;
+            pos.y = 200;
         }
-        if (child21.activeInHierarchy && pos.y > -200)
+        if (child21.activeInHierarchy && pos.y > 550)
         {
-            pos.y = -200;
+            pos.y = 550;
         }
-
+        if (child22.activeInHierarchy && pos.y > 1000)
+        {
+            pos.y = 1000;
+        }
+        if (child23.activeInHierarchy && pos.y > 2000)
+        {
+            pos.y = 2000;
+        }
+        if (child24.activeInHierarchy && pos.y > 2600)
+        {
+            pos.y = 2600;
+        }
+        if (child25.activeInHierarchy && pos.y > 3100)
+        {
+            pos.y = 3100;
+        }
+        if (child26.activeInHierarchy && pos.y > 3600)
+        {
+            pos.y = 3600;
+        }
+        if (child27.activeInHierarchy && pos.y > 4100)
+        {
+            pos.y = 4100;
+        }
         transform.localPosition = pos;
         
     }

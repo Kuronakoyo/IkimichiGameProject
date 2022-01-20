@@ -67,17 +67,21 @@
     <Compile Include="Assets\Users\Shimizu\Chat\Test.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\Kunekune.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\ChatScroll.cs" />
+    <Compile Include="Assets\Script\Day3Script\MoveBtnDay3.cs" />
     <Compile Include="Assets\Script\Day1Script\Image.cs" />
     <Compile Include="Assets\Script\Day2Script\Move.cs" />
     <Compile Include="Assets\Script\Day2Script\Run.cs" />
+    <Compile Include="Assets\Script\Day4Script\MoveBtnDay4.cs" />
     <Compile Include="Assets\ToriumiHonami\Script\Title.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
     <Compile Include="Assets\Script\EnemyScript\Enemy.cs" />
+    <Compile Include="Assets\Script\Day3Script\CatFadeOut.cs" />
     <Compile Include="Assets\Script\Day1Script\TextC2.cs" />
     <Compile Include="Assets\Script\SceneScript\Scene.cs" />
     <Compile Include="Assets\Script\Day1Script\SpritManager.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\RandomUMA.cs" />
+    <Compile Include="Assets\Script\Day5Script\MoveBtnDay5.cs" />
     <Compile Include="Assets\Resources\naichilab\FadeManager\Scripts\FadeManager.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\UMA.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\Se.cs" />
@@ -86,19 +90,18 @@
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\Script\Day2Script\Walk.cs" />
     <Compile Include="Assets\Script\SceneScript\GameOver.cs" />
+    <Compile Include="Assets\Script\Day4Script\Textday4.cs" />
     <Compile Include="Assets\ToriumiHonami\Script\LineHome.cs" />
     <Compile Include="Assets\Script\Day2Script\button.cs" />
     <Compile Include="Assets\Script\Day2Script\MoveButton.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\MainControl.cs" />
-    <Compile Include="Assets\Script\Day3Script\MoveBtnDay3.cs" />
-    <Compile Include="Assets\Script\Day4Script\MoveBtnDay4.cs" />
-    <Compile Include="Assets\Script\Day5Script\MoveBtnDay5.cs" />
-    <Compile Include="Assets\Script\Day4Script\Textday4.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />
+     <None Include="Assets\Resources\Materials\MotionBlur.shader" />
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTex.shader" />
      <None Include="Assets\Resources\SE\se_list.txt" />
+     <None Include="Assets\Resources\Materials\SandStorm.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\2020.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
