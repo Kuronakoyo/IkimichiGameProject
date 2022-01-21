@@ -17,7 +17,7 @@ public class CatFadeOut : MonoBehaviour
         if (this.gameObject.activeSelf == true)
         {
             _anim.SetBool("Flag", true);
-            Debug.Log("koko");
+            //Debug.Log("koko");
         }
     }
 }
