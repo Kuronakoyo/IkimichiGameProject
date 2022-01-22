@@ -20,6 +20,7 @@ public class SanityPoint : MonoBehaviour
 
     void Update()
     {
+        /*
         if (//SE‚ª–Â‚Á‚½‚ç)
         {
             IkimitiSE = true;
@@ -118,6 +119,7 @@ public class SanityPoint : MonoBehaviour
         {
             //SAN’l‚ª10Œ¸­
         }
+        */
     }
 }
 
