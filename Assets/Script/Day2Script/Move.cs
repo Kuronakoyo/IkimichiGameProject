@@ -42,14 +42,15 @@ public class Move : MonoBehaviour
         Transform camera = Camera.main.transform;
         var pos = camera.transform.position;
         Sequence quence = DOTween.Sequence();
-        quence.Append(transform.DOBlendableScaleBy(Vector3.one * 1.5F, 1));
+        quence.Append(transform.DOBlendableScaleBy(Vector3.one * 1.0F, 1));
         quence.Insert(0, camera.DOMove(pos + new Vector3(-2, 0, 0), 0.5F));
-        quence.Insert(0, camera.DOMove(pos + new Vector3(-1F, 2, 0), 0.25F));
+        quence.Insert(0, camera.DOMove(pos + new Vector3(0, 2, 0), 0.25F));
         quence.Insert(0.25F, camera.DOMove(pos + new Vector3(-2, 0, 0), 0.25F));
 
-        quence.Insert(0.5F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.5F));
+        quence.Insert(0.5F, camera.DOMove(pos - new Vector3(0, 0, 0), 0.5F));
         quence.Insert(0.5F, camera.DOMove(pos + new Vector3(1F, 2, 0), 0.25F));
         quence.Insert(0.75F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.25F));
+
 
         quence.OnComplete(() =>
         {
