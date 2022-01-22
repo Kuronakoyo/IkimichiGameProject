@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Day2.unity
     guid: 2c553465e5fbaa749bbe194b6c70dc73
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Users/Shimizu/Tutorial/Tutorial.unity
+    guid: 42bb2ec2a16930447a7facaf915777d3
   - enabled: 1
     path: Assets/Scenes/Day1.unity
     guid: 8dbc8f78f13832549ba4a590fc9ead51
@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/ToriumiHonami/Scenes/ToriumiTitle.unity
     guid: 29ef3bbdbd35f5c448725ec96881c75a
   - enabled: 1
-    path: Assets/Users/Shimizu/Chat/ChatScene.unity
+    path: Assets/Users/shimi/Chat/ChatScene.unity
     guid: 129b06d36c1cda840aef9b5f70f0ceeb
   m_configObjects: {}
