@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< .merge_file_a21500
 guid: 0d351c24958f74c438d169c06c351417
+=======
+guid: 55814795cd6defb47894966c4c505a65
+>>>>>>> .merge_file_a23224
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

@@ -20,6 +20,7 @@ public class SanityPoint : MonoBehaviour
 
     void Update()
     {
+<<<<<<< .merge_file_a25512
         //if (//SEが鳴ったら)
         //{
         //    IkimitiSE = true;
@@ -28,6 +29,17 @@ public class SanityPoint : MonoBehaviour
         //{
         //    //SAN値が1減少
         //}
+=======
+        /*
+        if (//SEが鳴ったら)
+        {
+            IkimitiSE = true;
+        }
+        if (IkimitiSE == true)
+        {
+            //SAN値が1減少
+        }
+>>>>>>> .merge_file_a26332
 
         //if(//黒猫が出現したら)
         //{
@@ -110,6 +122,7 @@ public class SanityPoint : MonoBehaviour
         //    //SAN値が10減少
         //}
 
+<<<<<<< .merge_file_a25512
         //if (//女性が出現したら)
         //{
         //    Woman = true;
@@ -118,6 +131,17 @@ public class SanityPoint : MonoBehaviour
         //{
         //    //SAN値が10減少
         //}
+=======
+        if (//女性が出現したら)
+        {
+            Woman = true;
+        }
+        if (Woman == true)
+        {
+            //SAN値が10減少
+        }
+        */
+>>>>>>> .merge_file_a26332
     }
 }
 
