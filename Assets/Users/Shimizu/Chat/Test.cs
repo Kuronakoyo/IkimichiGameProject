@@ -9,24 +9,6 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     public void Testbutton()
     {
-        SoundManager.Instance.Play_SE(0, 4);
         SceneManager.UnloadScene("Day1");
     }
-    public void Day2btn()
-    {
-        SceneManager.UnloadScene("Day2");
-    }
-    public void Day3btn()
-    {
-        SceneManager.UnloadScene("Day3");
-    }
-    public void Day4btn()
-    {
-        SceneManager.UnloadScene("Day4");
-    }
-    public void Day5btn()
-    {
-        SceneManager.UnloadScene("Day5");
-    }
-
 }
