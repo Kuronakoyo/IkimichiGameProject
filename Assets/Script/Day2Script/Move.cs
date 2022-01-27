@@ -6,20 +6,18 @@ using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField, Header("ƒGƒlƒ~[‰æ‘œ")]
+    [SerializeField, Header("ï¿½Gï¿½lï¿½~ï¿½[ï¿½æ‘œ")]
     GameObject _cat;
     [SerializeField]
     GameObject _suspiciousPerson;
     [SerializeField]
     GameObject hand;
     [SerializeField]
-    GameObject endbtn;
-    [SerializeField]
     Button _movebtn;
     [SerializeField]
     private Slider slider;
     public SanCount sc;
-    [SerializeField, Header("‰æ‘œƒIƒuƒWƒFƒNƒg")] Sprite[] sprites;
+    [SerializeField, Header("ï¿½æ‘œï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g")] Sprite[] sprites;
     public int movephase = 0;
     private SpriteRenderer _sprite;
     
@@ -67,9 +65,9 @@ public class Move : MonoBehaviour
     }
 
     /// <summary>
-    /// PheseŠÇ—‚ÌŠÖ”
+    /// Pheseï¿½Ç—ï¿½ï¿½ÌŠÖï¿½
     /// </summary>
-    /// <param name="pheseNum">Phese‚Ì’l</param>
+    /// <param name="pheseNum">Pheseï¿½Ì’l</param>
     void Phese(int pheseNum)
     {
         switch (pheseNum)
@@ -90,13 +88,13 @@ public class Move : MonoBehaviour
                 StartCoroutine("SpView");
                 break;
             default:
-                Debug.LogError("MovePhese‚Ì’l‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
+                Debug.LogError("MovePheseï¿½Ì’lï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½");
                 break;
         }
     }
     IEnumerator Buttons()
     {
-        //‘«‰¹
+        //ï¿½ï¿½ï¿½ï¿½
         SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
@@ -104,7 +102,7 @@ public class Move : MonoBehaviour
     }
     IEnumerator CatView()
     {
-        //‘«‰¹
+        //ï¿½ï¿½ï¿½ï¿½
         SoundManager.Instance.Play_SE(0, 1);
         SoundManager.Instance.Play_SE(0, 0);
         _movebtn.interactable = false;
@@ -120,21 +118,13 @@ public class Move : MonoBehaviour
     }
     IEnumerator WhileHandCat()
     {
-        //‘«‰¹
+        //ï¿½ï¿½ï¿½ï¿½
         SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         _cat.SetActive(false);
         yield return new WaitForSeconds(1.0f);
         _movebtn.interactable = true;
-        //”’‚¢è‚Ì‰¹
-        SoundManager.Instance.Play_SE(0, 4);
         hand.SetActive(true);
-        sc.RedHand();
-        for (int i = 0; i <= 80; i++)
-        {
-            slider.value -= 0.05f / 80;
-            yield return new WaitForSeconds(0.01f);
-        }
         yield return new WaitForSeconds(1.5f);
         Destroy(hand);
         Destroy(_cat);
@@ -142,14 +132,8 @@ public class Move : MonoBehaviour
     }
     IEnumerator Spwara()
     {
-        //‘«‰¹
+        //ï¿½ï¿½ï¿½ï¿½
         SoundManager.Instance.Play_SE(0, 1);
-        sc.spSE();
-        for (int i = 0; i <= 80; i++)
-        {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
-        }
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.Play_SE(0, 2);
@@ -157,11 +141,12 @@ public class Move : MonoBehaviour
     }
     IEnumerator SpView()
     {
-        //‘«‰¹
+        //ï¿½ï¿½ï¿½ï¿½
         SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.Play_SE(0, 3);
+        _movebtn.interactable = true;
         _suspiciousPerson.SetActive(true);
         sc.SP();
         for (int i = 0; i <= 80; i++)

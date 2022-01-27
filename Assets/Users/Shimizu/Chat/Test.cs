@@ -9,7 +9,7 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     public void Day1button()
     {
-         SceneManager.UnloadScene("Day1");
+        SceneManager.UnloadScene("Day1");
     }
 
     public void Day2button()
