@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SceneMove : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,7 +9,7 @@ public class SceneMove : MonoBehaviour
     {
         if(this.gameObject.activeInHierarchy == true)
         {
-
+            StartCoroutine("Fade");
         }
     }
 
@@ -21,7 +21,7 @@ public class SceneMove : MonoBehaviour
     IEnumerator Fade()
     {
         yield return new WaitForSeconds(2.0f);
-        FadeManager.Instance.LoadScene("GameOver", 2.0f);
+        SceneManager.LoadScene("GameOver");
     }
 
   }

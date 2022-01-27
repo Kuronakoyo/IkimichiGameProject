@@ -11,6 +11,8 @@ public class TextMove : MonoBehaviour
     [SerializeField]
     GameObject panel;
     [SerializeField]
+    GameObject Sanchi;
+    [SerializeField]
     Button Eyebtn;
     public Sprite[] sprites;
     public GameObject cat;
@@ -111,7 +113,7 @@ public class TextMove : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
-    IEnumerator CatSound()
+    IEnumerator farcat()
     {
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;

@@ -6,9 +6,16 @@ using UnityEngine.UI;
 public class MoveBtnDay5 : MonoBehaviour
 {
     [SerializeField]
+    GameObject movebutton;
+    [SerializeField]
+    GameObject panel;
+    [SerializeField]
+    GameObject san;
+    [SerializeField]
     GameObject endbtn;
     [SerializeField]
     Button _movebtn;
+
 
     [SerializeField, Header("エネミー画像")]
  
@@ -119,6 +126,9 @@ public class MoveBtnDay5 : MonoBehaviour
         _movebtn.interactable = false;
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }
@@ -129,7 +139,7 @@ public class MoveBtnDay5 : MonoBehaviour
         //ボタン非表示
         _movebtn.interactable = false;
         //草木をかき分けるガサガサ音(SE)
-
+        SoundManager.Instance.Play_SE(0, 8);
         sc.kusaSE();
         for (int i = 0; i <= 80; i++)
         {
@@ -138,6 +148,9 @@ public class MoveBtnDay5 : MonoBehaviour
         }
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }
@@ -163,6 +176,9 @@ public class MoveBtnDay5 : MonoBehaviour
         _ghostshadow.SetActive(false);
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }
@@ -182,6 +198,9 @@ public class MoveBtnDay5 : MonoBehaviour
         }
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }

@@ -68,6 +68,7 @@
     <Compile Include="Assets\Users\Shimizu\Chat\Test.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\Kunekune.cs" />
     <Compile Include="Assets\Script\Day3Script\MoveBtnDay3.cs" />
+    <Compile Include="Assets\Users\Shimizu\Chat\ChatScroll.cs" />
     <Compile Include="Assets\Script\Day2Script\Move.cs" />
     <Compile Include="Assets\Script\Day2Script\Run.cs" />
     <Compile Include="Assets\Script\Day4Script\MoveBtnDay4.cs" />
@@ -75,15 +76,20 @@
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
     <Compile Include="Assets\Script\EnemyScript\Enemy.cs" />
     <Compile Include="Assets\Script\Day3Script\CatFadeOut.cs" />
+    <Compile Include="Assets\Users\Shimizu\Chat\SceneMove.cs" />
     <Compile Include="Assets\Script\SANScript\SanCount.cs" />
     <Compile Include="Assets\Script\Day1Script\TextC2.cs" />
     <Compile Include="Assets\Script\SceneScript\Scene.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\RandomUMA.cs" />
+    <Compile Include="Assets\Script\SceneScript\Textv.cs" />
+    <Compile Include="Assets\Script\SoundScript\Sound.cs" />
     <Compile Include="Assets\Script\Day5Script\MoveBtnDay5.cs" />
     <Compile Include="Assets\Resources\naichilab\FadeManager\Scripts\FadeManager.cs" />
+    <Compile Include="Assets\Script\Day2Script\TextDay2panel2.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\UMA.cs" />
     <Compile Include="Assets\Script\Day1Script\EyebtnManager.cs" />
+    <Compile Include="Assets\Script\Day2Script\TextDay2panel.cs" />
     <Compile Include="Assets\Script\Day1Script\TextControl.cs" />
     <Compile Include="Assets\Script\Day2Script\Myself.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
@@ -95,12 +101,9 @@
     <Compile Include="Assets\Script\Day2Script\button.cs" />
     <Compile Include="Assets\Script\Day2Script\MoveButton.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\MainControl.cs" />
-    <Compile Include="Assets\Script\SceneScript\Textv.cs" />
-    <Compile Include="Assets\Users\Shimizu\Chat\SceneMove.cs" />
-    <Compile Include="Assets\Script\Day2Script\TextDay2panel2.cs" />
-    <Compile Include="Assets\Script\Day2Script\TextDay2panel.cs" />
-    <Compile Include="Assets\Users\Shimizu\Chat\ChatScroll.cs" />
-    <Compile Include="Assets\Script\SoundScript\Sound.cs" />
+    <Compile Include="Assets\Script\Day3Script\TextDay3Panel1.cs" />
+    <Compile Include="Assets\Script\Day3Script\TextDay3Panel2.cs" />
+    <Compile Include="Assets\Script\Day4Script\Textday4panel2.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />

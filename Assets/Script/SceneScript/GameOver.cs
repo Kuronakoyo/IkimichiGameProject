@@ -7,6 +7,8 @@ public class GameOver : MonoBehaviour
     [SerializeField]
     GameObject button;
     [SerializeField]
+    GameObject call_screen;
+    [SerializeField]
     GameObject Incoming_call;
     [SerializeField]
     GameObject Crack;
@@ -38,6 +40,7 @@ public class GameOver : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 1);
         Crack.SetActive(true);
         yield return new WaitForSeconds(3.0f);
+        call_screen.SetActive(false);
         Crack.SetActive(false);
         callback_end.SetActive(false);
         Incoming_call.SetActive(false);
