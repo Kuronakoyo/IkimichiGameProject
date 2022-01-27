@@ -55,7 +55,7 @@ public class TextMove : MonoBehaviour
             _sprite.sprite = sprites[movephase];
             movephase++;
         });
-        Debug.Log(movephase);
+        
         switch (movephase)
         {
             default:

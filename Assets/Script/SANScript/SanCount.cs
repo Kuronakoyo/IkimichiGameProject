@@ -10,7 +10,7 @@ public class SanCount : MonoBehaviour
     
     public Slider scoreSlider;
     public GameObject score_object = null; //テキストオブジェクト
-    public int score_num = 80;//スコア変数
+    public int score_num = 0;//スコア変数
    
     // Start is called before the first frame update
     void Start()
@@ -59,9 +59,9 @@ public class SanCount : MonoBehaviour
         // テキストの表示を入れ替える
         score_text.text = "" + score_num;
 
-
         Save();
-       
+
+
     }
 
  
