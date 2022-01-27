@@ -2526,7 +2526,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2020083588}
         m_TargetAssemblyTypeName: Test, Assembly-CSharp
-        m_MethodName: Day3button
+        m_MethodName: day3button
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

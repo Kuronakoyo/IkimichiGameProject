@@ -298,7 +298,6 @@ public class MoveBtnDay5 : MonoBehaviour
         //幽霊非表示
         _ghostfront.SetActive(false);
         //ボタン表示
-        _movebtn.interactable = true;
         endbtn.SetActive(true);
     }
 }

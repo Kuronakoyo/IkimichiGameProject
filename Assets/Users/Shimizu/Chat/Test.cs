@@ -7,24 +7,23 @@ public class Test : MonoBehaviour
 {
     //‚±‚êƒƒCƒ“ƒV[ƒ“‚Ì‚Ç‚Á‚©‚É“ü‚ê‚Æ‚¢‚Ä!
     // Start is called before the first frame update
-    public void Day1button()
+    public void day1button()
     {
-         SceneManager.UnloadScene("Day1");
+        SceneManager.UnloadScene("Day1");
     }
-
-    public void Day2button()
+    public void day2button()
     {
         SceneManager.UnloadScene("Day2");
     }
-    public void Day3button()
+    public void day3button()
     {
         SceneManager.UnloadScene("Day3");
     }
-    public void Day4button()
+    public void day4button()
     {
         SceneManager.UnloadScene("Day4");
     }
-    public void Day5button()
+    public void day5button()
     {
         SceneManager.UnloadScene("Day5");
     }

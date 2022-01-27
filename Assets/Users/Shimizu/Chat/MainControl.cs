@@ -24,6 +24,7 @@ public class MainControl : MonoBehaviour
     {
         positionB = chatbackground.GetComponent<Transform>();
         SceneManager.sceneUnloaded += OnSceneUnloaded;
+        SoundManager.Instance.Play_SE(0, 0);
     }
 
     // Update is called once per frame
@@ -88,12 +89,13 @@ public class MainControl : MonoBehaviour
     {
         Debug.Log("misuken");
         gameObjectsMysken.SetActive(false);
+        
     }
     public void ChatButton()
     {
         Vector3 pos = positionB.transform.localPosition;
         Debug.Log("chat");
-
+        SoundManager.Instance.Play_SE(0, 0);
         if (ChatScenecount == 0)
         {
             button1.SetActive(false);
@@ -486,6 +488,30 @@ public class MainControl : MonoBehaviour
         }
         //ここは2日目のシーンの名前
         if (current.name == "Day2")
+        {
+            foreach (GameObject obj in GameObjectsTohidden)
+            {
+                obj.SetActive(true);
+            }
+        }
+        //ここは2日目のシーンの名前
+        if (current.name == "Day3")
+        {
+            foreach (GameObject obj in GameObjectsTohidden)
+            {
+                obj.SetActive(true);
+            }
+        }
+        //ここは2日目のシーンの名前
+        if (current.name == "Day4")
+        {
+            foreach (GameObject obj in GameObjectsTohidden)
+            {
+                obj.SetActive(true);
+            }
+        }
+        //ここは2日目のシーンの名前
+        if (current.name == "Day5")
         {
             foreach (GameObject obj in GameObjectsTohidden)
             {
