@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Textday4 : MonoBehaviour
+public class TextDay2 : MonoBehaviour
 {
     [SerializeField]
     List<string> textany = new List<string>();
@@ -14,6 +14,9 @@ public class Textday4 : MonoBehaviour
     GameObject panel;
     [SerializeField]
     GameObject san;
+    [SerializeField]
+    GameObject Mbbutton;
+    public GameObject ENDbutton;
     public GameObject mbbtnday4;
     private bool istextview = false;
     private int textcount = 0;
@@ -40,7 +43,7 @@ public class Textday4 : MonoBehaviour
     void TextHide()
     {
         panel.SetActive(false);
-        mbbtnday4.SetActive(true);
+        Mbbutton.SetActive(true);
         san.SetActive(true);
     }
     IEnumerator TextSet()

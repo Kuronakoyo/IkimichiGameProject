@@ -25,11 +25,15 @@ public class MoveBtnDay4 : MonoBehaviour
     GameObject _uma;
     [SerializeField]
     GameObject _sandstorm;
+    [SerializeField]
+    GameObject _san;
+    [SerializeField]
+    Slider slider;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     public GameObject btn;
     private SpriteRenderer _sprite;
-
+    public SanCount sc;
 
 
 
@@ -108,6 +112,8 @@ public class MoveBtnDay4 : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 1);
         //ボタン非表示
         btn.SetActive(false);
+        //san非表示
+        _san.SetActive(false);
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //メッセージウィンドウの表示
@@ -134,6 +140,12 @@ public class MoveBtnDay4 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //猫の表示 → フェードアウト
         _cat.SetActive(true);
+        sc.cats();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.02f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1.5秒後
         yield return new WaitForSeconds(1.5f);
         //ボタン表示
@@ -151,6 +163,12 @@ public class MoveBtnDay4 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //すごい遠めにくねくね(ぼかし)
         _farkunekune.SetActive(true);
+        sc.farkunekune();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.03f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //遠めにくねくね(ぼかし)を非表示
@@ -203,7 +221,12 @@ public class MoveBtnDay4 : MonoBehaviour
         //遠目に幽霊
         _farghost.SetActive(true);
         Debug.Log("2");
-
+        sc.Ghost();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.1f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //3秒後
         yield return new WaitForSeconds(3.0f);
 
@@ -215,10 +238,10 @@ public class MoveBtnDay4 : MonoBehaviour
 
         //0.3秒後
         yield return new WaitForSeconds(0.3f);
-
+        _san.SetActive(false);
         //ドアップで幽霊すぐに砂嵐
         _sandstorm.SetActive(true);
-
+        endbtn.SetActive(true);
         //すぐに消す
         _ghost.SetActive(false);
 
