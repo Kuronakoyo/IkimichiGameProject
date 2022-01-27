@@ -17,7 +17,7 @@ public class TextMove : MonoBehaviour
     public GameObject blackcat;
     public GameObject backcat;
     public GameObject sd;
-    public GameObject Sanchi;
+    Sound _soundmanager;
     public Slider slider;
     public int movephase = 0;
     private SpriteRenderer _sprite;
@@ -26,6 +26,7 @@ public class TextMove : MonoBehaviour
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+        _soundmanager = GetComponent<Sound>();
     }
    
     public void OnCilick()
@@ -55,7 +56,7 @@ public class TextMove : MonoBehaviour
             _sprite.sprite = sprites[movephase];
             movephase++;
         });
-        Debug.Log(movephase);
+        
         switch (movephase)
         {
             default:
@@ -80,7 +81,7 @@ public class TextMove : MonoBehaviour
     }
     IEnumerator Buttons()
     {
-        //‘«‰¹
+        //ï¿½ï¿½ï¿½ï¿½
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
@@ -92,6 +93,7 @@ public class TextMove : MonoBehaviour
     }
     IEnumerator CatSound()
     {
+        //ï¿½ï¿½ï¿½ï¿½
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
@@ -100,7 +102,7 @@ public class TextMove : MonoBehaviour
             _sprite.color = new Color32(255, 255, 255, 255);
         }
         bt.interactable = true;
-        //”LSE
+        //ï¿½LSE
         SoundManager.Instance.Play_SE(0,0);
         sc.SE();
         for (int i = 0; i <= 80; i++)
@@ -108,6 +110,15 @@ public class TextMove : MonoBehaviour
             slider.value -= 0.01f / 80;
             yield return new WaitForSeconds(0.01f);
         }
+    }
+    IEnumerator CatSound()
+    {
+        SoundManager.Instance.Play_SE(0, 1);
+        bt.interactable = false;
+        yield return new WaitForSeconds(1.0f);
+        bt.interactable = true;
+        //ï¿½LSE
+        SoundManager.Instance.Play_SE(0,0);
     }
     IEnumerator LittleCat()
     {
@@ -118,7 +129,7 @@ public class TextMove : MonoBehaviour
         {
             _sprite.color = new Color32(255, 255, 255, 255);
         }
-        //•”L‚ð•\Ž¦‚³‚¹‚é
+        //ï¿½ï¿½ï¿½Lï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         cat.SetActive(true);
         sc.cats();
         for (int i = 0; i <= 80; i++)
@@ -133,13 +144,13 @@ public class TextMove : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
-        //•”L‚ð•\Ž¦‚³‚¹‚é
+        //ï¿½ï¿½ï¿½Lï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         blackcat.SetActive(true);
         SoundManager.Instance.Play_SE(0, 0);
-        //ˆê•bŒã
+        //ï¿½ï¿½bï¿½ï¿½
         yield return new WaitForSeconds(1.5f);
         blackcat.SetActive(false);
-        //”LSE
+        //ï¿½LSE
         SoundManager.Instance.Play_SE(0, 2);
         backcat.SetActive(true);
         yield return new WaitForSeconds(2.5f);
@@ -154,54 +165,54 @@ public class TextMove : MonoBehaviour
         StartCoroutine("Buttons");
         
     }
-    //ƒtƒF[ƒY‚P‚Ìê‡
+    //ï¿½tï¿½Fï¿½[ï¿½Yï¿½Pï¿½Ìê‡
     void phese1()
     {
         StartCoroutine("CatSound");
     }
-    //ƒtƒF[ƒY‚Q‚Ìê‡
+    //ï¿½tï¿½Fï¿½[ï¿½Yï¿½Qï¿½Ìê‡
     void phese2()
     {
         StartCoroutine("LittleCat");
 
     }
-    //ƒtƒF[ƒY‚R‚Ìê‡
+    //ï¿½tï¿½Fï¿½[ï¿½Yï¿½Rï¿½Ìê‡
     void phese3()
     {
-        //‚à‚µisback‚ªƒIƒ“‚É‚È‚Á‚½‚ç
+        //ï¿½ï¿½ï¿½isbackï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½É‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½
         if (isback != true)
         {
-            //”L‚ð”ñ•\Ž¦
+            //ï¿½Lï¿½ï¿½ï¿½\ï¿½ï¿½
             cat.SetActive(false);
             StartCoroutine("Cat");
         }
-        //‚Ù‚©
+        //ï¿½Ù‚ï¿½
         else
         {
-            //”L”ñ•\Ž¦‚³‚¹‚é
+            //ï¿½Lï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             cat.SetActive(false);
         }
     }
-    //ƒtƒF[ƒY‚S‚Ìê‡
+    //ï¿½tï¿½Fï¿½[ï¿½Yï¿½Sï¿½Ìê‡
     void phese4()
     {
-        //‚à‚µ•”L‚ª•\Ž¦‚³‚¹‚½ê‡
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡
         if (blackcat.activeInHierarchy)
         {
-            //ƒXƒNƒ[ƒ‹ƒo[‚ðŒ¸‚ç‚·
+            //ï¿½Xï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½oï¿½[ï¿½ï¿½ï¿½ï¿½ç‚·
            // StartCoroutine(Bar());
         }
-        //•”L‚ð”ñ•\Ž¦‚³‚¹‚é
+        //ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         blackcat.SetActive(false);
         //
         
     }
-    //ƒtƒF[ƒY‚T‚Ìê‡
+    //ï¿½tï¿½Fï¿½[ï¿½Yï¿½Tï¿½Ìê‡
     void phese5()
     {
-        //ƒ{ƒ^ƒ“‚ð”ñ•\Ž¦‚³‚¹‚é
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         bt.interactable = false;
-        //‚Q•bŒã‚ÉstartƒV[ƒ“‚É‘JˆÚ‚·‚é
+        //ï¿½Qï¿½bï¿½ï¿½ï¿½startï¿½Vï¿½[ï¿½ï¿½ï¿½É‘Jï¿½Ú‚ï¿½ï¿½ï¿½
         FadeManager.Instance.LoadScene("Start", 2.0f);
         
     }
