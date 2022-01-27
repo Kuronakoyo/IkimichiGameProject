@@ -485,7 +485,7 @@ public class MainControl : MonoBehaviour
             }
         }
         //‚±‚±‚Í2“ú–Ú‚ÌƒV[ƒ“‚Ì–¼‘O
-        if (current.name == "SecondScene")
+        if (current.name == "Day2")
         {
             foreach (GameObject obj in GameObjectsTohidden)
             {

@@ -13,8 +13,7 @@ public class Textday4 : MonoBehaviour
     [SerializeField]
     GameObject panel;
     [SerializeField]
-    GameObject Mbbutton;
-    public GameObject ENDbutton;
+    GameObject san;
     public GameObject mbbtnday4;
     private bool istextview = false;
     private int textcount = 0;
@@ -42,6 +41,7 @@ public class Textday4 : MonoBehaviour
     {
         panel.SetActive(false);
         mbbtnday4.SetActive(true);
+        san.SetActive(true);
     }
     IEnumerator TextSet()
     {

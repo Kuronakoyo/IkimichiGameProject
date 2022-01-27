@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MoveBtnDay3 : MonoBehaviour
 {
+    
     [SerializeField, Header("エネミー画像")]
     //UMA
     GameObject _uma;
@@ -35,10 +36,13 @@ public class MoveBtnDay3 : MonoBehaviour
     //moveボタン
     [SerializeField]
     Button _movebtn;
+    [SerializeField]
+    Slider slider;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
+    public SanCount sc;
     private SpriteRenderer _sprite;
-   
+    
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -121,6 +125,12 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //猫の表示 → フェードアウト
         _cat.SetActive(true);
+        sc.cats();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.02f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1.5秒後
         yield return new WaitForSeconds(1.5f);
         //ボタン表示
@@ -138,6 +148,12 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //遠目に不審者
         _farSp.SetActive(true);
+        sc.farSP();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.03f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -155,6 +171,12 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //斜め真横に大きめに不審者
         _Sp.SetActive(true);
+        sc.farkunekune();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.04f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         SoundManager.Instance.Play_SE(0, 3);
         //１秒後
         yield return new WaitForSeconds(1.0f);
@@ -173,6 +195,12 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //遠めにくねくね(ぼかし)
         _farkunekune.SetActive(true);
+        sc.farkunekune();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.03f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -190,6 +218,12 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //遠目に一瞬くねくね→一瞬で消える
         _kunekune.SetActive(true);
+        sc.kunekune();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.05f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //0.5秒後
         yield return new WaitForSeconds(0.5f);
         //くねくねを非表示
@@ -207,6 +241,12 @@ public class MoveBtnDay3 : MonoBehaviour
         _movebtn.interactable = false;
         //不審な音を入れる。(SE)
 
+        sc.UmaSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -222,6 +262,12 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //UMA出てきて
         _uma.SetActive(true);
+        sc.Uma();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.1f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //UMAを非表示
@@ -237,6 +283,8 @@ public class MoveBtnDay3 : MonoBehaviour
         _sandstorm.SetActive(true);
         //
         SoundManager.Instance.Play_SE(0, 4);
+        //
+        endbtn.SetActive(true);
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示

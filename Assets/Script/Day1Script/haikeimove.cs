@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Image : MonoBehaviour
+public class haikeimove : MonoBehaviour
 {
-    public GameObject mbbtn;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField]
+    GameObject mbbutton;
+    [SerializeField]
+    GameObject SAN;
     // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
             Destroy(gameObject);
-            mbbtn.SetActive(true);
+            mbbutton.SetActive(true);
+            SAN.SetActive(true);
         }
     }
+    
 }

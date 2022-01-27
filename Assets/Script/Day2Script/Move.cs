@@ -16,7 +16,9 @@ public class Move : MonoBehaviour
     GameObject endbtn;
     [SerializeField]
     Button _movebtn;
-    Enemy _enemy;
+    [SerializeField]
+    private Slider slider;
+    public SanCount sc;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     private SpriteRenderer _sprite;
@@ -108,6 +110,12 @@ public class Move : MonoBehaviour
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         _cat.SetActive(true);
+        sc.cats();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.02f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         _movebtn.interactable = true;
     }
     IEnumerator WhileHandCat()
@@ -121,6 +129,12 @@ public class Move : MonoBehaviour
         //白い手の音
         SoundManager.Instance.Play_SE(0, 4);
         hand.SetActive(true);
+        sc.RedHand();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.05f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         yield return new WaitForSeconds(1.5f);
         Destroy(hand);
         Destroy(_cat);
@@ -130,6 +144,12 @@ public class Move : MonoBehaviour
     {
         //足音
         SoundManager.Instance.Play_SE(0, 1);
+        sc.spSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.Play_SE(0, 2);
@@ -143,10 +163,17 @@ public class Move : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.Play_SE(0, 3);
         _suspiciousPerson.SetActive(true);
+        sc.SP();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.04f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         yield return new WaitForSeconds(13.0f);
         Destroy(_suspiciousPerson);
         Destroy(_movebtn.gameObject);
         endbtn.SetActive(true);
     }
+   
 }
 

@@ -10,19 +10,24 @@ public class TextMove : MonoBehaviour
     private Button bt;
     [SerializeField]
     GameObject panel;
+    [SerializeField]
+    Button Eyebtn;
     public Sprite[] sprites;
     public GameObject cat;
     public GameObject blackcat;
     public GameObject backcat;
     public GameObject sd;
+    public GameObject Sanchi;
     public Slider slider;
     public int movephase = 0;
     private SpriteRenderer _sprite;
     private bool isback = false;
+    public SanCount sc;
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
     }
+   
     public void OnCilick()
     {
         if (movephase >= sprites.Length)
@@ -73,24 +78,16 @@ public class TextMove : MonoBehaviour
                 break;
         }
     }
-    /*
-    //スクロールバー
-    IEnumerator Bar()
-    {
-        for (int i = 0; i <= 100; i++)
-        {
-            //スクロールバーを減らす
-            slider.value -= 0.12f / 100;
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
-    */
     IEnumerator Buttons()
     {
         //足音
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
+        if (Eyebtn.interactable == false)
+        {
+            _sprite.color = new Color32(255, 255, 255, 255);
+        }
         bt.interactable = true;
     }
     IEnumerator CatSound()
@@ -98,17 +95,37 @@ public class TextMove : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
+        if (Eyebtn.interactable == false)
+        {
+            _sprite.color = new Color32(255, 255, 255, 255);
+        }
         bt.interactable = true;
         //猫SE
         SoundManager.Instance.Play_SE(0,0);
+        sc.SE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
     IEnumerator LittleCat()
     {
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
         yield return new WaitForSeconds(1.0f);
+        if (Eyebtn.interactable == false)
+        {
+            _sprite.color = new Color32(255, 255, 255, 255);
+        }
         //黒猫を表示させる
         cat.SetActive(true);
+        sc.cats();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.02f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         bt.interactable = true;
     }
     IEnumerator Cat()
@@ -128,11 +145,14 @@ public class TextMove : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         backcat.SetActive(false);
         Destroy(bt.gameObject);
+        Sanchi.SetActive(false);
         panel.SetActive(true);
     }
     void phese0()
     {
+        
         StartCoroutine("Buttons");
+        
     }
     //フェーズ１の場合
     void phese1()

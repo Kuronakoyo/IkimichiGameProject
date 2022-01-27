@@ -68,7 +68,6 @@
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\Kunekune.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\ChatScroll.cs" />
     <Compile Include="Assets\Script\Day3Script\MoveBtnDay3.cs" />
-    <Compile Include="Assets\Script\Day1Script\Image.cs" />
     <Compile Include="Assets\Script\Day2Script\Move.cs" />
     <Compile Include="Assets\Script\Day2Script\Run.cs" />
     <Compile Include="Assets\Script\Day4Script\MoveBtnDay4.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Assets\Script\Day3Script\CatFadeOut.cs" />
     <Compile Include="Assets\Script\Day1Script\TextC2.cs" />
     <Compile Include="Assets\Script\SceneScript\Scene.cs" />
-    <Compile Include="Assets\Script\Day1Script\SpritManager.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\RandomUMA.cs" />
     <Compile Include="Assets\Script\Day5Script\MoveBtnDay5.cs" />
@@ -94,6 +92,10 @@
     <Compile Include="Assets\Script\Day2Script\button.cs" />
     <Compile Include="Assets\Script\Day2Script\MoveButton.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\MainControl.cs" />
+    <Compile Include="Assets\Script\SANScript\SanCount.cs" />
+    <Compile Include="Assets\Script\Day1Script\haikeimove.cs" />
+    <Compile Include="Assets\Script\Day2Script\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Script\Day1Script\EyebtnManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />

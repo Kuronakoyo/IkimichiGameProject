@@ -27,8 +27,11 @@ public class MoveBtnDay5 : MonoBehaviour
     [SerializeField]
     GameObject _ghostshadow;
 
+    [SerializeField]
+    Slider slider;
     [SerializeField, Header("‰æ‘œƒIƒuƒWƒFƒNƒg")] Sprite[] sprites;
     public int movephase = 0;
+    public SanCount sc;
     private SpriteRenderer _sprite;
     // Start is called before the first frame update
     void Start()
@@ -127,6 +130,12 @@ public class MoveBtnDay5 : MonoBehaviour
         _movebtn.interactable = false;
         //‘–Ø‚ğ‚©‚«•ª‚¯‚éƒKƒTƒKƒT‰¹(SE)
 
+        sc.kusaSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
@@ -142,6 +151,12 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //‰“‚­‚Éˆêu—H—ì‚Ì‰e‚ª‚¤‚Â‚é     /*/ ‰“‚­‚É”z’u  /*/
         _ghostshadow.SetActive(true);
+        sc.Ghostshadow();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.03f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //0.3•bŒã
         yield return new WaitForSeconds(0.3f);
         //—H—ì‚Ì‰e‚ğ”ñ•\¦
@@ -159,6 +174,12 @@ public class MoveBtnDay5 : MonoBehaviour
         _movebtn.interactable = false;
         //ƒJƒ‰ƒX‚Ì‚È‚­º(SE)
         SoundManager.Instance.Play_SE(0, 5);
+        sc.karasuSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
@@ -182,7 +203,13 @@ public class MoveBtnDay5 : MonoBehaviour
         //ƒ{ƒ^ƒ“”ñ•\¦
         _movebtn.interactable = false;
         //—«‚Ìšo‚¤º‚ª¨Œ³‚Å(SE)
-
+        SoundManager.Instance.Play_SE(0, 7);
+        sc.GrilSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
@@ -198,6 +225,12 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //—H—ì‚ªˆêu‰æ–Ê’[‚ÉŒ»‚êA‚·‚®‚ÉÁ‚¦‚é
         _ghost.SetActive(true);
+        sc.Ghostbyo();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //0.3•bŒã
         yield return new WaitForSeconds(0.3f);
         _ghost.SetActive(false);
@@ -231,6 +264,12 @@ public class MoveBtnDay5 : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 6);
         //—H—ìŒã‚ëp‚ªŒ©‚¦‚é
         _ghostback.SetActive(true);
+        sc.Ghost();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.1f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
@@ -248,12 +287,19 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //—H—ì•\¦                              
         _ghostfront.SetActive(true);
+        sc.Ghost();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.1f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
+        //—H—ì”ñ•\¦
+        _ghostfront.SetActive(false);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
-        //—H—ì”ñ•\¦
-        _ghostfront.SetActive(true);
+        endbtn.SetActive(true);
     }
 }
 
