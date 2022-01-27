@@ -15,17 +15,37 @@ public class MoveBtnDay5 : MonoBehaviour
     //—H—ì
     GameObject _ghost;
 
+    //—H—ì‚ÌU‚è•Ô‚è
+    [SerializeField]
+    GameObject _ghostlookback;
+
     //—H—ì‚Ì³–Ê
     [SerializeField]
     GameObject _ghostfront;
 
-    //—H—ì‚ÌŒã‚ëp
+    //—H—ì‚ÌÎŠç
     [SerializeField]
-    GameObject _ghostback;
+    GameObject _ghostsmile;
+
+    //—H—ì‚Ì•–Ú‚ÌÎŠç
+    [SerializeField]
+    GameObject _ghostbracksmile;
+
+    //—H—ì‚Ì³–Ê‚Ì‚Ì‰e
+    [SerializeField]
+    GameObject _ghostfrontshadow;
 
     //—H—ì‚Ì‰e
     [SerializeField]
     GameObject _ghostshadow;
+
+    //—H—ì‚Ì¶ñ
+    [SerializeField]
+    GameObject _ghosthead;
+
+    //BG
+    [SerializeField]
+    GameObject _bg;
 
     [SerializeField, Header("‰æ‘œƒIƒuƒWƒFƒNƒg")] Sprite[] sprites;
     public int movephase = 0;
@@ -143,7 +163,7 @@ public class MoveBtnDay5 : MonoBehaviour
         //‰“‚­‚Éˆêu—H—ì‚Ì‰e‚ª‚¤‚Â‚é     /*/ ‰“‚­‚É”z’u  /*/
         _ghostshadow.SetActive(true);
         //0.3•bŒã
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         //—H—ì‚Ì‰e‚ğ”ñ•\¦
         _ghostshadow.SetActive(false);
         //1•bŒã
@@ -212,7 +232,7 @@ public class MoveBtnDay5 : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 1);
         //ƒ{ƒ^ƒ“”ñ•\¦
         _movebtn.interactable = false;
-        //’¹‹‚È‚É‚à‚È‚µ?
+        //’¹‹‚È‚É‚à‚È‚µ
 
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
@@ -229,31 +249,78 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //‹«“à@’Ê‚è‚á‚ñ‚¹‚ªBGM(SE)
         SoundManager.Instance.Play_SE(0, 6);
-        //—H—ìŒã‚ëp‚ªŒ©‚¦‚é
-        _ghostback.SetActive(true);
+      
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
-        //—H—ìŒã‚ëp‚ğ”ñ•\¦
-        _ghostback.SetActive(false);
+        
     }
-    IEnumerator case10()         /*/ ghostfrot ‚Ì–¼‘O‚Å ‘OŒü‚«‚Ì—H—ì /*/
+    IEnumerator case10()
     {
         //‘«‰¹
         SoundManager.Instance.Play_SE(0, 1);
+
         //ƒ{ƒ^ƒ“”ñ•\¦
         _movebtn.interactable = false;
+
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
-        //—H—ì•\¦                              
-        _ghostfront.SetActive(true);
+
+        // —H—ì³–Ê‚Ì‰e
+        _ghostfrontshadow.SetActive(true);
+
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
-        //ƒ{ƒ^ƒ“•\¦
-        _movebtn.interactable = true;
-        //—H—ì”ñ•\¦
+
+        //—H—ìU‚è•Ô‚é
+        _ghostlookback.SetActive(true);
+
+        // —H—ì³–Ê‚Ì‰e”ñ•\¦
+        _ghostfrontshadow.SetActive(false);
+
+        //1.5•bŒã
+        yield return new WaitForSeconds(1.5f);
+
+         //—H—ì³–Ê‚ğ•\¦
         _ghostfront.SetActive(true);
+
+        //—H—ìU‚è•Ô‚è‚ğÁ‚·
+        _ghostlookback.SetActive(false);
+
+        //3•bŒã
+        yield return new WaitForSeconds(3.0f);
+
+        //—H—ìÎŠç‚ğ•\¦
+        _ghostsmile.SetActive(true);
+
+        //—H—ì³–Ê‚ğ”ñ•\¦
+        _ghostfront.SetActive(false);
+
+        //1.5•bŒã
+        yield return new WaitForSeconds(1.5f);
+
+        //—H—ì‚Å•–ÚÎŠç‚ğ•\¦
+        _ghostbracksmile.SetActive(true);
+
+        //—H—ìÎŠç‚ğ”ñ•\¦
+        _ghostsmile.SetActive(false);
+
+        //4•bŒã
+        yield return new WaitForSeconds(4.0f);
+
+        //BG‚ğ^‚Á•‚É(UIíœ‚ª‚í‚©‚ç‚È‚©‚Á‚½‚½‚ß)
+        _bg.SetActive(true);
+
+        //—H—ì‚Å•–ÚÎŠç‚ğ”ñ•\¦
+        _ghostbracksmile.SetActive(false);
+
+        //10•bŒã
+        yield return new WaitForSeconds(10f);
+
+        //—H—ì‚Ì¶ñ•\¦
+        _ghosthead.SetActive(true);
+
     }
 }
 
