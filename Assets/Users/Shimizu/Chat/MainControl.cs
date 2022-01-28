@@ -93,9 +93,9 @@ public class MainControl : MonoBehaviour
     }
     public void ChatButton()
     {
+        
         Vector3 pos = positionB.transform.localPosition;
         Debug.Log("chat");
-        SoundManager.Instance.Play_SE(0, 0);
         if (ChatScenecount == 0)
         {
             button1.SetActive(false);

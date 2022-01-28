@@ -10517,57 +10517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4573d5227ee0743a64ec7318f9a8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  child1: {fileID: 1129429763}
-  child2: {fileID: 355000362}
-  child3: {fileID: 586784115}
-  child4: {fileID: 1654693702}
-  child5: {fileID: 213243832}
-  child6: {fileID: 1560331333}
-  child7: {fileID: 365664966}
-  child8: {fileID: 843838024}
-  child9: {fileID: 1263879153}
-  child10: {fileID: 312348340}
-  child11: {fileID: 439539016}
-  child12: {fileID: 452952343}
-  child13: {fileID: 2024200380}
-  child14: {fileID: 172341638}
-  child15: {fileID: 97611789}
-  child16: {fileID: 1589432610}
-  child17: {fileID: 1521915651}
-  child18: {fileID: 985100334}
-  child19: {fileID: 631720422}
-  child20: {fileID: 45093914}
-  child21: {fileID: 1399833612}
-  child22: {fileID: 105025819}
-  child23: {fileID: 850402080}
-  child24: {fileID: 1425010683}
-  child25: {fileID: 863272332}
-  child26: {fileID: 791114845}
-  child27: {fileID: 832348877}
-  child28: {fileID: 1513046821}
-  child29: {fileID: 852412670}
-  child30: {fileID: 874469431}
-  child31: {fileID: 212596519}
-  child32: {fileID: 1659946373}
-  child33: {fileID: 1309043310}
-  child34: {fileID: 1575020881}
-  child35: {fileID: 785400709}
-  child36: {fileID: 1730627237}
-  child37: {fileID: 1146954234}
-  child38: {fileID: 128159040}
-  child39: {fileID: 151808821}
-  child40: {fileID: 312098378}
-  child41: {fileID: 2069214358}
-  child42: {fileID: 1998615466}
-  child43: {fileID: 120961206}
-  child44: {fileID: 210814354}
-  child45: {fileID: 487664023}
-  child46: {fileID: 1665869493}
-  child47: {fileID: 1084523039}
-  child48: {fileID: 1285950291}
-  child49: {fileID: 647520870}
-  child50: {fileID: 680180161}
 --- !u!1 &749269525
 GameObject:
   m_ObjectHideFlags: 0

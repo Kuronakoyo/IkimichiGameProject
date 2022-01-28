@@ -6,49 +6,39 @@ using UnityEngine.UI;
 public class MoveBtnDay5 : MonoBehaviour
 {
     [SerializeField]
+    GameObject movebutton;
+    [SerializeField]
+    GameObject panel;
+    [SerializeField]
+    GameObject san;
+    [SerializeField]
     GameObject endbtn;
     [SerializeField]
     Button _movebtn;
+
 
     [SerializeField, Header("ƒGƒlƒ~[‰æ‘œ")]
  
     //—H—ì
     GameObject _ghost;
 
-    //—H—ì‚ÌU‚è•Ô‚è
-    [SerializeField]
-    GameObject _ghostlookback;
-
     //—H—ì‚Ì³–Ê
     [SerializeField]
     GameObject _ghostfront;
 
-    //—H—ì‚ÌÎŠç
+    //—H—ì‚ÌŒã‚ëp
     [SerializeField]
-    GameObject _ghostsmile;
-
-    //—H—ì‚Ì•–Ú‚ÌÎŠç
-    [SerializeField]
-    GameObject _ghostbracksmile;
-
-    //—H—ì‚Ì³–Ê‚Ì‚Ì‰e
-    [SerializeField]
-    GameObject _ghostfrontshadow;
+    GameObject _ghostback;
 
     //—H—ì‚Ì‰e
     [SerializeField]
     GameObject _ghostshadow;
 
-    //—H—ì‚Ì¶ñ
     [SerializeField]
-    GameObject _ghosthead;
-
-    //BG
-    [SerializeField]
-    GameObject _bg;
-
+    Slider slider;
     [SerializeField, Header("‰æ‘œƒIƒuƒWƒFƒNƒg")] Sprite[] sprites;
     public int movephase = 0;
+    public SanCount sc;
     private SpriteRenderer _sprite;
     // Start is called before the first frame update
     void Start()
@@ -136,6 +126,9 @@ public class MoveBtnDay5 : MonoBehaviour
         _movebtn.interactable = false;
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
     }
@@ -146,9 +139,18 @@ public class MoveBtnDay5 : MonoBehaviour
         //ƒ{ƒ^ƒ“”ñ•\¦
         _movebtn.interactable = false;
         //‘–Ø‚ğ‚©‚«•ª‚¯‚éƒKƒTƒKƒT‰¹(SE)
-
+        SoundManager.Instance.Play_SE(0, 8);
+        sc.kusaSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
     }
@@ -162,12 +164,21 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //‰“‚­‚Éˆêu—H—ì‚Ì‰e‚ª‚¤‚Â‚é     /*/ ‰“‚­‚É”z’u  /*/
         _ghostshadow.SetActive(true);
+        sc.Ghostshadow();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.03f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //0.3•bŒã
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         //—H—ì‚Ì‰e‚ğ”ñ•\¦
         _ghostshadow.SetActive(false);
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
     }
@@ -179,8 +190,17 @@ public class MoveBtnDay5 : MonoBehaviour
         _movebtn.interactable = false;
         //ƒJƒ‰ƒX‚Ì‚È‚­º(SE)
         SoundManager.Instance.Play_SE(0, 5);
+        sc.karasuSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
     }
@@ -202,7 +222,13 @@ public class MoveBtnDay5 : MonoBehaviour
         //ƒ{ƒ^ƒ“”ñ•\¦
         _movebtn.interactable = false;
         //—«‚Ìšo‚¤º‚ª¨Œ³‚Å(SE)
-
+        SoundManager.Instance.Play_SE(0, 7);
+        sc.GrilSE();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
@@ -218,6 +244,12 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //—H—ì‚ªˆêu‰æ–Ê’[‚ÉŒ»‚êA‚·‚®‚ÉÁ‚¦‚é
         _ghost.SetActive(true);
+        sc.Ghostbyo();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //0.3•bŒã
         yield return new WaitForSeconds(0.3f);
         _ghost.SetActive(false);
@@ -232,7 +264,7 @@ public class MoveBtnDay5 : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 1);
         //ƒ{ƒ^ƒ“”ñ•\¦
         _movebtn.interactable = false;
-        //’¹‹‚È‚É‚à‚È‚µ
+        //’¹‹‚È‚É‚à‚È‚µ?
 
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
@@ -249,78 +281,43 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //‹«“à@’Ê‚è‚á‚ñ‚¹‚ªBGM(SE)
         SoundManager.Instance.Play_SE(0, 6);
-      
+        //—H—ìŒã‚ëp‚ªŒ©‚¦‚é
+        _ghostback.SetActive(true);
+        sc.Ghost();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.1f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
-        
+        //—H—ìŒã‚ëp‚ğ”ñ•\¦
+        _ghostback.SetActive(false);
     }
-    IEnumerator case10()
+    IEnumerator case10()         /*/ ghostfrot ‚Ì–¼‘O‚Å ‘OŒü‚«‚Ì—H—ì /*/
     {
         //‘«‰¹
         SoundManager.Instance.Play_SE(0, 1);
-
         //ƒ{ƒ^ƒ“”ñ•\¦
         _movebtn.interactable = false;
-
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
-
-        // —H—ì³–Ê‚Ì‰e
-        _ghostfrontshadow.SetActive(true);
-
-        //1•bŒã
-        yield return new WaitForSeconds(1.0f);
-
-        //—H—ìU‚è•Ô‚é
-        _ghostlookback.SetActive(true);
-
-        // —H—ì³–Ê‚Ì‰e”ñ•\¦
-        _ghostfrontshadow.SetActive(false);
-
-        //1.5•bŒã
-        yield return new WaitForSeconds(1.5f);
-
-         //—H—ì³–Ê‚ğ•\¦
+        //—H—ì•\¦                              
         _ghostfront.SetActive(true);
-
-        //—H—ìU‚è•Ô‚è‚ğÁ‚·
-        _ghostlookback.SetActive(false);
-
-        //3•bŒã
-        yield return new WaitForSeconds(3.0f);
-
-        //—H—ìÎŠç‚ğ•\¦
-        _ghostsmile.SetActive(true);
-
-        //—H—ì³–Ê‚ğ”ñ•\¦
+        sc.Ghost();
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.1f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
+        //1•bŒã
+        yield return new WaitForSeconds(1.0f);
+        //—H—ì”ñ•\¦
         _ghostfront.SetActive(false);
-
-        //1.5•bŒã
-        yield return new WaitForSeconds(1.5f);
-
-        //—H—ì‚Å•–ÚÎŠç‚ğ•\¦
-        _ghostbracksmile.SetActive(true);
-
-        //—H—ìÎŠç‚ğ”ñ•\¦
-        _ghostsmile.SetActive(false);
-
-        //4•bŒã
-        yield return new WaitForSeconds(4.0f);
-
-        //BG‚ğ^‚Á•‚É(UIíœ‚ª‚í‚©‚ç‚È‚©‚Á‚½‚½‚ß)
-        _bg.SetActive(true);
-
-        //—H—ì‚Å•–ÚÎŠç‚ğ”ñ•\¦
-        _ghostbracksmile.SetActive(false);
-
-        //10•bŒã
-        yield return new WaitForSeconds(10f);
-
-        //—H—ì‚Ì¶ñ•\¦
-        _ghosthead.SetActive(true);
-
+        //ƒ{ƒ^ƒ“•\¦
+        endbtn.SetActive(true);
     }
 }
 

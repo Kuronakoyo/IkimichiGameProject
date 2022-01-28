@@ -37,6 +37,12 @@ public class MoveBtnDay3 : MonoBehaviour
     [SerializeField]
     Button _movebtn;
     [SerializeField]
+    GameObject movebutton;
+    [SerializeField]
+    GameObject san;
+    [SerializeField]
+    GameObject panel;
+    [SerializeField]
     Slider slider;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
@@ -203,10 +209,15 @@ public class MoveBtnDay3 : MonoBehaviour
         }
         //１秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
+        
         //遠めにくねくね(ぼかし)を非表示
         _farkunekune.SetActive(false);//(消していい)
+
     }
     IEnumerator case5()
     {

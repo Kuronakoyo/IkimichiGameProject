@@ -8,6 +8,10 @@ public class MoveBtnDay4 : MonoBehaviour
     [SerializeField]
     GameObject _panal;
     [SerializeField]
+    GameObject _panal2;
+    [SerializeField]
+    GameObject movebutton;
+    [SerializeField]
     GameObject endbtn;
     [SerializeField]
     Button _movebtn;
@@ -171,6 +175,7 @@ public class MoveBtnDay4 : MonoBehaviour
         }
         //１秒後
         yield return new WaitForSeconds(1.0f);
+    
         //遠めにくねくね(ぼかし)を非表示
         _farkunekune.SetActive(false);//(消していい)
         //ボタン表示
@@ -191,6 +196,9 @@ public class MoveBtnDay4 : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         //とりあえず非表示
         _kunekune.SetActive(false);//(消していい)
+        movebutton.SetActive(false);
+        _san.SetActive(false);
+        _panal2.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
 
