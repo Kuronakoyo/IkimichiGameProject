@@ -144,7 +144,7 @@ public class MoveBtnDay4 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //猫の表示 → フェードアウト
         _cat.SetActive(true);
-        sc.cats();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.02f / 80;
@@ -167,7 +167,7 @@ public class MoveBtnDay4 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //すごい遠めにくねくね(ぼかし)
         _farkunekune.SetActive(true);
-        sc.farkunekune();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.03f / 80;
@@ -229,7 +229,7 @@ public class MoveBtnDay4 : MonoBehaviour
         //遠目に幽霊
         _farghost.SetActive(true);
         Debug.Log("2");
-        sc.Ghost();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghost);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.1f / 80;

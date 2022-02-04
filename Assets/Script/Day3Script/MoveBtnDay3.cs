@@ -131,7 +131,7 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //猫の表示 → フェードアウト
         _cat.SetActive(true);
-        sc.cats();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.02f / 80;
@@ -154,7 +154,7 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //遠目に不審者
         _farSp.SetActive(true);
-        sc.farSP();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.farSP);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.03f / 80;
@@ -177,7 +177,7 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //斜め真横に大きめに不審者
         _Sp.SetActive(true);
-        sc.farkunekune();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.04f / 80;
@@ -201,7 +201,7 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //遠めにくねくね(ぼかし)
         _farkunekune.SetActive(true);
-        sc.farkunekune();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.03f / 80;
@@ -229,7 +229,7 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //遠目に一瞬くねくね→一瞬で消える
         _kunekune.SetActive(true);
-        sc.kunekune();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.kunekune);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.05f / 80;
@@ -252,7 +252,7 @@ public class MoveBtnDay3 : MonoBehaviour
         _movebtn.interactable = false;
         //不審な音を入れる。(SE)
 
-        sc.UmaSE();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.UmaSE);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.01f / 80;
@@ -273,7 +273,7 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //UMA出てきて
         _uma.SetActive(true);
-        sc.Uma();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.Uma);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.1f / 80;

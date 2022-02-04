@@ -6,9 +6,17 @@ using UnityEngine.UI;
 public class MoveBtnDay5 : MonoBehaviour
 {
     [SerializeField]
+    GameObject movebutton;
+    [SerializeField]
+    GameObject panel;
+    [SerializeField]
+    GameObject san;
+    [SerializeField]
     GameObject endbtn;
     [SerializeField]
     Button _movebtn;
+    [SerializeField]
+    Slider slider;
 
     [SerializeField, Header("エネミー画像")]
  
@@ -49,6 +57,7 @@ public class MoveBtnDay5 : MonoBehaviour
 
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
+    public SanCount sc;
     private SpriteRenderer _sprite;
     // Start is called before the first frame update
     void Start()
@@ -136,6 +145,9 @@ public class MoveBtnDay5 : MonoBehaviour
         _movebtn.interactable = false;
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }
@@ -146,13 +158,22 @@ public class MoveBtnDay5 : MonoBehaviour
         //ボタン非表示
         _movebtn.interactable = false;
         //草木をかき分けるガサガサ音(SE)
-
+        SoundManager.Instance.Play_SE(0, 8);
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.kusaSE);
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }
-    IEnumerator case3()          /*/ ghostshadow の名前で 幽霊の影 /*/
+        IEnumerator case3()          /*/ ghostshadow の名前で 幽霊の影 /*/
     {
         //足音
         SoundManager.Instance.Play_SE(0, 1);
@@ -162,12 +183,21 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //遠くに一瞬幽霊の影がうつる     /*/ 遠くに配置  /*/
         _ghostshadow.SetActive(true);
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostshadow);
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.03f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //0.3秒後
         yield return new WaitForSeconds(0.5f);
         //幽霊の影を非表示
         _ghostshadow.SetActive(false);
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }
@@ -179,8 +209,17 @@ public class MoveBtnDay5 : MonoBehaviour
         _movebtn.interactable = false;
         //カラスのなく声(SE)
         SoundManager.Instance.Play_SE(0, 5);
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.karasuSE);
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        movebutton.SetActive(false);
+        san.SetActive(false);
+        panel.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;
     }
@@ -202,7 +241,13 @@ public class MoveBtnDay5 : MonoBehaviour
         //ボタン非表示
         _movebtn.interactable = false;
         //女性の嗤う声が耳元で(SE)
-
+        SoundManager.Instance.Play_SE(0, 7);
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.GrilSE);
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -218,6 +263,12 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //幽霊が一瞬画面端に現れ、すぐに消える
         _ghost.SetActive(true);
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostbyo);
+        for (int i = 0; i <= 80; i++)
+        {
+            slider.value -= 0.01f / 80;
+            yield return new WaitForSeconds(0.01f);
+        }
         //0.3秒後
         yield return new WaitForSeconds(0.3f);
         _ghost.SetActive(false);
@@ -320,7 +371,10 @@ public class MoveBtnDay5 : MonoBehaviour
 
         //幽霊の生首表示
         _ghosthead.SetActive(true);
-
+        //10秒後
+        yield return new WaitForSeconds(3f);
+        //ボタン表示
+        endbtn.SetActive(true);
     }
 }
 

@@ -3019,13 +3019,15 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 75
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: '
+
+'
 --- !u!222 &1609398048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3050,7 +3052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213, y: -841}
+  m_AnchoredPosition: {x: 217, y: -845}
   m_SizeDelta: {x: 91.22, y: 88.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1654637394
@@ -3210,8 +3212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreSlider: {fileID: 1320841697}
-  score_object: {fileID: 1609398046}
-  score_num: 80
+  _scoreObjectText: {fileID: 1609398047}
 --- !u!4 &1727272046
 Transform:
   m_ObjectHideFlags: 0

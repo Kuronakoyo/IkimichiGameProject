@@ -120,7 +120,7 @@ public class Move : MonoBehaviour
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         _cat.SetActive(true);
-        sc.cats();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.02f / 80;
@@ -138,7 +138,7 @@ public class Move : MonoBehaviour
         //”’‚¢Žè‚Ì‰¹
         SoundManager.Instance.Play_SE(0, 4);
         hand.SetActive(true);
-        sc.RedHand();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.RedHand);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.05f / 80;
@@ -154,7 +154,7 @@ public class Move : MonoBehaviour
     {
         //‘«‰¹
         SoundManager.Instance.Play_SE(0, 1);
-        sc.spSE();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.spSE);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.01f / 80;
@@ -176,7 +176,7 @@ public class Move : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.Play_SE(0, 3);
         _suspiciousPerson.SetActive(true);
-        sc.SP();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.SP);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.04f / 80;

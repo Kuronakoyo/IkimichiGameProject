@@ -7,135 +7,61 @@ using System;
 
 public class SanCount : MonoBehaviour
 {
-    
+
+    [SerializeField]
+    private Dictionary<CommonGameDataModel.SanSubParam, int> _sanSubTable = new Dictionary<CommonGameDataModel.SanSubParam, int>()
+    {
+        {CommonGameDataModel.SanSubParam.Normal, 1},
+        {CommonGameDataModel.SanSubParam.cats, 2},
+        {CommonGameDataModel.SanSubParam.RedHand, 5},
+        {CommonGameDataModel.SanSubParam.spSE, 1},
+        {CommonGameDataModel.SanSubParam.SP, 4},
+        {CommonGameDataModel.SanSubParam.farSP, 3},
+        {CommonGameDataModel.SanSubParam.farkunekune, 3},
+        {CommonGameDataModel.SanSubParam.kunekune, 5},
+        {CommonGameDataModel.SanSubParam.UmaSE, 1},
+        {CommonGameDataModel.SanSubParam.Uma, 10},
+        {CommonGameDataModel.SanSubParam.Ghost, 10},
+        {CommonGameDataModel.SanSubParam.kusaSE, 1},
+        {CommonGameDataModel.SanSubParam.Ghostshadow, 3},
+        {CommonGameDataModel.SanSubParam.karasuSE, 1},
+        {CommonGameDataModel.SanSubParam.GrilSE, 1},
+        {CommonGameDataModel.SanSubParam.Ghostbyo, 2},
+    };
+
     public Slider scoreSlider;
-    public GameObject score_object = null; //テキストオブジェクト
-    public int score_num = 0;//スコア変数
-   
+    // public        GameObject score_object     = null; //テキストオブジェクト
+    [SerializeField]
+    private Text _scoreObjectText = null;
+    private const int _maxSanScore = 80;
+
     // Start is called before the first frame update
     void Start()
     {
+        // _scoreObjectText = score_object.GetComponent<Text>();
 
-        
         if (SceneManager.GetActiveScene().name == "Day1")
         {
-            score_num = 80;
+            CommonGameDataModel.SetSanScore(_scoreObjectText, _maxSanScore);
         }
-        
-        if(SceneManager.GetActiveScene().name == "Day2")
+        else
         {
-            // スコアのロード
-            score_num = PlayerPrefs.GetInt("SCORE", 0);
-            scoreSlider.value = PlayerPrefs.GetFloat("OptionScore",0);
+            CommonGameDataModel.DispSanScore(_scoreObjectText);
         }
-        if (SceneManager.GetActiveScene().name == "Day3")
-        {
-            // スコアのロード
-            score_num = PlayerPrefs.GetInt("SCORE", 0);
-            scoreSlider.value = PlayerPrefs.GetFloat("OptionScore", 0);
-        }
-        if (SceneManager.GetActiveScene().name == "Day4")
-        {
-            // スコアのロード
-            score_num = PlayerPrefs.GetInt("SCORE", 0);
-            scoreSlider.value = PlayerPrefs.GetFloat("OptionScore", 0);
-        }
-        if (SceneManager.GetActiveScene().name == "Day5")
-        {
-            // スコアのロード
-            score_num = PlayerPrefs.GetInt("SCORE", 0);
-            scoreSlider.value = PlayerPrefs.GetFloat("OptionScore", 0);
-        }
-        
-    }
-  
-    // Update is called once per frame
-    void Update()
-    {
-
-        // オブジェクトからTextコンポーネントを取得
-        Text score_text = score_object.GetComponent<Text>();
-        
-        // テキストの表示を入れ替える
-        score_text.text = "" + score_num;
-
-        Save();
-
-
+        // スコアのロード
+        scoreSlider.value = (float)CommonGameDataModel.SanScore / (float)_maxSanScore;
     }
 
- 
-
-    public void Save()
+    // public void Save()
+    // {
+    //     // スコアを保存
+    //     PlayerPrefs.SetInt("SCORE", score_num);
+    //     //
+    //     PlayerPrefs.SetFloat("OptionScore", scoreSlider.value);
+    //     PlayerPrefs.Save();
+    // }
+    public void SubSanScore(CommonGameDataModel.SanSubParam sanSubParam)
     {
-        // スコアを保存
-        PlayerPrefs.SetInt("SCORE", score_num);
-        //
-        PlayerPrefs.SetFloat("OptionScore", scoreSlider.value);
-        PlayerPrefs.Save();
-    }
-    public void SE()
-    {
-        score_num -= 1;
-    }
-    public void cats()
-    {
-        score_num -= 2;
-    }
-    public void RedHand()
-    {
-        score_num -= 5;
-    }
-    public void spSE()
-    {
-        score_num -= 1;
-    }
-    public void SP()
-    {
-        score_num -= 4;
-    }
-    public void farSP()
-    {
-        score_num -= 3;
-    }
-    public void farkunekune()
-    {
-        score_num -= 3;
-    }
-    public void kunekune()
-    {
-        score_num -= 5;
-    }
-    public void UmaSE()
-    {
-        score_num -= 1;
-    }
-    public void Uma()
-    {
-        score_num -= 10;
-    }
-    public void Ghost()
-    {
-        score_num -= 10;
-    }
-    public void kusaSE()
-    {
-        score_num -= 1;
-    }
-    public void Ghostshadow()
-    {
-        score_num -= 3;
-    }
-    public void karasuSE()
-    {
-        score_num -= 1;
-    }
-    public void GrilSE()
-    {
-        score_num -= 1;
-    }
-    public void Ghostbyo()
-    {
-        score_num -= 2;
+        CommonGameDataModel.SubSanScore(_scoreObjectText, _sanSubTable[sanSubParam]);
     }
 }

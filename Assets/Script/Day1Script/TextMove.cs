@@ -106,7 +106,7 @@ public class TextMove : MonoBehaviour
         bt.interactable = true;
         //�LSE
         SoundManager.Instance.Play_SE(0,0);
-        sc.SE();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.Normal);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.01f / 80;
@@ -133,7 +133,7 @@ public class TextMove : MonoBehaviour
         }
         //���L��\��������
         cat.SetActive(true);
-        sc.cats();
+        sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.02f / 80;

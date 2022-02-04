@@ -1954,8 +1954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreSlider: {fileID: 2001869690}
-  score_object: {fileID: 102561876}
-  score_num: 80
+  _scoreObjectText: {fileID: 102561878}
 --- !u!4 &1294296575
 Transform:
   m_ObjectHideFlags: 0
