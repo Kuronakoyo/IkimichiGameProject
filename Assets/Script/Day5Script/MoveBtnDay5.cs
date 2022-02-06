@@ -373,6 +373,9 @@ public class MoveBtnDay5 : MonoBehaviour
         _ghosthead.SetActive(true);
         //10秒後
         yield return new WaitForSeconds(3f);
+
+        //幽霊の生首表示
+        _ghosthead.SetActive(false);
         //ボタン表示
         endbtn.SetActive(true);
     }

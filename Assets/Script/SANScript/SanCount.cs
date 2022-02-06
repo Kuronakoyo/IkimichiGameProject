@@ -33,23 +33,13 @@ public class SanCount : MonoBehaviour
     // public        GameObject score_object     = null; //テキストオブジェクト
     [SerializeField]
     private Text _scoreObjectText = null;
-    private const int _maxSanScore = 80;
 
     // Start is called before the first frame update
     void Start()
     {
-        // _scoreObjectText = score_object.GetComponent<Text>();
-
-        if (SceneManager.GetActiveScene().name == "Day1")
-        {
-            CommonGameDataModel.SetSanScore(_scoreObjectText, _maxSanScore);
-        }
-        else
-        {
-            CommonGameDataModel.DispSanScore(_scoreObjectText);
-        }
+        CommonGameDataModel.DispSanScore(_scoreObjectText);
         // スコアのロード
-        scoreSlider.value = (float)CommonGameDataModel.SanScore / (float)_maxSanScore;
+        scoreSlider.value = CommonGameDataModel.GetSanSlider();
     }
 
     // public void Save()

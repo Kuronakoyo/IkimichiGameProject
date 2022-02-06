@@ -28,12 +28,24 @@ public class CommonGameDataModel
     //  SAN値
     public static int SanScore { get; private set; } = 0;
 
+    private const int _maxSanScore = 80;
+
+    public static void SetSanInitial()
+    {
+        SanScore = _maxSanScore;
+    }
+
+    public static float GetSanSlider()
+    {
+        return ((float)SanScore / (float)_maxSanScore);
+    }
+
     //  SAN値設定
     public static void SetSanScore(Text text, int sanScore)
     {
         if (null == text)
             return;
-        SanScore  = sanScore;
+        SanScore = sanScore;
         text.text = sanScore.ToString();
     }
 
