@@ -23,7 +23,7 @@ public class EyebtnManager : MonoBehaviour
     public void Click()
     {
         _button.interactable = false;
-        _spite.color =new Color32(0, 0, 0, 255);
+        
     }
 
 }

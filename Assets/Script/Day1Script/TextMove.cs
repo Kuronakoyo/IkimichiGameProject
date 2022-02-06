@@ -102,6 +102,7 @@ public class TextMove : MonoBehaviour
         if (Eyebtn.interactable == false)
         {
             _sprite.color = new Color32(255, 255, 255, 255);
+            
         }
         bt.interactable = true;
         //�LSE
@@ -126,11 +127,15 @@ public class TextMove : MonoBehaviour
     {
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
         if (Eyebtn.interactable == false)
         {
+            _sprite.color = new Color32(0, 0, 0, 255);
+            yield return new WaitForSeconds(1.0f);
+            
             _sprite.color = new Color32(255, 255, 255, 255);
+
         }
+        yield return new WaitForSeconds(1.0f);
         //���L��\��������
         cat.SetActive(true);
         sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);

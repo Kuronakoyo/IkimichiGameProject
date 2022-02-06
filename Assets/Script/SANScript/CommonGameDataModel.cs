@@ -45,6 +45,10 @@ public class CommonGameDataModel
     {
         if (null == text)
             return;
+        if(_maxSanScore <=0)
+        {
+           
+        }
         SanScore = sanScore;
         text.text = sanScore.ToString();
     }

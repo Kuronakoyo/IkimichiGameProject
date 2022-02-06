@@ -30,7 +30,6 @@ public class SanCount : MonoBehaviour
     };
 
     public Slider scoreSlider;
-    // public        GameObject score_object     = null; //テキストオブジェクト
     [SerializeField]
     private Text _scoreObjectText = null;
 
@@ -42,14 +41,6 @@ public class SanCount : MonoBehaviour
         scoreSlider.value = CommonGameDataModel.GetSanSlider();
     }
 
-    // public void Save()
-    // {
-    //     // スコアを保存
-    //     PlayerPrefs.SetInt("SCORE", score_num);
-    //     //
-    //     PlayerPrefs.SetFloat("OptionScore", scoreSlider.value);
-    //     PlayerPrefs.Save();
-    // }
     public void SubSanScore(CommonGameDataModel.SanSubParam sanSubParam)
     {
         CommonGameDataModel.SubSanScore(_scoreObjectText, _sanSubTable[sanSubParam]);
