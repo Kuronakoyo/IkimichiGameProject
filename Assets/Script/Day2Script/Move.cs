@@ -25,18 +25,23 @@ public class Move : MonoBehaviour
     [SerializeField]
     GameObject endbtn;
     [SerializeField]
+    Button Eyebtn;
+    [SerializeField]
     Button _movebtn;
     [SerializeField]
     private Slider slider;
+    [SerializeField]
+    private EyebtnManager _eyebtnManager = null;
     public SanCount sc;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     private SpriteRenderer _sprite;
-    
+    private List<string> _coroutineTable = new List<string>() { "CatView", "WhileHandCat", "Spwara", "SpView" };
     // Start is called before the first frame update
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+        _eyebtnManager.Setup();
     }
 
     // Update is called once per frame
@@ -70,117 +75,128 @@ public class Move : MonoBehaviour
             gameObject.transform.localScale = Vector3.one;
             _sprite.sprite = sprites[movephase];
             movephase++;
+            if (1 <= movephase || movephase <= 5)
+                StartCoroutine(_coroutineTable[movephase - 1]);
+            else
+                _movebtn.interactable = true;
+            if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+            {
+                _sprite.color = Color.white;
+                _eyebtnManager.SetClickOnce();
+            }
         });
-        Debug.Log(movephase);
+       
+        //足音
+        SoundManager.Instance.Play_SE(0, 1);
+        _movebtn.interactable = false;
 
-        Phese(movephase);
+        if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+        {
+            _sprite.color = Color.black;
+        }
     }
 
     /// <summary>
     /// Phese管理の関数
     /// </summary>
     /// <param name="pheseNum">Pheseの値</param>
-    void Phese(int pheseNum)
-    {
-        switch (pheseNum)
-        {
-            case 0:
-                StartCoroutine("Buttons");
-                break;
-            case 1:
-                StartCoroutine("CatView");
-                break;
-            case 2:
-                StartCoroutine("WhileHandCat");
-                break;
-            case 3:
-                StartCoroutine("Spwara");
-                break;
-            case 4:
-                StartCoroutine("SpView");
-                break;
-            default:
-                Debug.LogError("MovePheseの値が見つかりません");
-                break;
-        }
-    }
+   
     IEnumerator Buttons()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
         yield return new WaitForSeconds(1.0f);
         _movebtn.interactable = true;
     }
     IEnumerator CatView()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
         SoundManager.Instance.Play_SE(0, 0);
-        _movebtn.interactable = false;
-        yield return new WaitForSeconds(1.0f);
         _cat.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.02f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
         }
+        else
+        {
+            _cat.SetActive(false);
+            _movebtn.interactable = false;
+            yield return new WaitForSeconds(1.0f);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.02f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+           
+        }
+        yield return new WaitForSeconds(1.0f);
         _movebtn.interactable = true;
+        _cat.SetActive(false);
     }
     IEnumerator WhileHandCat()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        _movebtn.interactable = false;
         _cat.SetActive(false);
-        yield return new WaitForSeconds(1.0f);
-        //白い手の音
-        SoundManager.Instance.Play_SE(0, 4);
-        hand.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.RedHand);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.05f / 80;
-            yield return new WaitForSeconds(0.01f);
+            //白い手の音
+            SoundManager.Instance.Play_SE(0, 4);
+            hand.SetActive(true);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.RedHand);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1.0f);
+            //白い手の音
+            SoundManager.Instance.Play_SE(0, 4);
+            hand.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.05f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         yield return new WaitForSeconds(1.5f);
-        _movebtn.interactable = true;
         Destroy(hand);
         Destroy(_cat);
-        
+        _movebtn.interactable = true;
     }
     IEnumerator Spwara()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.spSE);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
+            SoundManager.Instance.Play_SE(0, 2);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.spSE);
         }
-        _movebtn.interactable = false;
-        SoundManager.Instance.Play_SE(0, 2);
+        else
+        {
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+            _movebtn.interactable = false;
+            SoundManager.Instance.Play_SE(0, 2);
+        }
         yield return new WaitForSeconds(2.0f);
         san.SetActive(false);
         movebutton.SetActive(false);
         panal1.SetActive(true);
+        Eyebtn.interactable =false;
         _movebtn.interactable = true;
+        
+        
     }
     IEnumerator SpView()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        _movebtn.interactable = false;
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.SP);
+        }
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.Play_SE(0, 3);
         _suspiciousPerson.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.SP);
         for (int i = 0; i <= 80; i++)
         {
-            slider.value -= 0.04f / 80;
-            yield return new WaitForSeconds(0.01f);
+           slider.value -= 0.04f / 80;
+           yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(13.0f);
         Destroy(_suspiciousPerson);

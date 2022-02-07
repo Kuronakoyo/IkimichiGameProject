@@ -44,14 +44,19 @@ public class MoveBtnDay3 : MonoBehaviour
     GameObject panel;
     [SerializeField]
     Slider slider;
+    [SerializeField]
+    private EyebtnManager _eyebtnManager = null;
+    [SerializeField]
+    Button _eyebtn;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     public SanCount sc;
     private SpriteRenderer _sprite;
-    
+    private List<string> _coroutineTable = new List<string>() { "case1", "case2", "case3", "case4", "case5", "case6", "case7" };
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+        _eyebtnManager.Setup();
     }
     public void moveclick()
     {
@@ -78,64 +83,42 @@ public class MoveBtnDay3 : MonoBehaviour
             gameObject.transform.localScale = Vector3.one;
             _sprite.sprite = sprites[movephase];
             movephase++;
+            if (1 <= movephase || movephase <= 7)
+                StartCoroutine(_coroutineTable[movephase - 1]);
+            else
+                _movebtn.interactable = true;
+            if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+            {
+                _sprite.color = Color.white;
+                _eyebtnManager.SetClickOnce();
+            }
         });
-        Debug.Log(movephase);
-
-        Phese(movephase);
-    }
-    void Phese(int pheseNum)
-    {
-        switch (pheseNum)
-        {
-            case 0:
-                StartCoroutine("case1");
-                break;
-            case 1:
-                StartCoroutine("case2");
-                break;
-            case 2:
-                StartCoroutine("case3");
-                break;
-            case 3:
-                StartCoroutine("case4");
-                break;
-            case 4:
-                StartCoroutine("case5");
-                break;
-            case 5:
-                StartCoroutine("case6");
-                break;
-            case 6:
-                StartCoroutine("case7");
-                break;
-            default:
-                Debug.LogError("MovePheseの値が見つかりません");
-                break;
-        }
-    }
-    IEnumerator Buttons()
-    {
         //足音
         SoundManager.Instance.Play_SE(0, 1);
         _movebtn.interactable = false;
-        yield return new WaitForSeconds(1.0f);
-        _movebtn.interactable = true;
+        if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+        {
+            _sprite.color = Color.black;
+        }
+        
     }
+   
     IEnumerator case1()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //猫の表示 → フェードアウト
         _cat.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.02f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
+        }
+        else
+        {
+            _cat.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.02f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         //1.5秒後
         yield return new WaitForSeconds(1.5f);
@@ -146,19 +129,21 @@ public class MoveBtnDay3 : MonoBehaviour
     }
     IEnumerator case2()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //遠目に不審者
         _farSp.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.farSP);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.03f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.farSP);
+        }
+        else
+        {
+            //遠目に不審者
+            _farSp.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.03f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         //１秒後
         yield return new WaitForSeconds(1.0f);
@@ -169,21 +154,23 @@ public class MoveBtnDay3 : MonoBehaviour
     }
     IEnumerator case3()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //斜め真横に大きめに不審者
         _Sp.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.04f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
+            SoundManager.Instance.Play_SE(0, 3);
         }
-        SoundManager.Instance.Play_SE(0, 3);
+        else
+        {
+            _Sp.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.04f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+            SoundManager.Instance.Play_SE(0, 3);
+        }
         //１秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -193,25 +180,29 @@ public class MoveBtnDay3 : MonoBehaviour
     }
     IEnumerator case4()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //遠めにくねくね(ぼかし)
         _farkunekune.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.03f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
+        }
+        else
+        {
+            //遠めにくねくね(ぼかし)
+            _farkunekune.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.03f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         //１秒後
         yield return new WaitForSeconds(1.0f);
         movebutton.SetActive(false);
         san.SetActive(false);
         panel.SetActive(true);
+        //panelSE
+
         //ボタン表示
         _movebtn.interactable = true;
         
@@ -221,19 +212,21 @@ public class MoveBtnDay3 : MonoBehaviour
     }
     IEnumerator case5()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //遠目に一瞬くねくね→一瞬で消える
         _kunekune.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.kunekune);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.05f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.kunekune);
+        }
+        else
+        {
+            //遠目に一瞬くねくね→一瞬で消える
+            _kunekune.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.05f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         //0.5秒後
         yield return new WaitForSeconds(0.5f);
@@ -246,13 +239,12 @@ public class MoveBtnDay3 : MonoBehaviour
     }
     IEnumerator case6()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //不審な音を入れる。(SE)
-
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.UmaSE);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.UmaSE);
+        }
+        
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.01f / 80;
@@ -262,18 +254,16 @@ public class MoveBtnDay3 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
         _movebtn.interactable = true;
+        _eyebtn.interactable = false;
     }
     IEnumerator case7()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //UMA出てきて
         _uma.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.Uma);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.Uma);
+        }
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.1f / 80;

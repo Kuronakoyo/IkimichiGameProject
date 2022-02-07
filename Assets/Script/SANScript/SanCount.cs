@@ -41,8 +41,8 @@ public class SanCount : MonoBehaviour
         scoreSlider.value = CommonGameDataModel.GetSanSlider();
     }
 
-    public void SubSanScore(CommonGameDataModel.SanSubParam sanSubParam)
+    public bool SubSanScore(CommonGameDataModel.SanSubParam sanSubParam)
     {
-        CommonGameDataModel.SubSanScore(_scoreObjectText, _sanSubTable[sanSubParam]);
+        return CommonGameDataModel.SubSanScore(_scoreObjectText, _sanSubTable[sanSubParam]);
     }
 }

@@ -840,7 +840,7 @@ MonoBehaviour:
   bt: {fileID: 1885591469}
   panel: {fileID: 508528306}
   Sanchi: {fileID: 1988663261}
-  Eyebtn: {fileID: 207538452}
+  _eyebtnManager: {fileID: 350278251}
   sprites:
   - {fileID: 21300000, guid: e80d9a5bcb46d1c4d81eafce8158b26d, type: 3}
   - {fileID: 21300000, guid: db282e4707e07e94d8ceb9d731108f29, type: 3}
@@ -2269,7 +2269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -70.859985}
+  m_AnchoredPosition: {x: 0.00012207031, y: -70.85986}
   m_SizeDelta: {x: 0, y: -141.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343951089
@@ -3308,18 +3308,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1349394648}
-        m_TargetAssemblyTypeName: SanCount, Assembly-CSharp
-        m_MethodName: sancountClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

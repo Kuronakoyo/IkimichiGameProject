@@ -13,24 +13,26 @@ public class TextMove : MonoBehaviour
     [SerializeField]
     GameObject Sanchi;
     [SerializeField]
-    Button Eyebtn;
+    private EyebtnManager _eyebtnManager = null;
+
     public Sprite[] sprites;
     public GameObject cat;
     public GameObject blackcat;
     public GameObject backcat;
     public GameObject sd;
-    Sound _soundmanager;
     public Slider slider;
     public int movephase = 0;
     private SpriteRenderer _sprite;
-    private bool isback = false;
     public SanCount sc;
+
+    private List<string> _coroutineTable = new List<string>() { "CatSound", "LittleCat", "Cat", };
+
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
-        _soundmanager = GetComponent<Sound>();
+        _eyebtnManager.Setup();
     }
-   
+
     public void OnCilick()
     {
         if (movephase >= sprites.Length)
@@ -57,107 +59,61 @@ public class TextMove : MonoBehaviour
             gameObject.transform.localScale = Vector3.one;
             _sprite.sprite = sprites[movephase];
             movephase++;
+            if (1 <= movephase || movephase <= 3)
+                StartCoroutine(_coroutineTable[movephase - 1]);
+            else
+                bt.interactable = true;
+            if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+            {
+                _sprite.color = Color.white;
+                _eyebtnManager.SetClickOnce();
+            }
         });
-        
-        switch (movephase)
-        {
-            default:
-                phese0();
-                break;
-            case 1:
-                phese1();
-                break;
-            case 2:
-                phese2();
-                break;
-            case 3:
-                phese3();
-                break;
-            case 4:
-                phese4();
-                break;
-            case 5:
-                phese5();
-                break;
-        }
-    }
-    IEnumerator Buttons()
-    {
-        //����
+
+        //足音
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
-        if (Eyebtn.interactable == false)
+        if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
         {
-            _sprite.color = new Color32(255, 255, 255, 255);
+            _sprite.color = Color.black;
         }
-        bt.interactable = true;
     }
     IEnumerator CatSound()
     {
-        //����
-        SoundManager.Instance.Play_SE(0, 1);
-        bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
-        if (Eyebtn.interactable == false)
-        {
-            _sprite.color = new Color32(255, 255, 255, 255);
-            
-        }
-        bt.interactable = true;
-        //�LSE
-        SoundManager.Instance.Play_SE(0,0);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.Normal);
+        //猫の鳴き声
+        SoundManager.Instance.Play_SE(0, 0);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.Normal);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.01f / 80;
             yield return new WaitForSeconds(0.01f);
         }
-    }
-    IEnumerator farcat()
-    {
-        SoundManager.Instance.Play_SE(0, 1);
-        bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
         bt.interactable = true;
-        //�LSE
-        SoundManager.Instance.Play_SE(0,0);
     }
     IEnumerator LittleCat()
     {
-        SoundManager.Instance.Play_SE(0, 1);
-        bt.interactable = false;
-        if (Eyebtn.interactable == false)
-        {
-            _sprite.color = new Color32(0, 0, 0, 255);
-            yield return new WaitForSeconds(1.0f);
-            
-            _sprite.color = new Color32(255, 255, 255, 255);
-
-        }
-        yield return new WaitForSeconds(1.0f);
-        //���L��\��������
+        //  猫を表示
         cat.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
         for (int i = 0; i <= 80; i++)
         {
             slider.value -= 0.02f / 80;
             yield return new WaitForSeconds(0.01f);
         }
+        cat.SetActive(false);
         bt.interactable = true;
     }
     IEnumerator Cat()
     {
-        SoundManager.Instance.Play_SE(0, 1);
-        bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
-        //���L��\��������
+        //黒猫表示
         blackcat.SetActive(true);
         SoundManager.Instance.Play_SE(0, 0);
-        //��b��
+        //1.5秒後
         yield return new WaitForSeconds(1.5f);
         blackcat.SetActive(false);
-        //�LSE
+        //backcatのSE
         SoundManager.Instance.Play_SE(0, 2);
         backcat.SetActive(true);
         yield return new WaitForSeconds(2.5f);
@@ -165,64 +121,7 @@ public class TextMove : MonoBehaviour
         Destroy(bt.gameObject);
         Sanchi.SetActive(false);
         panel.SetActive(true);
+        bt.interactable = true;
     }
-    void phese0()
-    {
-        
-        StartCoroutine("Buttons");
-        
-    }
-    //�t�F�[�Y�P�̏ꍇ
-    void phese1()
-    {
-        StartCoroutine("CatSound");
-    }
-    //�t�F�[�Y�Q�̏ꍇ
-    void phese2()
-    {
-        StartCoroutine("LittleCat");
-
-    }
-    //�t�F�[�Y�R�̏ꍇ
-    void phese3()
-    {
-        //���isback���I���ɂȂ�����
-        if (isback != true)
-        {
-            //�L���\��
-            cat.SetActive(false);
-            StartCoroutine("Cat");
-        }
-        //�ق�
-        else
-        {
-            //�L��\��������
-            cat.SetActive(false);
-        }
-    }
-    //�t�F�[�Y�S�̏ꍇ
-    void phese4()
-    {
-        //������L���\���������ꍇ
-        if (blackcat.activeInHierarchy)
-        {
-            //�X�N���[���o�[����炷
-           // StartCoroutine(Bar());
-        }
-        //���L���\��������
-        blackcat.SetActive(false);
-        //
-        
-    }
-    //�t�F�[�Y�T�̏ꍇ
-    void phese5()
-    {
-        //�{�^�����\��������
-        bt.interactable = false;
-        //�Q�b���start�V�[���ɑJ�ڂ���
-        FadeManager.Instance.LoadScene("Start", 2.0f);
-        
-    }
-
 
 }

@@ -55,14 +55,21 @@ public class MoveBtnDay5 : MonoBehaviour
     [SerializeField]
     GameObject _bg;
 
+    [SerializeField]
+    private EyebtnManager _eyebtnManager = null;
+
+    [SerializeField]
+    Button _eyebtn;
     [SerializeField, Header("画像オブジェクト")] Sprite[] sprites;
     public int movephase = 0;
     public SanCount sc;
     private SpriteRenderer _sprite;
+    private List<string> _coroutineTable = new List<string>() { "case1", "case2", "case3", "case4", "case5", "case6", "case7", "case8", "case9", "case10" };
     // Start is called before the first frame update
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+        _eyebtnManager.Setup();
     }
 
 
@@ -92,102 +99,86 @@ public class MoveBtnDay5 : MonoBehaviour
             gameObject.transform.localScale = Vector3.one;
             _sprite.sprite = sprites[movephase];
             movephase++;
+            if (1 <= movephase || movephase <= 10)
+                StartCoroutine(_coroutineTable[movephase - 1]);
+            else
+                _movebtn.interactable = true;
+            if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+            {
+                _sprite.color = Color.white;
+                _eyebtnManager.SetClickOnce();
+            }
         });
-        Debug.Log(movephase);
-
-        Phese(movephase);
-
-    }
-    void Phese(int pheseNum)
-    {
-        switch (pheseNum)
+        //足音
+        SoundManager.Instance.Play_SE(0, 1);
+        _movebtn.interactable = false;
+        if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
         {
-            case 0:
-                StartCoroutine("case1");
-                break;
-            case 1:
-                StartCoroutine("case2");
-                break;
-            case 2:
-                StartCoroutine("case3");
-                break;
-            case 3:
-                StartCoroutine("case4");
-                break;
-            case 4:
-                StartCoroutine("case5");
-                break;
-            case 5:
-                StartCoroutine("case6");
-                break;
-            case 6:
-                StartCoroutine("case7");
-                break;
-            case 7:
-                StartCoroutine("case8");
-                break;
-            case 8:
-                StartCoroutine("case9");
-                break;
-            case 9:
-                StartCoroutine("case10");
-                break;
-            default:
-                Debug.LogError("MovePheseの値が見つかりません");
-                break;
+            _sprite.color = Color.black;
         }
+
     }
     IEnumerator case1()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //1秒後
         yield return new WaitForSeconds(1.0f);
         movebutton.SetActive(false);
         san.SetActive(false);
         panel.SetActive(true);
+        //SE
+
         //ボタン表示
         _movebtn.interactable = true;
     }
     IEnumerator case2()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //草木をかき分けるガサガサ音(SE)
         SoundManager.Instance.Play_SE(0, 8);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.kusaSE);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.kusaSE);
+            //草木をかき分けるガサガサ音(SE)
+            SoundManager.Instance.Play_SE(0, 8);
         }
+        else
+        {
+            //草木をかき分けるガサガサ音(SE)
+            SoundManager.Instance.Play_SE(0, 8);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+       
         //1秒後
         yield return new WaitForSeconds(1.0f);
         movebutton.SetActive(false);
         san.SetActive(false);
         panel.SetActive(true);
+        //SE
+
         //ボタン表示
         _movebtn.interactable = true;
     }
         IEnumerator case3()          /*/ ghostshadow の名前で 幽霊の影 /*/
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
+
         //遠くに一瞬幽霊の影がうつる     /*/ 遠くに配置  /*/
         _ghostshadow.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostshadow);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.03f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostshadow);
+        }
+        else
+        {
+            //遠くに一瞬幽霊の影がうつる     /*/ 遠くに配置  /*/
+            _ghostshadow.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.03f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         //0.3秒後
         yield return new WaitForSeconds(0.5f);
@@ -203,17 +194,21 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case4()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //カラスのなく声(SE)
         SoundManager.Instance.Play_SE(0, 5);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.karasuSE);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.karasuSE);
+            SoundManager.Instance.Play_SE(0, 5);
+        }
+        else
+        {
+            SoundManager.Instance.Play_SE(0, 5);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         //1秒後
         yield return new WaitForSeconds(1.0f);
@@ -225,10 +220,6 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case5()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
@@ -236,17 +227,21 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case6()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //女性の嗤う声が耳元で(SE)
         SoundManager.Instance.Play_SE(0, 7);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.GrilSE);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.GrilSE);
+            SoundManager.Instance.Play_SE(0, 7);
+        }
+        else
+        {
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+            SoundManager.Instance.Play_SE(0, 7);
         }
         //1秒後
         yield return new WaitForSeconds(1.0f);
@@ -255,19 +250,20 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case7()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //幽霊が一瞬画面端に現れ、すぐに消える
         _ghost.SetActive(true);
-        sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostbyo);
-        for (int i = 0; i <= 80; i++)
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostbyo);
+        }
+        else
+        {
+            _ghost.SetActive(false);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         //0.3秒後
         yield return new WaitForSeconds(0.3f);
@@ -279,10 +275,6 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case8()
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //鳥居なにもなし
 
         //1秒後
@@ -292,10 +284,6 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case9()         /*/ ghostback の名前で ghostと同じ素材 /*/
     {
-        //足音
-        SoundManager.Instance.Play_SE(0, 1);
-        //ボタン非表示
-        _movebtn.interactable = false;
         //1秒後
         yield return new WaitForSeconds(1.0f);
         //境内　通りゃんせがBGM(SE)
@@ -305,6 +293,7 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //ボタン表示
         _movebtn.interactable = true;
+        _eyebtn.interactable = false;
         
     }
     IEnumerator case10()

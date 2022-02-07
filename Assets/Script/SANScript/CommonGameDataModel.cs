@@ -45,10 +45,6 @@ public class CommonGameDataModel
     {
         if (null == text)
             return;
-        if(_maxSanScore <=0)
-        {
-           
-        }
         SanScore = sanScore;
         text.text = sanScore.ToString();
     }
@@ -60,9 +56,11 @@ public class CommonGameDataModel
         text.text = SanScore.ToString();
     }
 
-    public static void SubSanScore(Text text, int subCount)
+    public static bool SubSanScore(Text text, int subCount)
     {
         SanScore -= subCount;
+        if (SanScore > 0) SanScore = 0;
         DispSanScore(text);
+        return 0 == SanScore;
     }
 }

@@ -9,7 +9,7 @@ public class SceneMove : MonoBehaviour
     {
         if(this.gameObject.activeInHierarchy == true)
         {
-            StartCoroutine("Fade");
+            StartCoroutine(Fade());
         }
     }
 
@@ -21,7 +21,7 @@ public class SceneMove : MonoBehaviour
     IEnumerator Fade()
     {
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("GameClear");
     }
 
   }
