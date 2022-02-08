@@ -334,75 +334,77 @@ public class MoveBtnDay5 : MonoBehaviour
                 slider.value -= 0.1f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
-            
+            if (isExit)
+                FadeManager.Instance.LoadScene("GameOver", 1.0f);
+            //1•bŒã
+            yield return new WaitForSeconds(1.0f);
+
+            // —H—ì³–Ê‚Ì‰e
+            _ghostfrontshadow.SetActive(true);
+
+            //1•bŒã
+            yield return new WaitForSeconds(1.0f);
+
+            //—H—ìU‚è•Ô‚é
+            _ghostlookback.SetActive(true);
+
+            // —H—ì³–Ê‚Ì‰e”ñ•\¦
+            _ghostfrontshadow.SetActive(false);
+
+            //1.5•bŒã
+            yield return new WaitForSeconds(1.5f);
+
+            //—H—ì³–Ê‚ğ•\¦
+            _ghostfront.SetActive(true);
+
+            //—H—ìU‚è•Ô‚è‚ğÁ‚·
+            _ghostlookback.SetActive(false);
+
+            //3•bŒã
+            yield return new WaitForSeconds(3.0f);
+
+            //—H—ìÎŠç‚ğ•\¦
+            _ghostsmile.SetActive(true);
+
+            //—H—ì³–Ê‚ğ”ñ•\¦
+            _ghostfront.SetActive(false);
+
+            //1.5•bŒã
+            yield return new WaitForSeconds(1.5f);
+
+            //—H—ì‚Å•–ÚÎŠç‚ğ•\¦
+            _ghostbracksmile.SetActive(true);
+
+            //—H—ìÎŠç‚ğ”ñ•\¦
+            _ghostsmile.SetActive(false);
+
+            //4•bŒã
+            yield return new WaitForSeconds(4.0f);
+
+            //BG‚ğ^‚Á•‚É(UIíœ‚ª‚í‚©‚ç‚È‚©‚Á‚½‚½‚ß)
+            _bg.SetActive(true);
+
+            //—H—ì‚Å•–ÚÎŠç‚ğ”ñ•\¦
+            _ghostbracksmile.SetActive(false);
+
+            //10•bŒã
+            yield return new WaitForSeconds(10f);
+
+            //—H—ì‚Ì¶ñ•\¦
+            _ghosthead.SetActive(true);
+            //10•bŒã
+            yield return new WaitForSeconds(3f);
+
+            //—H—ì‚Ì¶ñ•\¦
+            _ghosthead.SetActive(false);
+            //ƒ{ƒ^ƒ“•\¦
+            endbtn.SetActive(true);
         }
         else
         {
-          
+            
         }
-        //1•bŒã
-        yield return new WaitForSeconds(1.0f);
-
-        // —H—ì³–Ê‚Ì‰e
-        _ghostfrontshadow.SetActive(true);
-
-        //1•bŒã
-        yield return new WaitForSeconds(1.0f);
-
-        //—H—ìU‚è•Ô‚é
-        _ghostlookback.SetActive(true);
-
-        // —H—ì³–Ê‚Ì‰e”ñ•\¦
-        _ghostfrontshadow.SetActive(false);
-
-        //1.5•bŒã
-        yield return new WaitForSeconds(1.5f);
-
-        //—H—ì³–Ê‚ğ•\¦
-        _ghostfront.SetActive(true);
-
-        //—H—ìU‚è•Ô‚è‚ğÁ‚·
-        _ghostlookback.SetActive(false);
-
-        //3•bŒã
-        yield return new WaitForSeconds(3.0f);
-
-        //—H—ìÎŠç‚ğ•\¦
-        _ghostsmile.SetActive(true);
-
-        //—H—ì³–Ê‚ğ”ñ•\¦
-        _ghostfront.SetActive(false);
-
-        //1.5•bŒã
-        yield return new WaitForSeconds(1.5f);
-
-        //—H—ì‚Å•–ÚÎŠç‚ğ•\¦
-        _ghostbracksmile.SetActive(true);
-
-        //—H—ìÎŠç‚ğ”ñ•\¦
-        _ghostsmile.SetActive(false);
-
-        //4•bŒã
-        yield return new WaitForSeconds(4.0f);
-
-        //BG‚ğ^‚Á•‚É(UIíœ‚ª‚í‚©‚ç‚È‚©‚Á‚½‚½‚ß)
-        _bg.SetActive(true);
-
-        //—H—ì‚Å•–ÚÎŠç‚ğ”ñ•\¦
-        _ghostbracksmile.SetActive(false);
-
-        //10•bŒã
-        yield return new WaitForSeconds(10f);
-
-        //—H—ì‚Ì¶ñ•\¦
-        _ghosthead.SetActive(true);
-        //10•bŒã
-        yield return new WaitForSeconds(3f);
-
-        //—H—ì‚Ì¶ñ•\¦
-        _ghosthead.SetActive(false);
-        //ƒ{ƒ^ƒ“•\¦
-        endbtn.SetActive(true);
+       
         if (isExit)
             FadeManager.Instance.LoadScene("GameOver", 1.0f);
         

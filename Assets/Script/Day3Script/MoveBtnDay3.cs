@@ -259,7 +259,7 @@ public class MoveBtnDay3 : MonoBehaviour
         }
         else
         {
-            SoundManager.Instance.Play_SE(0, 1);
+            SoundManager.Instance.Play_SE(0, 6);
         }
         
         //ÇPïbå„
