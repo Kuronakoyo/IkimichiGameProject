@@ -65,9 +65,11 @@
     <Compile Include="Assets\Script\Day1Script\Text2.cs" />
     <Compile Include="Assets\Script\SANScript\CommonGameDataModel.cs" />
     <Compile Include="Assets\Script\Day5Script\TextDay5Panel1.cs" />
+    <Compile Include="Assets\Script\GameOverScript\CallRejection.cs" />
     <Compile Include="Assets\Resources\naichilab\FadeManager\Sample\FadeSample.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\Test.cs" />
     <Compile Include="Assets\Users\kenshirou\Scripts\Controls\Kunekune.cs" />
+    <Compile Include="Assets\Script\GameOverScript\IncomingCall.cs" />
     <Compile Include="Assets\Script\Day3Script\MoveBtnDay3.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\ChatScroll.cs" />
     <Compile Include="Assets\Script\Day2Script\Move.cs" />
@@ -97,14 +99,16 @@
     <Compile Include="Assets\Script\Day2Script\TextDay2panel.cs" />
     <Compile Include="Assets\Script\Day5Script\GhostBlinking.cs" />
     <Compile Include="Assets\Script\Day1Script\TextControl.cs" />
+    <Compile Include="Assets\Script\GameOverScript\g_FadeOut.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\Script\SceneScript\GameOver.cs" />
     <Compile Include="Assets\Script\Day2Script\TextDay2.cs" />
+    <Compile Include="Assets\Script\Day1Script\haikei2move.cs" />
     <Compile Include="Assets\Script\Day4Script\Textday4.cs" />
     <Compile Include="Assets\ToriumiHonami\Script\LineHome.cs" />
     <Compile Include="Assets\Script\Day2Script\button.cs" />
     <Compile Include="Assets\Users\Shimizu\Chat\MainControl.cs" />
-    <Compile Include="Assets\Script\Day1Script\haikei2move.cs" />
+    <Compile Include="Assets\Script\GameOverScript\TextGameOver.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />

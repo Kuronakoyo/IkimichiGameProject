@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ToriumiHonami/Scenes/ToriumiTitle.unity
+    path: Assets/Scenes/ToriumiTitle.unity
     guid: 29ef3bbdbd35f5c448725ec96881c75a
   - enabled: 1
-    path: Assets/Users/Shimizu/Chat/ChatScene.unity
+    path: Assets/Scenes/ChatScene.unity
     guid: 129b06d36c1cda840aef9b5f70f0ceeb
   - enabled: 1
     path: Assets/Scenes/Day1.unity

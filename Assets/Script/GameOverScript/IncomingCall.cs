@@ -18,6 +18,9 @@ public class IncomingCall : MonoBehaviour
     GameObject _panel;
 
     [SerializeField]
+    GameObject _panel2;
+
+    [SerializeField]
     GameObject _title;
 
     void Start()
@@ -37,6 +40,7 @@ public class IncomingCall : MonoBehaviour
 
     IEnumerator incoming()
     {
+        SoundManager.Instance.Stop_SE(0, 0);
         // 着信画面を非表示(黒の画像を被せている)
         _bg.SetActive(true);
 
@@ -45,22 +49,24 @@ public class IncomingCall : MonoBehaviour
 
         // 文字『次はお前だ』
         Debug.Log("次はお前だ");     // 借り入れ
-
+        _panel2.SetActive(true);
         // SE   砂嵐
-
+        SoundManager.Instance.Play_SE(0, 1);
 
         // 3秒後(時間遅めでもいいと思う)
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
 
         // 全部の画面を非表示
         _bg.SetActive(false);
         _gameover.SetActive(false);
         _panel.SetActive(false);
+        _panel2.SetActive(false);
         _callscreen.SetActive(false);
 
         // タイトル画面(GameOver用)を表示
         _title.SetActive(true);
-
+        
+        FadeManager.Instance.LoadScene("ToriumiTitle", 7.0f);
     }
 
 

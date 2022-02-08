@@ -42,7 +42,7 @@ public class g_FadeOut : MonoBehaviour
         Debug.Log("2");
 
         // ’…M‰¹‚ğ“ü‚ê‚é
-
+        
         // ’…M‰æ–Ê‚ğ•\¦
         _callscreen.SetActive(true);
     }

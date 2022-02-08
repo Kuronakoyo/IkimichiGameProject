@@ -10,7 +10,7 @@ public class CallRejection : MonoBehaviour
 
     void Start()
     {
-
+        SoundManager.Instance.Play_SE(0, 0);
     }
 
     // Update is called once per frame
@@ -33,10 +33,10 @@ public class CallRejection : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
 
         // SE　着信音
-
+       
 
         // 着信画面を表示
         _bg.SetActive(false);
-
+        
     }
 }
