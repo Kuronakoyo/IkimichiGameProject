@@ -114,18 +114,21 @@ public class Move : MonoBehaviour
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
-        }
-        else
-        {
-            _cat.SetActive(false);
-            _movebtn.interactable = false;
-            yield return new WaitForSeconds(1.0f);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.02f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
-           
+            Debug.Log("valueŒ¸‚Á‚½");
+        }
+        else
+        {
+            _cat.SetActive(false);
+            _movebtn.interactable = false;
+            Debug.Log("valueŒ¸‚Á‚Ä‚È‚¢");
+            yield return new WaitForSeconds(1.0f);
+            
+            
         }
         yield return new WaitForSeconds(1.0f);
         _movebtn.interactable = true;
@@ -140,6 +143,11 @@ public class Move : MonoBehaviour
             SoundManager.Instance.Play_SE(0, 4);
             hand.SetActive(true);
             sc.SubSanScore(CommonGameDataModel.SanSubParam.RedHand);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.05f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         else
         {
@@ -147,11 +155,7 @@ public class Move : MonoBehaviour
             //”’‚¢Žè‚Ì‰¹
             SoundManager.Instance.Play_SE(0, 4);
             hand.SetActive(false);
-            for (int i = 0; i <= 80; i++)
-            {
-                slider.value -= 0.05f / 80;
-                yield return new WaitForSeconds(0.01f);
-            }
+            
         }
         yield return new WaitForSeconds(1.5f);
         Destroy(hand);
@@ -164,20 +168,22 @@ public class Move : MonoBehaviour
         {
             SoundManager.Instance.Play_SE(0, 2);
             sc.SubSanScore(CommonGameDataModel.SanSubParam.spSE);
-        }
-        else
-        {
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.01f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            
             _movebtn.interactable = false;
             SoundManager.Instance.Play_SE(0, 2);
         }
         yield return new WaitForSeconds(2.0f);
         san.SetActive(false);
         movebutton.SetActive(false);
+        SoundManager.Instance.Play_SE(0, 5);
         panal1.SetActive(true);
         Eyebtn.interactable =false;
         _movebtn.interactable = true;
@@ -202,7 +208,10 @@ public class Move : MonoBehaviour
         Destroy(_suspiciousPerson);
         movebutton.SetActive(false);
         san.SetActive(false);
+        SoundManager.Instance.Play_SE(0, 7);
         panal2.SetActive(true);
+        yield return new WaitForSeconds(6.0f);
+        SoundManager.Instance.Play_SE(0, 6);
     }
    
 }

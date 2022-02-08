@@ -30,6 +30,8 @@ public class CommonGameDataModel
 
     private const int _maxSanScore = 80;
 
+    MainControl mainControl;
+    
     public static void SetSanInitial()
     {
         SanScore = _maxSanScore;
@@ -59,7 +61,12 @@ public class CommonGameDataModel
     public static bool SubSanScore(Text text, int subCount)
     {
         SanScore -= subCount;
-        if (SanScore > 0) SanScore = 0;
+        if (SanScore < 0)
+        {
+            SanScore = 0;
+            MainControl._gameover = true;
+        }
+        
         DispSanScore(text);
         return 0 == SanScore;
     }

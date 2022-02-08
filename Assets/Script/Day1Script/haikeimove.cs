@@ -5,17 +5,14 @@ using UnityEngine;
 public class haikeimove : MonoBehaviour
 {
     [SerializeField]
-    GameObject mbbutton;
-    [SerializeField]
-    GameObject SAN;
+    GameObject sousaop2;
     // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
             Destroy(gameObject);
-            mbbutton.SetActive(true);
-            SAN.SetActive(true);
+            sousaop2.SetActive(true);
         }
     }
     

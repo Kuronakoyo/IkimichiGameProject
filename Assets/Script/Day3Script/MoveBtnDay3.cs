@@ -110,15 +110,16 @@ public class MoveBtnDay3 : MonoBehaviour
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
-        }
-        else
-        {
-            _cat.SetActive(false);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.02f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            _cat.SetActive(false);
+            
         }
         //1.5•bŒã
         yield return new WaitForSeconds(1.5f);
@@ -134,16 +135,17 @@ public class MoveBtnDay3 : MonoBehaviour
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.farSP);
-        }
-        else
-        {
-            //‰“–Ú‚É•sRŽÒ
-            _farSp.SetActive(false);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.03f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            //‰“–Ú‚É•sRŽÒ
+            _farSp.SetActive(false);
+            
         }
         //‚P•bŒã
         yield return new WaitForSeconds(1.0f);
@@ -160,15 +162,16 @@ public class MoveBtnDay3 : MonoBehaviour
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
             SoundManager.Instance.Play_SE(0, 3);
-        }
-        else
-        {
-            _Sp.SetActive(false);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.04f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            _Sp.SetActive(false);
+           
             SoundManager.Instance.Play_SE(0, 3);
         }
         //‚P•bŒã
@@ -185,21 +188,23 @@ public class MoveBtnDay3 : MonoBehaviour
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
-        }
-        else
-        {
-            //‰“‚ß‚É‚­‚Ë‚­‚Ë(‚Ú‚©‚µ)
-            _farkunekune.SetActive(false);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.03f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
         }
+        else
+        {
+            //‰“‚ß‚É‚­‚Ë‚­‚Ë(‚Ú‚©‚µ)
+            _farkunekune.SetActive(false);
+           
+        }
         //‚P•bŒã
         yield return new WaitForSeconds(1.0f);
         movebutton.SetActive(false);
         san.SetActive(false);
+        SoundManager.Instance.Play_SE(0, 7);
         panel.SetActive(true);
         //panelSE
 
@@ -217,16 +222,17 @@ public class MoveBtnDay3 : MonoBehaviour
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.kunekune);
-        }
-        else
-        {
-            //‰“–Ú‚Éˆêu‚­‚Ë‚­‚Ë¨ˆêu‚ÅÁ‚¦‚é
-            _kunekune.SetActive(false);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.05f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            //‰“–Ú‚Éˆêu‚­‚Ë‚­‚Ë¨ˆêu‚ÅÁ‚¦‚é
+            _kunekune.SetActive(false);
+            
         }
         //0.5•bŒã
         yield return new WaitForSeconds(0.5f);
@@ -240,16 +246,22 @@ public class MoveBtnDay3 : MonoBehaviour
     IEnumerator case6()
     {
         //•sR‚È‰¹‚ð“ü‚ê‚éB(SE)
+        SoundManager.Instance.Play_SE(0, 6);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.UmaSE);
+            SoundManager.Instance.Play_SE(0, 6);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        else
+        {
+            SoundManager.Instance.Play_SE(0, 1);
         }
         
-        for (int i = 0; i <= 80; i++)
-        {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
-        }
         //‚P•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\Ž¦

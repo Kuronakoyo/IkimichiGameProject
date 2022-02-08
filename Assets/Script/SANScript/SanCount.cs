@@ -13,14 +13,14 @@ public class SanCount : MonoBehaviour
     {
         {CommonGameDataModel.SanSubParam.Normal, 1},
         {CommonGameDataModel.SanSubParam.cats, 2},
-        {CommonGameDataModel.SanSubParam.RedHand, 5},
+        {CommonGameDataModel.SanSubParam.RedHand, 10},
         {CommonGameDataModel.SanSubParam.spSE, 1},
         {CommonGameDataModel.SanSubParam.SP, 4},
         {CommonGameDataModel.SanSubParam.farSP, 3},
         {CommonGameDataModel.SanSubParam.farkunekune, 3},
         {CommonGameDataModel.SanSubParam.kunekune, 5},
         {CommonGameDataModel.SanSubParam.UmaSE, 1},
-        {CommonGameDataModel.SanSubParam.Uma, 10},
+        {CommonGameDataModel.SanSubParam.Uma, 15},
         {CommonGameDataModel.SanSubParam.Ghost, 10},
         {CommonGameDataModel.SanSubParam.kusaSE, 1},
         {CommonGameDataModel.SanSubParam.Ghostshadow, 3},
@@ -32,7 +32,7 @@ public class SanCount : MonoBehaviour
     public Slider scoreSlider;
     [SerializeField]
     private Text _scoreObjectText = null;
-
+    public bool _sangameover = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +43,7 @@ public class SanCount : MonoBehaviour
 
     public bool SubSanScore(CommonGameDataModel.SanSubParam sanSubParam)
     {
+        _sangameover = true;
         return CommonGameDataModel.SubSanScore(_scoreObjectText, _sanSubTable[sanSubParam]);
     }
 }

@@ -28,6 +28,7 @@ public class TextDay3Panel2 : MonoBehaviour
         textcount = 0;
         telopText = GetComponentInChildren<Text>();
         StartCoroutine(TextSet());
+        SoundManager.Instance.Play_SE(0, 8);
     }
 
     // Update is called once per frame

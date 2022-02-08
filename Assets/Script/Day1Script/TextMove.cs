@@ -83,27 +83,42 @@ public class TextMove : MonoBehaviour
         //猫の鳴き声
         SoundManager.Instance.Play_SE(0, 0);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.Normal);
-        for (int i = 0; i <= 80; i++)
         {
-            slider.value -= 0.01f / 80;
-            yield return new WaitForSeconds(0.01f);
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.Normal);
+            SoundManager.Instance.Play_SE(0, 0);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
+            
+       
         bt.interactable = true;
     }
     IEnumerator LittleCat()
     {
+        bool isExit = false;
         //  猫を表示
         cat.SetActive(true);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
-        for (int i = 0; i <= 80; i++)
         {
-            slider.value -= 0.02f / 80;
-            yield return new WaitForSeconds(0.01f);
+            isExit = sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.02f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
+        else
+        {
+            cat.SetActive(false);
+        }
+       
         cat.SetActive(false);
         bt.interactable = true;
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver",1.0f);
     }
     IEnumerator Cat()
     {
@@ -121,6 +136,7 @@ public class TextMove : MonoBehaviour
         Destroy(bt.gameObject);
         Sanchi.SetActive(false);
         panel.SetActive(true);
+        SoundManager.Instance.Play_SE(0, 4);
         bt.interactable = true;
     }
 

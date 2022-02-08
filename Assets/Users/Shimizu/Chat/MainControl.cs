@@ -19,6 +19,9 @@ public class MainControl : MonoBehaviour
     chat33,button33, chat34, button34, chat35, button35, chat36, button36, chat37, button37, chat38, button38, chat39, button39, 
     chat40,button40, chat41, button41, chat42, button42, chat43, button43, chat44, button44, chat45, button45, chat46, button46, chat47, button47, chat48, button48, chat49, button49,
     Movie1,Moviebutton1,Movie2,Moviebutton2, Movie3, Moviebutton3, Movie4, Moviebutton4, Movie5, Moviebutton5;
+    CommonGameDataModel commonGameDataModel;
+     SanCount sanCount;
+    public static bool _gameover = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -477,14 +480,23 @@ public class MainControl : MonoBehaviour
     }
     private void OnSceneUnloaded(UnityEngine.SceneManagement.Scene current)
     {
-        
         //ここは1日目のシーンの名前
         if(current.name == "Day1")
         {
-            foreach(GameObject obj in GameObjectsTohidden)
+            if (_gameover == true)
             {
-                obj.SetActive(true);
+                
             }
+            else
+            {
+                _gameover = false;
+                foreach (GameObject obj in GameObjectsTohidden)
+                {
+                    obj.SetActive(true);
+                }
+            }
+                
+
         }
         //ここは2日目のシーンの名前
         if (current.name == "Day2")
@@ -510,13 +522,23 @@ public class MainControl : MonoBehaviour
                 obj.SetActive(true);
             }
         }
-        //ここは2日目のシーンの名前
+        //ここは5日目のシーンの名前
         if (current.name == "Day5")
         {
-            foreach (GameObject obj in GameObjectsTohidden)
+            if (_gameover == true)
             {
-                obj.SetActive(true);
+
+            }
+            else
+            {
+                _gameover = false;
+                foreach (GameObject obj in GameObjectsTohidden)
+                {
+                    obj.SetActive(true);
+                }
             }
         }
+           
+        
     }
 }

@@ -105,10 +105,11 @@ public class MoveBtnDay4 : MonoBehaviour
         _san.SetActive(false);
         //1秒後
         yield return new WaitForSeconds(1.0f);
+        SoundManager.Instance.Play_SE(0, 5);
         //メッセージウィンドウの表示
         _panal.SetActive(true);
         //SE
-
+        _movebtn.interactable = true;
     }
     IEnumerator case2()
     {
@@ -124,15 +125,16 @@ public class MoveBtnDay4 : MonoBehaviour
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
-        }
-        else
-        {
-            _cat.SetActive(false);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.02f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            _cat.SetActive(false);
+           
         }
         //1.5秒後
         yield return new WaitForSeconds(1.5f);
@@ -148,17 +150,18 @@ public class MoveBtnDay4 : MonoBehaviour
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.farkunekune);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.03f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         else
         {
             //すごい遠めにくねくね(ぼかし)
             _farkunekune.SetActive(false);
 
-            for (int i = 0; i <= 80; i++)
-            {
-                slider.value -= 0.03f / 80;
-                yield return new WaitForSeconds(0.01f);
-            }
+            
         }
         //１秒後
         yield return new WaitForSeconds(1.0f);
@@ -171,17 +174,24 @@ public class MoveBtnDay4 : MonoBehaviour
     }
     IEnumerator case5()
     {
-
-        //1秒後
-        yield return new WaitForSeconds(1.0f);
         //近くににくねくね→一瞬で消える
         _kunekune.SetActive(true);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.kunekune);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.05f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
         //0,3秒後
         yield return new WaitForSeconds(0.3f);
         //とりあえず非表示
         _kunekune.SetActive(false);//(消していい)
         movebutton.SetActive(false);
         _san.SetActive(false);
+        SoundManager.Instance.Play_SE(0, 6);
         _panal2.SetActive(true);
         //ボタン表示
         _movebtn.interactable = true;

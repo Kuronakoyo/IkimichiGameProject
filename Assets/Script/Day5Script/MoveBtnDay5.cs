@@ -132,16 +132,12 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case2()
     {
+        bool isExit = false;
         //‘–Ø‚ğ‚©‚«•ª‚¯‚éƒKƒTƒKƒT‰¹(SE)
         SoundManager.Instance.Play_SE(0, 8);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.kusaSE);
-            //‘–Ø‚ğ‚©‚«•ª‚¯‚éƒKƒTƒKƒT‰¹(SE)
-            SoundManager.Instance.Play_SE(0, 8);
-        }
-        else
-        {
+             sc.SubSanScore(CommonGameDataModel.SanSubParam.kusaSE);
             //‘–Ø‚ğ‚©‚«•ª‚¯‚éƒKƒTƒKƒT‰¹(SE)
             SoundManager.Instance.Play_SE(0, 8);
             for (int i = 0; i <= 80; i++)
@@ -149,6 +145,12 @@ public class MoveBtnDay5 : MonoBehaviour
                 slider.value -= 0.01f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            //‘–Ø‚ğ‚©‚«•ª‚¯‚éƒKƒTƒKƒT‰¹(SE)
+            SoundManager.Instance.Play_SE(0, 8);
+           
         }
        
         //1•bŒã
@@ -160,25 +162,28 @@ public class MoveBtnDay5 : MonoBehaviour
 
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
         IEnumerator case3()          /*/ ghostshadow ‚Ì–¼‘O‚Å —H—ì‚Ì‰e /*/
     {
-
+        bool isExit = false;
         //‰“‚­‚Éˆêu—H—ì‚Ì‰e‚ª‚¤‚Â‚é     /*/ ‰“‚­‚É”z’u  /*/
         _ghostshadow.SetActive(true);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostshadow);
-        }
-        else
-        {
-            //‰“‚­‚Éˆêu—H—ì‚Ì‰e‚ª‚¤‚Â‚é     /*/ ‰“‚­‚É”z’u  /*/
-            _ghostshadow.SetActive(false);
+             sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostshadow);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.03f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            //‰“‚­‚Éˆêu—H—ì‚Ì‰e‚ª‚¤‚Â‚é     /*/ ‰“‚­‚É”z’u  /*/
+            _ghostshadow.SetActive(false);
+           
         }
         //0.3•bŒã
         yield return new WaitForSeconds(0.5f);
@@ -191,24 +196,28 @@ public class MoveBtnDay5 : MonoBehaviour
         panel.SetActive(true);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
     IEnumerator case4()
     {
+        bool isExit = false;
         //ƒJƒ‰ƒX‚Ì‚È‚­º(SE)
         SoundManager.Instance.Play_SE(0, 5);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.karasuSE);
-            SoundManager.Instance.Play_SE(0, 5);
-        }
-        else
-        {
+             sc.SubSanScore(CommonGameDataModel.SanSubParam.karasuSE);
             SoundManager.Instance.Play_SE(0, 5);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.01f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+        else
+        {
+            SoundManager.Instance.Play_SE(0, 5);
+          
         }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
@@ -217,6 +226,8 @@ public class MoveBtnDay5 : MonoBehaviour
         panel.SetActive(true);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
     IEnumerator case5()
     {
@@ -227,43 +238,49 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case6()
     {
+        bool isExit = false;
         //—«‚Ìšo‚¤º‚ª¨Œ³‚Å(SE)
-        SoundManager.Instance.Play_SE(0, 7);
+        SoundManager.Instance.Play_SE(0, 6);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
             sc.SubSanScore(CommonGameDataModel.SanSubParam.GrilSE);
-            SoundManager.Instance.Play_SE(0, 7);
-        }
-        else
-        {
+            SoundManager.Instance.Play_SE(0, 6);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.01f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
-            SoundManager.Instance.Play_SE(0, 7);
+        }
+        else
+        {
+            
+            SoundManager.Instance.Play_SE(0, 6);
         }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
     IEnumerator case7()
     {
+        bool isExit = false;
         //—H—ì‚ªˆêu‰æ–Ê’[‚ÉŒ»‚êA‚·‚®‚ÉÁ‚¦‚é
         _ghost.SetActive(true);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostbyo);
+            isExit = sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostbyo);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.02f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
         else
         {
             _ghost.SetActive(false);
-            for (int i = 0; i <= 80; i++)
-            {
-                slider.value -= 0.01f / 80;
-                yield return new WaitForSeconds(0.01f);
-            }
+           
         }
         //0.3•bŒã
         yield return new WaitForSeconds(0.3f);
@@ -272,6 +289,8 @@ public class MoveBtnDay5 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
     IEnumerator case8()
     {
@@ -284,26 +303,42 @@ public class MoveBtnDay5 : MonoBehaviour
     }
     IEnumerator case9()         /*/ ghostback ‚Ì–¼‘O‚Å ghost‚Æ“¯‚¶‘fŞ /*/
     {
-        //1•bŒã
-        yield return new WaitForSeconds(1.0f);
+        bool isExit = false;
         //‹«“à@’Ê‚è‚á‚ñ‚¹‚ªBGM(SE)
-        SoundManager.Instance.Play_SE(0, 6);
-      
+        SoundManager.Instance.Play_SE(0, 7);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            isExit = sc.SubSanScore(CommonGameDataModel.SanSubParam.Normal);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
         //ƒ{ƒ^ƒ“•\¦
         _movebtn.interactable = true;
         _eyebtn.interactable = false;
-        
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
     IEnumerator case10()
     {
-        //‘«‰¹
-        SoundManager.Instance.Play_SE(0, 1);
-
-        //ƒ{ƒ^ƒ“”ñ•\¦
-        _movebtn.interactable = false;
-
+        bool isExit = false;
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghost);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.1f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        else
+        {
+          
+        }
         //1•bŒã
         yield return new WaitForSeconds(1.0f);
 
@@ -322,7 +357,7 @@ public class MoveBtnDay5 : MonoBehaviour
         //1.5•bŒã
         yield return new WaitForSeconds(1.5f);
 
-         //—H—ì³–Ê‚ğ•\¦
+        //—H—ì³–Ê‚ğ•\¦
         _ghostfront.SetActive(true);
 
         //—H—ìU‚è•Ô‚è‚ğÁ‚·
@@ -367,6 +402,9 @@ public class MoveBtnDay5 : MonoBehaviour
         _ghosthead.SetActive(false);
         //ƒ{ƒ^ƒ“•\¦
         endbtn.SetActive(true);
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver", 1.0f);
+        
     }
 }
 
