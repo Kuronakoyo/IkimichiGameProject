@@ -137,7 +137,7 @@ public class MoveBtnDay5 : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 8);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-             sc.SubSanScore(CommonGameDataModel.SanSubParam.kusaSE);
+            isExit = sc.SubSanScore(CommonGameDataModel.SanSubParam.kusaSE);
             //‘–Ø‚ğ‚©‚«•ª‚¯‚éƒKƒTƒKƒT‰¹(SE)
             SoundManager.Instance.Play_SE(0, 8);
             for (int i = 0; i <= 80; i++)
@@ -172,7 +172,7 @@ public class MoveBtnDay5 : MonoBehaviour
         _ghostshadow.SetActive(true);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-             sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostshadow);
+            isExit =  sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghostshadow);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.03f / 80;
@@ -206,7 +206,7 @@ public class MoveBtnDay5 : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 5);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-             sc.SubSanScore(CommonGameDataModel.SanSubParam.karasuSE);
+            isExit =  sc.SubSanScore(CommonGameDataModel.SanSubParam.karasuSE);
             SoundManager.Instance.Play_SE(0, 5);
             for (int i = 0; i <= 80; i++)
             {
@@ -243,7 +243,7 @@ public class MoveBtnDay5 : MonoBehaviour
         SoundManager.Instance.Play_SE(0, 6);
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.GrilSE);
+            isExit = sc.SubSanScore(CommonGameDataModel.SanSubParam.GrilSE);
             SoundManager.Instance.Play_SE(0, 6);
             for (int i = 0; i <= 80; i++)
             {
@@ -328,12 +328,13 @@ public class MoveBtnDay5 : MonoBehaviour
         bool isExit = false;
         if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
         {
-            sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghost);
+            isExit = sc.SubSanScore(CommonGameDataModel.SanSubParam.Ghost);
             for (int i = 0; i <= 80; i++)
             {
                 slider.value -= 0.1f / 80;
                 yield return new WaitForSeconds(0.01f);
             }
+            
         }
         else
         {

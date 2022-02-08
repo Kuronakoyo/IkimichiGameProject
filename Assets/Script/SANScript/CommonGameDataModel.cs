@@ -66,7 +66,10 @@ public class CommonGameDataModel
             SanScore = 0;
             MainControl._gameover = true;
         }
-        
+        if(SanScore == 0)
+        {
+            MainControl._gameover = true;
+        }
         DispSanScore(text);
         return 0 == SanScore;
     }
