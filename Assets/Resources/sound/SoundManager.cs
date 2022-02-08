@@ -28,4 +28,8 @@ public class SoundManager : MonoBehaviour
     {
         soundSource[source_num].PlayOneShot(bgmList[bgm_num]);
     }
+    public void Stop_SE(int source_num, int se_num)
+    {
+        soundSource[source_num].Stop();
+    }
 }

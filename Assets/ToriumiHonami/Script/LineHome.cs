@@ -10,7 +10,7 @@ public class LineHome : MonoBehaviour
 
     void Start()
     {
-        
+        CommonGameDataModel.SetSanInitial();
     }
 
     void Update()

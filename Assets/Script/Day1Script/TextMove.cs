@@ -10,6 +10,11 @@ public class TextMove : MonoBehaviour
     private Button bt;
     [SerializeField]
     GameObject panel;
+    [SerializeField]
+    GameObject Sanchi;
+    [SerializeField]
+    private EyebtnManager _eyebtnManager = null;
+
     public Sprite[] sprites;
     public GameObject cat;
     public GameObject blackcat;
@@ -18,11 +23,16 @@ public class TextMove : MonoBehaviour
     public Slider slider;
     public int movephase = 0;
     private SpriteRenderer _sprite;
-    private bool isback = false;
+    public SanCount sc;
+
+    private List<string> _coroutineTable = new List<string>() { "CatSound", "LittleCat", "Cat", };
+
     void Start()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+        _eyebtnManager.Setup();
     }
+
     public void OnCilick()
     {
         if (movephase >= sprites.Length)
@@ -33,14 +43,15 @@ public class TextMove : MonoBehaviour
         Transform camera = Camera.main.transform;
         var pos = camera.transform.position;
         Sequence quence = DOTween.Sequence();
-        quence.Append(transform.DOBlendableScaleBy(Vector3.one * 1.5F, 1));
+        quence.Append(transform.DOBlendableScaleBy(Vector3.one * 1.0F, 1));
         quence.Insert(0, camera.DOMove(pos + new Vector3(-2, 0, 0), 0.5F));
-        quence.Insert(0, camera.DOMove(pos + new Vector3(-1F, 2, 0), 0.25F));
+        quence.Insert(0, camera.DOMove(pos + new Vector3(0, 2, 0), 0.25F));
         quence.Insert(0.25F, camera.DOMove(pos + new Vector3(-2, 0, 0), 0.25F));
 
-        quence.Insert(0.5F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.5F));
+        quence.Insert(0.5F, camera.DOMove(pos - new Vector3(0, 0, 0), 0.5F));
         quence.Insert(0.5F, camera.DOMove(pos + new Vector3(1F, 2, 0), 0.25F));
         quence.Insert(0.75F, camera.DOMove(pos - new Vector3(-2, 0, 0), 0.25F));
+
 
         quence.OnComplete(() =>
         {
@@ -48,142 +59,85 @@ public class TextMove : MonoBehaviour
             gameObject.transform.localScale = Vector3.one;
             _sprite.sprite = sprites[movephase];
             movephase++;
+            if (1 <= movephase || movephase <= 3)
+                StartCoroutine(_coroutineTable[movephase - 1]);
+            else
+                bt.interactable = true;
+            if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+            {
+                _sprite.color = Color.white;
+                _eyebtnManager.SetClickOnce();
+            }
         });
-        Debug.Log(movephase);
-        switch (movephase)
-        {
-            default:
-                phese0();
-                break;
-            case 1:
-                phese1();
-                break;
-            case 2:
-                phese2();
-                break;
-            case 3:
-                phese3();
-                break;
-            case 4:
-                phese4();
-                break;
-            case 5:
-                phese5();
-                break;
-        }
-    }
-    /*
-    //ƒXƒNƒ[ƒ‹ƒo[
-    IEnumerator Bar()
-    {
-        for (int i = 0; i <= 100; i++)
-        {
-            //ƒXƒNƒ[ƒ‹ƒo[‚ðŒ¸‚ç‚·
-            slider.value -= 0.12f / 100;
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
-    */
-    IEnumerator Buttons()
-    {
-        //‘«‰¹
+
+        //è¶³éŸ³
         SoundManager.Instance.Play_SE(0, 1);
         bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
-        bt.interactable = true;
+        if (_eyebtnManager.IsCloseEye && !_eyebtnManager.IsClickOnce)
+        {
+            _sprite.color = Color.black;
+        }
     }
     IEnumerator CatSound()
     {
-        SoundManager.Instance.Play_SE(0, 1);
-        bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
+        //çŒ«ã®é³´ãå£°
+        SoundManager.Instance.Play_SE(0, 0);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            sc.SubSanScore(CommonGameDataModel.SanSubParam.Normal);
+            SoundManager.Instance.Play_SE(0, 0);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.01f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+            
+       
         bt.interactable = true;
-        //”LSE
-        SoundManager.Instance.Play_SE(0,0);
     }
     IEnumerator LittleCat()
     {
-        SoundManager.Instance.Play_SE(0, 1);
-        bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
-        //•”L‚ð•\Ž¦‚³‚¹‚é
+        bool isExit = false;
+        //  çŒ«ã‚’è¡¨ç¤º
         cat.SetActive(true);
+        if (!_eyebtnManager.IsCloseEye || _eyebtnManager.IsClickOnce)
+        {
+            isExit = sc.SubSanScore(CommonGameDataModel.SanSubParam.cats);
+            for (int i = 0; i <= 80; i++)
+            {
+                slider.value -= 0.02f / 80;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        else
+        {
+            cat.SetActive(false);
+        }
+       
+        cat.SetActive(false);
         bt.interactable = true;
+        if (isExit)
+            FadeManager.Instance.LoadScene("GameOver",1.0f);
     }
     IEnumerator Cat()
     {
-        SoundManager.Instance.Play_SE(0, 1);
-        bt.interactable = false;
-        yield return new WaitForSeconds(1.0f);
-        //•”L‚ð•\Ž¦‚³‚¹‚é
+        //é»’çŒ«è¡¨ç¤º
         blackcat.SetActive(true);
         SoundManager.Instance.Play_SE(0, 0);
-        //ˆê•bŒã
+        //1.5ç§’å¾Œ
         yield return new WaitForSeconds(1.5f);
         blackcat.SetActive(false);
-        //”LSE
+        //backcatã®SE
         SoundManager.Instance.Play_SE(0, 2);
         backcat.SetActive(true);
         yield return new WaitForSeconds(2.5f);
         backcat.SetActive(false);
         Destroy(bt.gameObject);
+        Sanchi.SetActive(false);
         panel.SetActive(true);
+        SoundManager.Instance.Play_SE(0, 4);
+        bt.interactable = true;
     }
-    void phese0()
-    {
-        StartCoroutine("Buttons");
-    }
-    //ƒtƒF[ƒY‚P‚Ìê‡
-    void phese1()
-    {
-        StartCoroutine("CatSound");
-    }
-    //ƒtƒF[ƒY‚Q‚Ìê‡
-    void phese2()
-    {
-        StartCoroutine("LittleCat");
-
-    }
-    //ƒtƒF[ƒY‚R‚Ìê‡
-    void phese3()
-    {
-        //‚à‚µisback‚ªƒIƒ“‚É‚È‚Á‚½‚ç
-        if (isback != true)
-        {
-            //”L‚ð”ñ•\Ž¦
-            cat.SetActive(false);
-            StartCoroutine("Cat");
-        }
-        //‚Ù‚©
-        else
-        {
-            //”L”ñ•\Ž¦‚³‚¹‚é
-            cat.SetActive(false);
-        }
-    }
-    //ƒtƒF[ƒY‚S‚Ìê‡
-    void phese4()
-    {
-        //‚à‚µ•”L‚ª•\Ž¦‚³‚¹‚½ê‡
-        if (blackcat.activeInHierarchy)
-        {
-            //ƒXƒNƒ[ƒ‹ƒo[‚ðŒ¸‚ç‚·
-           // StartCoroutine(Bar());
-        }
-        //•”L‚ð”ñ•\Ž¦‚³‚¹‚é
-        blackcat.SetActive(false);
-        //
-        
-    }
-    //ƒtƒF[ƒY‚T‚Ìê‡
-    void phese5()
-    {
-        //ƒ{ƒ^ƒ“‚ð”ñ•\Ž¦‚³‚¹‚é
-        bt.interactable = false;
-        //‚Q•bŒã‚ÉstartƒV[ƒ“‚É‘JˆÚ‚·‚é
-        FadeManager.Instance.LoadScene("Start", 2.0f);
-        
-    }
-
 
 }

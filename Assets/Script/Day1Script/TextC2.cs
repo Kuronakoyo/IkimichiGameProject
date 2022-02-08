@@ -35,13 +35,15 @@ public class TextC2 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && istextview == false)
         {
-            TextHide();
+            StartCoroutine(TextHide());
         }
     }
-    void TextHide()
+
+    IEnumerator TextHide()
     {
-       panel.SetActive(false);
-       ENDbutton.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        panel.SetActive(false);
+        ENDbutton.SetActive(true);
         
     }
     IEnumerator TextSet()
