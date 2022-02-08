@@ -964,7 +964,7 @@ MonoBehaviour:
   textany:
   - "\u6628\u65E5\u898B\u305F\u3001\u304F\u306D\u304F\u306D\u3068UMA\u64AE\u5F71\u30EA\u30D9\u30F3\u30B8\u3060\uFF01"
   telopText: {fileID: 514788178}
-  telopSpeed: 0.1
+  telopSpeed: 0.23
   panel: {fileID: 206773716}
   san: {fileID: 1868600729}
   mbbtnday4: {fileID: 519388471}
